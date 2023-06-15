@@ -32,6 +32,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A9D8FC72A3B8A4700C7EA5E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A9D8FC82A3B8A4C00C7EA5E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A9D8FCE2A3B8B3100C7EA5E /* Components */,
+				4A9D8FCD2A3B8B0900C7EA5E /* Detail */,
+				4A9D8FCC2A3B8B0400C7EA5E /* Navigation */,
+				4A9D8FCB2A3B8AD200C7EA5E /* Main */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A9D8FC92A3B8A5200C7EA5E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4A9D8FCA2A3B8A5800C7EA5E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4A9D8FCB2A3B8AD200C7EA5E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E6CC673A2A3B895900C2C015 /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4A9D8FCC2A3B8B0400C7EA5E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4A9D8FCD2A3B8B0900C7EA5E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		4A9D8FCE2A3B8B3100C7EA5E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E6CC672C2A3B895900C2C015 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +112,11 @@
 		E6CC67372A3B895900C2C015 /* TheMovieCatalogue */ = {
 			isa = PBXGroup;
 			children = (
+				4A9D8FC72A3B8A4700C7EA5E /* Models */,
+				4A9D8FC82A3B8A4C00C7EA5E /* Views */,
+				4A9D8FCA2A3B8A5800C7EA5E /* ViewModels */,
+				4A9D8FC92A3B8A5200C7EA5E /* Utils */,
 				E6CC67382A3B895900C2C015 /* TheMovieCatalogueApp.swift */,
-				E6CC673A2A3B895900C2C015 /* ContentView.swift */,
 				E6CC673C2A3B895B00C2C015 /* Assets.xcassets */,
 				E6CC673E2A3B895B00C2C015 /* Preview Content */,
 			);
