@@ -13,6 +13,8 @@
 		E6CC67402A3B895B00C2C015 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6CC673F2A3B895B00C2C015 /* Preview Assets.xcassets */; };
 		E6CC675C2A42237800C2C015 /* TheMovieCatalogueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC675B2A42237800C2C015 /* TheMovieCatalogueTests.swift */; };
 		E6CC67472A421DD500C2C015 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC67462A421DD500C2C015 /* Movie.swift */; };
+		E6CC67632A4238B000C2C015 /* CastMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC67622A4238B000C2C015 /* CastMember.swift */; };
+		E6CC67652A423A7E00C2C015 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC67642A423A7E00C2C015 /* Genre.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		E6CC67592A42237800C2C015 /* TheMovieCatalogueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieCatalogueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6CC675B2A42237800C2C015 /* TheMovieCatalogueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieCatalogueTests.swift; sourceTree = "<group>"; };
 		E6CC67462A421DD500C2C015 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E6CC67622A4238B000C2C015 /* CastMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastMember.swift; sourceTree = "<group>"; };
+		E6CC67642A423A7E00C2C015 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				E6CC67462A421DD500C2C015 /* Movie.swift */,
+				E6CC67622A4238B000C2C015 /* CastMember.swift */,
+				E6CC67642A423A7E00C2C015 /* Genre.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 			files = (
 				E6CC673B2A3B895900C2C015 /* ContentView.swift in Sources */,
 				E6CC67392A3B895900C2C015 /* TheMovieCatalogueApp.swift in Sources */,
+				E6CC67632A4238B000C2C015 /* CastMember.swift in Sources */,
 				E6CC67472A421DD500C2C015 /* Movie.swift in Sources */,
+				E6CC67652A423A7E00C2C015 /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,9 @@ struct Movie: Identifiable, Codable {
         "https://image.tmdb.org/t/p/original\(backdrop_path)"
     }
     
-    static let mock = Movie(id: 268, title: "Batman", overview: "Batman must face his most ruthless nemesis when a deformed madman calling himself \"The Joker\" seizes control of Gotham's criminal underworld.",poster_path: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",backdrop_path: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,runtime: 126, release_date: "1989-06-23")
+    var credits: Credits
+    var genres: [Genre]
+    
+    static let mock = Movie(id: 268, title: "Batman", overview: "Batman must face his most ruthless nemesis when a deformed madman calling himself \"The Joker\" seizes control of Gotham's criminal underworld.",poster_path: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",backdrop_path: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,runtime: 126, release_date: "1989-06-23", credits: Credits.mock, genres: [Genre.mock])
 }
 
