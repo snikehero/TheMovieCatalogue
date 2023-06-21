@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71EF8D482A424753003E5E91 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF8D472A424753003E5E91 /* MainView.swift */; };
 		E6CC67392A3B895900C2C015 /* TheMovieCatalogueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC67382A3B895900C2C015 /* TheMovieCatalogueApp.swift */; };
 		E6CC673B2A3B895900C2C015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC673A2A3B895900C2C015 /* ContentView.swift */; };
 		E6CC673D2A3B895B00C2C015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6CC673C2A3B895B00C2C015 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71EF8D472A424753003E5E91 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E6CC67352A3B895900C2C015 /* TheMovieCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6CC67382A3B895900C2C015 /* TheMovieCatalogueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieCatalogueApp.swift; sourceTree = "<group>"; };
 		E6CC673A2A3B895900C2C015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				E6CC673A2A3B895900C2C015 /* ContentView.swift */,
+				71EF8D472A424753003E5E91 /* MainView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6CC673B2A3B895900C2C015 /* ContentView.swift in Sources */,
+				71EF8D482A424753003E5E91 /* MainView.swift in Sources */,
 				E6CC67392A3B895900C2C015 /* TheMovieCatalogueApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
