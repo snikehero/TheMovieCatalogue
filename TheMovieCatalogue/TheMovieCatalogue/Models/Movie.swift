@@ -12,27 +12,38 @@ struct Movie: Identifiable, Codable, Equatable {
     let id: Int
     let title: String
     let overview: String
-    let poster_path: String
-    let backdrop_path: String
+    let posterPath: String
+    let backdropPath: String
     let runtime: Int
-    let release_date: String
+    let releaseDate: String
     var poster: String {
-        "https://image.tmdb.org/t/p/original\(poster_path)"
+        "https://image.tmdb.org/t/p/original\(posterPath)"
     }
     var backdrop: String {
-        "https://image.tmdb.org/t/p/original\(backdrop_path)"
+        "https://image.tmdb.org/t/p/original\(backdropPath)"
     }
-    
     var credits: Credits
     var genres: [Genre]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case title = "title"
+        case overview = "overview"
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case runtime = "runtime"
+        case releaseDate = "release_date"
+        case credits = "credits"
+        case genres = "genres"
+    }
     
     static let mock = Movie(id: 268,
                             title: "Batman",
                             overview: "Batman must face his most ruthless nemesis when a deformed madman calling himself \"The Joker\" seizes control of Gotham's criminal underworld.",
-                            poster_path: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",
-                            backdrop_path: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,
+                            posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",
+                            backdropPath: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,
                             runtime: 126,
-                            release_date: "1989-06-23",
+                            releaseDate: "1989-06-23",
                             credits: Credits.mock,
                             genres: [Genre.mock]
     )
@@ -46,7 +57,7 @@ struct Movie: Identifiable, Codable, Equatable {
             lhs.poster == rhs.poster &&
             lhs.backdrop == rhs.backdrop &&
             lhs.runtime == rhs.runtime &&
-            lhs.release_date == rhs.release_date
+            lhs.releaseDate == rhs.releaseDate
         )
     }
 }

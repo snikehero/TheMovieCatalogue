@@ -39,10 +39,10 @@ final class TheMovieCatalogueTests: XCTestCase {
             id: mock.id,
             title: mock.title,
             overview: mock.overview,
-            poster_path: mock.poster_path,
-            backdrop_path: mock.backdrop_path,
+            posterPath: mock.posterPath,
+            backdropPath: mock.backdropPath,
             runtime: mock.runtime,
-            release_date: mock.release_date,
+            releaseDate: mock.releaseDate,
             credits: mock.credits,
             genres: mock.genres
         )
