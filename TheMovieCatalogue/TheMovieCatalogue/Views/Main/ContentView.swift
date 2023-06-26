@@ -14,9 +14,23 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            
+            Button {
+                let movie = 157336
+                let endpoint: MovieEndpoint = .movie(movie)
+                print(endpoint.path)
+                fetchMovie(from: endpoint.url)
+                
+            } label: {
+                Text("Hola")
+            }
+
         }
         .padding()
     }
+    
+    
+
 }
 
 struct ContentView_Previews: PreviewProvider {
