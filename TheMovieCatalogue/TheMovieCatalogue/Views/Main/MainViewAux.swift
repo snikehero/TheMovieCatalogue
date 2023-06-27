@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainViewMoises: View {
+struct MainViewAux: View {
   var body: some View {
     NavigationStack {
       ZStack {
@@ -29,8 +29,8 @@ struct MainViewMoises: View {
   }
 }
 
-struct MainViewMoises_Previews: PreviewProvider {
+struct MainViewAux_Previews: PreviewProvider {
   static var previews: some View {
-    MainViewMoises()
+    MainViewAux()
   }
 }
