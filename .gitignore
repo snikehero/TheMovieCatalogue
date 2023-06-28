@@ -48,5 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
-**/xcuserdata
+**/xcuserdata/
+**.xcuserstate
 WorkspaceSettings.xcsettings
