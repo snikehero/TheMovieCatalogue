@@ -24,7 +24,6 @@ struct ContentView: View {
             } label: {
                 Text("Hola")
             }
-
         }
         .padding()
     }
