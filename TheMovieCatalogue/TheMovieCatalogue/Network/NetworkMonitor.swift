@@ -14,12 +14,12 @@ func decodingProcess(from data: Data) {
         let movie = try decoder.decode(Movie.self, from: data)
         print("Movie: \(movie)")
 
-//        if let imageUrl = URL(string: pokemon.sprites.frontDefault) {
-//            getImage(from: imageUrl)
-//        }
+        // if let imageUrl = URL(string: pokemon.sprites.frontDefault) {
+        //   getImage(from: imageUrl)
+        // }
 
-//        let movesEndpoint: PokemonEndpoint = .move(pokemon.id)
-//        print(movesEndpoint.path)
+        // let movesEndpoint: PokemonEndpoint = .move(pokemon.id)
+        // print(movesEndpoint.path)
         
     } catch let error {
         print("Error: \(error)")

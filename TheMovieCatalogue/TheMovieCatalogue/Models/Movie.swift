@@ -22,7 +22,7 @@ struct Movie: Identifiable, Codable, Equatable {
     var backdrop: String {
         "https://image.tmdb.org/t/p/original\(backdropPath)"
     }
-//    var credits: Credits
+    // var credits: Credits
     var genres: [Genre]
     
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ struct Movie: Identifiable, Codable, Equatable {
         case backdropPath = "backdrop_path"
         case runtime = "runtime"
         case releaseDate = "release_date"
-//        case credits = "credits"
+        // case credits = "credits"
         case genres = "genres"
     }
     
@@ -44,11 +44,11 @@ struct Movie: Identifiable, Codable, Equatable {
                             backdropPath: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,
                             runtime: 126,
                             releaseDate: "1989-06-23",
-//                            credits: Credits.mock,
+                            // credits: Credits.mock,
                             genres: [Genre.mock]
     )
     
-     //Conform to Equatable protocol for testing
+    //Conform to Equatable protocol for testing
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         return (
             lhs.id == rhs.id &&
@@ -56,7 +56,7 @@ struct Movie: Identifiable, Codable, Equatable {
             lhs.overview == rhs.overview &&
             lhs.poster == rhs.poster &&
             lhs.backdrop == rhs.backdrop &&
-           lhs.runtime == rhs.runtime &&
+            lhs.runtime == rhs.runtime &&
             lhs.releaseDate == rhs.releaseDate
         )
     }
