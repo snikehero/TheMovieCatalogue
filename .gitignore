@@ -48,5 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
-**/xcuserdata
+## User settings
+xcuserdata/
+*.xcuserstate
+*.pbxproj
 WorkspaceSettings.xcsettings
