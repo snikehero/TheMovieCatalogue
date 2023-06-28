@@ -47,7 +47,9 @@ struct Movie: Identifiable, Codable, Equatable {
                             // credits: Credits.mock,
                             genres: [Genre.mock]
     )
-    
+}
+
+extension Movie {
     //Conform to Equatable protocol for testing
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         return (
@@ -60,6 +62,4 @@ struct Movie: Identifiable, Codable, Equatable {
             lhs.releaseDate == rhs.releaseDate
         )
     }
-    
 }
-
