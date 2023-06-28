@@ -13,8 +13,6 @@ import Foundation
 
 public enum MovieEndpoint {
     case movie(Int)
-//    case castMembers(Int)
-//    case genre(Int)
     
     private var scheme: String{
         return "https://"
