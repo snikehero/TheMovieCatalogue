@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 // https://api.themoviedb.org/3/movie/157336?api_key=aded2171cae8dca24a5d19455224f699
-
 
 public enum MovieEndpoint {
     case movie(Int)
@@ -36,6 +34,5 @@ public enum MovieEndpoint {
     public var url: URL {
         return URL(string: path)!
     }
-    
     
 }
