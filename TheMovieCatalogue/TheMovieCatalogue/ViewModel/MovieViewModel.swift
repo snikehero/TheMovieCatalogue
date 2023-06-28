@@ -6,3 +6,9 @@
 //
 import Foundation
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 64672f3 (Changed requests from Viewmodel file to NetworkMonitor file)
