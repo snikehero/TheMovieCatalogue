@@ -43,7 +43,6 @@ final class TheMovieCatalogueTests: XCTestCase {
             backdropPath: mock.backdropPath,
             runtime: mock.runtime,
             releaseDate: mock.releaseDate,
-            // credits: mock.credits,
             genres: mock.genres
         )
         

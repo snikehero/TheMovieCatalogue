@@ -22,7 +22,6 @@ struct Movie: Identifiable, Codable, Equatable {
     var backdrop: String {
         "https://image.tmdb.org/t/p/original\(backdropPath)"
     }
-    // var credits: Credits
     var genres: [Genre]
     
     enum CodingKeys: String, CodingKey {
@@ -33,7 +32,6 @@ struct Movie: Identifiable, Codable, Equatable {
         case backdropPath = "backdrop_path"
         case runtime = "runtime"
         case releaseDate = "release_date"
-        // case credits = "credits"
         case genres = "genres"
     }
     
@@ -44,7 +42,6 @@ struct Movie: Identifiable, Codable, Equatable {
                             backdropPath: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,
                             runtime: 126,
                             releaseDate: "1989-06-23",
-                            // credits: Credits.mock,
                             genres: [Genre.mock]
     )
 }
