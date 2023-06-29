@@ -11,7 +11,7 @@ struct TabViewNavigation: View {
   var body: some View {
     //MARK: TabView
     TabView{
-      MainViewAux() //Change to OriginalMainView
+      MainView() //Change to OriginalMainView
         .tabItem {
           Label("Movies",systemImage: "film.stack")
         }
