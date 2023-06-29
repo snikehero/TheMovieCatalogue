@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    var nm = NetworkManager()
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -19,7 +20,7 @@ struct ContentView: View {
                 let movie = 157336
                 let endpoint: MovieEndpoint = .movie(movie)
                 print(endpoint.path)
-                fetchMovie(from: endpoint.url)
+                nm.fetchMovie(from: endpoint.url)
                 
             } label: {
                 Text("Hola")
