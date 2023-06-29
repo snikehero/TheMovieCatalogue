@@ -48,4 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
-TheMovieCatalogue/TheMovieCatalogue.xcodeproj/project.xcworkspace/xcuserdata/gramos.xcuserdatad/UserInterfaceState.xcuserstate
+## User settings
+xcuserdata/
+*.xcuserstate
+*.pbxproj
+WorkspaceSettings.xcsettings

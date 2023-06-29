@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    var nm = NetworkManager()
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            
+            Button {
+                let movie = 157336
+                let endpoint: MovieEndpoint = .movie(movie)
+                print(endpoint.path)
+                nm.fetchMovie(from: endpoint.url)
+                
+            } label: {
+                Text("Hola")
+            }
         }
         .padding()
     }
