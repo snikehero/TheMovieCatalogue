@@ -31,7 +31,7 @@ public enum MovieEndpoint {
         case let .movie(value):
             return scheme + host + "\(value)" + "?api_key=" + key
         case let .page(value):
-            return scheme + host + "popiular?" + "page=\(value)" + "&api_key=" + key
+            return scheme + host + "popular?" + "page=\(value)" + "&api_key=" + key
 
         }
     }
