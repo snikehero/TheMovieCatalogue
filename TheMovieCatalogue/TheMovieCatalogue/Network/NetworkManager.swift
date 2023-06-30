@@ -7,43 +7,24 @@
 
 import Foundation
 
-struct Decoder {
-    let decoder = JSONDecoder()
-    
-    func decodingProcess(from data: Data) {
-        do {
-            let movie = try decoder.decode(Movie.self, from: data)
-            print("Movie: \(movie)")
-            
-        } catch let error {
-            print("Error: \(error)")
-        }
-    }
-
-    func decodePopulars(from data: Data) throws -> PopularMovies {
-        do {
-            let popularMovies = try decoder.decode(PopularMovies.self, from: data)
-            return popularMovies
-        } catch let error {
-            print("Decoding Populars error: \(error)")
-            throw error
-        }
-    }
-}
-
-
 struct NetworkManager {
     let session = URLSession.shared
     let decoder = Decoder()
     
-    func fetchMovie(from url: URL) {
+    func fetchMovie(from url: URL, completion: @escaping (Movie?) -> ()){
         let urlRequest = URLRequest(url: url)
+        var movie: Movie?
         let task = session.dataTask(with: urlRequest) { data, _, error in
             guard let data = data else {
                 print("Error: \(String(describing: error))")
                 return
             }
-            decoder.decodingProcess(from: data)
+            do {
+                movie = try decoder.decodeMovie(from: data)
+                completion(movie)
+            } catch let error{
+                print("Fetch movie error: \(error)")
+            }
         }
         task.resume()
     }

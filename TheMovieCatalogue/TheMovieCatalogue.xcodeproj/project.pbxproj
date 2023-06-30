@@ -16,6 +16,7 @@
 		4AE943272A42539F00B199AA /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE943262A42539F00B199AA /* BrowseView.swift */; };
 		4AE943292A42599D00B199AA /* MainViewAux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE943282A42599D00B199AA /* MainViewAux.swift */; };
 		E63AC3142A4E108000919C30 /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63AC3132A4E108000919C30 /* PopularMovies.swift */; };
+		E66E52362A4F379D00BB1A23 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E52352A4F379D00BB1A23 /* Decoder.swift */; };
 		E6C7BE202A4DFADD00AEE831 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C7BE1F2A4DFADD00AEE831 /* MainViewModel.swift */; };
 		E6C7BE222A4DFB0F00AEE831 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C7BE212A4DFB0F00AEE831 /* MainView.swift */; };
 		E6C7BE252A4E041F00AEE831 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C7BE242A4E041F00AEE831 /* NetworkManager.swift */; };
@@ -47,6 +48,7 @@
 		4AE943262A42539F00B199AA /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		4AE943282A42599D00B199AA /* MainViewAux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewAux.swift; sourceTree = "<group>"; };
 		E63AC3132A4E108000919C30 /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
+		E66E52352A4F379D00BB1A23 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		E6C7BE1F2A4DFADD00AEE831 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		E6C7BE212A4DFB0F00AEE831 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E6C7BE242A4E041F00AEE831 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				E6C7BE242A4E041F00AEE831 /* NetworkManager.swift */,
+				E66E52352A4F379D00BB1A23 /* Decoder.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				E6C7BE282A4E046C00AEE831 /* Endpoints.swift in Sources */,
 				4A6CBC792A4CE724006FABBF /* Movie.swift in Sources */,
 				4AE943232A423AF500B199AA /* UserView.swift in Sources */,
+				E66E52362A4F379D00BB1A23 /* Decoder.swift in Sources */,
 				E6C7BE202A4DFADD00AEE831 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

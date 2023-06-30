@@ -7,24 +7,27 @@
 
 import Foundation
 
-extension MainView {
-    @MainActor class MainViewModel: ObservableObject {
-        @Published var randomPosterImage: String = ""
-        @Published var trendingMovies: [Movie] = []
-        @Published var popularMovies = PopularMovies()
-        var networkManager = NetworkManager()
+@MainActor class MainViewModel: ObservableObject {
+    @Published var randomPosterImage: String = ""
+    @Published var randomMovie: Movie?
+    @Published var trendingMovies: [Movie] = []
+    @Published var popularMovies = PopularMovies()
+    var networkManager = NetworkManager()
+    
+    func fetchRandomMovie(){
+        let movie = 157336
+        let endpoint: MovieEndpoint = .movie(movie)
         
-//        func getRecommendation(){
-//            let recommendation: Movie = networkManager.getRandomMovie()
-//
-//            return recommendation
-//        }
-        
-        // fetch popularMovies
-        func fetchPopularMovies(from url: URL) {
-            // Create endpoint
-            self.popularMovies = networkManager.fetchPopular(from: url)
+        networkManager.fetchMovie(from: endpoint.url) { movie in
+            if let movie = movie {
+                self.randomMovie = movie
+            }
         }
-        // fetch trendingMovies
     }
+    
+    func fetchPopularMovies(from url: URL) {
+        // Create endpoint
+        self.popularMovies = networkManager.fetchPopular(from: url)
+    }
+    // fetch trendingMovies
 }
