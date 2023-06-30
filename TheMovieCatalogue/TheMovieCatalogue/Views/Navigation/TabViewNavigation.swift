@@ -9,12 +9,12 @@ import SwiftUI
 
 struct TabViewNavigation: View {
   var body: some View {
-    //MARK: TabView
     TabView{
-      MainViewAux() //Change to OriginalMainView
+      MainView()
         .tabItem {
           Label("Movies",systemImage: "film.stack")
         }
+
       BrowseView()
         .tabItem {
           Label("Browse",systemImage: "magnifyingglass")
