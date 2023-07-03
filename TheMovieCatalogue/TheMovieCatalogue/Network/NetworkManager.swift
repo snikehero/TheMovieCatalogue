@@ -23,7 +23,7 @@ struct NetworkManager {
                 movie = try decoder.decodeMovie(from: data)
                 completion(movie)
             } catch let error{
-                print("Fetch movie error: \(error)")
+                print("NetworkManager: Fetch movie error: \(error)")
             }
         }
         task.resume()

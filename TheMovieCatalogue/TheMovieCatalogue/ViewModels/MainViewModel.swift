@@ -26,8 +26,6 @@ import Foundation
     }
     
     func fetchPopularMovies(from url: URL) {
-        // Create endpoint
         self.popularMovies = networkManager.fetchPopular(from: url)
     }
-    // fetch trendingMovies
 }
