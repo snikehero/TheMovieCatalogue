@@ -15,10 +15,7 @@ import Foundation
     var networkManager = NetworkManager()
     
     func fetchRandomMovie(){
-        let movie = 157336
-        let endpoint: MovieEndpoint = .movie(movie)
-        
-        networkManager.fetchMovie(from: endpoint.url) { movie in
+        networkManager.fetchMovie() { movie in
             if let movie = movie {
                 self.randomMovie = movie
             }

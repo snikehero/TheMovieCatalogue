@@ -44,7 +44,6 @@ struct PosterButton: View{
     @EnvironmentObject var mainViewModel: MainViewModel
     
     var body: some View{
-        
         Button(action: {
             mainViewModel.fetchRandomMovie()
             print(mainViewModel.randomMovie)

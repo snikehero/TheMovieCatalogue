@@ -11,9 +11,13 @@ struct NetworkManager {
     let session = URLSession.shared
     let decoder = Decoder()
     
-    func fetchMovie(from url: URL, completion: @escaping (Movie?) -> ()){
+    func fetchMovie(completion: @escaping (Movie?) -> ()){
+        let movieId = 157336
+        let endpoint: MovieEndpoint = .movie(movieId)
+        let url = endpoint.url
         let urlRequest = URLRequest(url: url)
         var movie: Movie?
+        
         let task = session.dataTask(with: urlRequest) { data, _, error in
             guard let data = data else {
                 print("Error: \(String(describing: error))")
