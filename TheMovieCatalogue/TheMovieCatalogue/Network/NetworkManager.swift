@@ -48,9 +48,9 @@ struct NetworkManager {
         task.resume()
     }
     
-    func fetchPopular(from url:URL) -> PopularMovies {
+    func fetchPopular(from url:URL, completion: @escaping(PopularMovies?) -> ()) {
         let urlRequest = URLRequest(url: url)
-        var populars = PopularMovies(page: nil, results: nil)
+        var populars : PopularMovies?
         let task = session.dataTask(with: urlRequest) { data, _, error in
             guard let data = data else {
                 print("Error: \(String(describing: error))")
@@ -58,11 +58,11 @@ struct NetworkManager {
             }
             do {
                 populars = try decoder.decodePopulars(from: data)
+                completion(populars)
             } catch let error{
                 print("Fetch popular error: \(error)")
             }
         }
         task.resume()
-        return populars
     }
 }
