@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CarrouselView: View {
-  let colors1: [Color] = [.blue, .red, .green, .orange, .yellow]
-  let colors2: [Color] = [.black]
+  let newMovies: [Int] = [0,1,2,3,4,5,6,7,8,9]
+  
   var body: some View {
     NavigationStack {
       ScrollView {
         VStack(spacing: Constants.General.spacing) {
-          HorizontalCarrouselView(colors: colors1, title: "New Movies >", navigationLinkDestination: AnyView(NewMoviesView()))
+          HorizontalCarrouselView(title: "New Movies >", newMovies: newMovies, navigationLinkDestination: AnyView(NewMoviesView()))
           Spacer()
         }
         .padding()
@@ -24,8 +24,8 @@ struct CarrouselView: View {
 }
 
 private struct HorizontalCarrouselView: View {
-  let colors: [Color]
   let title: String
+  let newMovies: [Int]
   let navigationLinkDestination: AnyView
   
   var body: some View {
@@ -39,7 +39,7 @@ private struct HorizontalCarrouselView: View {
       }
       ScrollView(.horizontal) {
         HStack(spacing: Constants.CarrouselImages.spacing) {
-          ForEach(colors, id: \.self) { color in
+          ForEach(newMovies, id: \.self) { movie in
             NavigationLink {
               EmptyView()
             } label: {

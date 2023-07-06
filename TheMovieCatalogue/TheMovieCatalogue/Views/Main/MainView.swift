@@ -16,9 +16,7 @@ struct MainView: View {
           .ignoresSafeArea()
         ScrollView {
           RecomendedMovie()
-        //Aqui va el carrousel
           CarrouselView()
-          
         }
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing)
