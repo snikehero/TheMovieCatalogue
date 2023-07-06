@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CarrouselView: View {
   let newMovies:[Int] = Array(0...9)
+  let popularMovies:[Int] = Array(0...9)
   
   var body: some View {
     NavigationStack {
@@ -17,6 +18,10 @@ struct CarrouselView: View {
           HorizontalCarrouselView(title: "New Movies >",
                                   newMovies: newMovies,
                                   navigationLinkDestination: AnyView(NewMoviesView())
+          )
+          HorizontalCarrouselView(title: "Popular Movies >",
+                                  newMovies: popularMovies,
+                                  navigationLinkDestination: AnyView(PopularMoviesView())
           )
           Spacer()
         }

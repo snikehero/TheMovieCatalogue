@@ -11,6 +11,7 @@
 		4A3696382A5731CB00A216A5 /* CarrouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3696372A5731CB00A216A5 /* CarrouselView.swift */; };
 		4A36963A2A5731DF00A216A5 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3696392A5731DF00A216A5 /* Numbers.swift */; };
 		4A36963C2A5731F300A216A5 /* NewMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A36963B2A5731F300A216A5 /* NewMoviesView.swift */; };
+		4A36963E2A574C4000A216A5 /* PopularMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A36963D2A574C4000A216A5 /* PopularMoviesView.swift */; };
 		4A6CBC782A4CE724006FABBF /* CastMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CBC752A4CE723006FABBF /* CastMember.swift */; };
 		4A6CBC792A4CE724006FABBF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CBC762A4CE723006FABBF /* Movie.swift */; };
 		4A6CBC7A2A4CE724006FABBF /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CBC772A4CE724006FABBF /* Genre.swift */; };
@@ -46,6 +47,7 @@
 		4A3696372A5731CB00A216A5 /* CarrouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrouselView.swift; sourceTree = "<group>"; };
 		4A3696392A5731DF00A216A5 /* Numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
 		4A36963B2A5731F300A216A5 /* NewMoviesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMoviesView.swift; sourceTree = "<group>"; };
+		4A36963D2A574C4000A216A5 /* PopularMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesView.swift; sourceTree = "<group>"; };
 		4A6CBC752A4CE723006FABBF /* CastMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastMember.swift; sourceTree = "<group>"; };
 		4A6CBC762A4CE723006FABBF /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4A6CBC772A4CE724006FABBF /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				4AE943262A42539F00B199AA /* BrowseView.swift */,
 				4AE943282A42599D00B199AA /* MainViewAux.swift */,
 				E6C7BE212A4DFB0F00AEE831 /* MainView.swift */,
+				4A36963D2A574C4000A216A5 /* PopularMoviesView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				E6C7BE252A4E041F00AEE831 /* NetworkManager.swift in Sources */,
 				E6CC673B2A3B895900C2C015 /* ContentView.swift in Sources */,
 				E63AC3142A4E108000919C30 /* PopularMovies.swift in Sources */,
+				4A36963E2A574C4000A216A5 /* PopularMoviesView.swift in Sources */,
 				4AE943212A42365C00B199AA /* TabViewNavigation.swift in Sources */,
 				E6CC67392A3B895900C2C015 /* TheMovieCatalogueApp.swift in Sources */,
 				4A36963A2A5731DF00A216A5 /* Numbers.swift in Sources */,
