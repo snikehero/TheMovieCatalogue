@@ -42,7 +42,7 @@ struct NetworkManager {
                 return
             }
             do {
-                populars = try decoder.decodePopulars(from: data)
+                populars = try decoder.decode(from: data)
             } catch let error{
                 print("Fetch popular error: \(error)")
             }
