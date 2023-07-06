@@ -45,7 +45,7 @@ struct PosterButton: View{
     
     var body: some View{
         Button(action: {
-            mainViewModel.fetchRandomMovie()
+            print(mainViewModel.popularMovies)
             print(mainViewModel.randomMovie)
         }, label: {
             Image("Batman")
@@ -54,6 +54,10 @@ struct PosterButton: View{
                 .background(Color(.blue))
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         })
+        .onAppear {
+            mainViewModel.fetchPopularMovies(withPage: 1)
+            mainViewModel.fetchMovie(withId: 268)
+        }
     }
 }
 

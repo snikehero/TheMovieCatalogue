@@ -11,24 +11,25 @@ import Foundation
     @Published var randomPosterImage: String = ""
     @Published var randomMovie: Movie?
     @Published var trendingMovies: [Movie] = []
-    @Published var popularMovies = PopularMovies()
+    @Published var popularMovies : PopularMovies?
     var networkManager = NetworkManager()
     
-    func fetchRandomMovie(){
-        networkManager.fetchMovie() { movie in
+    func fetchMovie(withId id: Int) {
+        networkManager.fetchMovie(withId: id) { movie in
             if let movie = movie {
-                self.randomMovie = movie
+                DispatchQueue.main.async {
+                    self.randomMovie = movie
+                }
             }
         }
     }
     
-    func fetchPopularMovies() {
-        let page = 1
-        let endpoint: MovieEndpoint = .popular(page)
-        
-        networkManager.fetchPopular(from: endpoint.url) { populars in
-            if let populars = populars{
-                self.popularMovies = populars
+    func fetchPopularMovies(withPage page: Int) {
+        networkManager.fetchPopulars(withPage: page) { populars in
+            if let populars = populars {
+                DispatchQueue.main.async {
+                    self.popularMovies = populars
+                }
             }
         }
     }

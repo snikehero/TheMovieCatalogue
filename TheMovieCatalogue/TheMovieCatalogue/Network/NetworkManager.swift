@@ -11,41 +11,32 @@ struct NetworkManager {
     private let session = URLSession.shared
     private let decoder = Decoder()
     
-    func fetchMovie(completion: @escaping (Movie?) -> ()){
-        let movieId = 157336
-        let endpoint: MovieEndpoint = .movie(movieId)
-        let url = endpoint.url
-        let urlRequest = URLRequest(url: url)
-        var movie: Movie?
-        
-        let task = session.dataTask(with: urlRequest) { data, _, error in
-            guard let data = data else {
-                print("Error: \(String(describing: error))")
-                return
-            }
-            do {
-                movie = try decoder.decode(from: data)
-                completion(movie)
-            } catch let error{
-                print("NetworkManager: Fetch movie error: \(error)")
-            }
-        }
-        task.resume()
+    private var request: (MovieEndpoint) -> URLRequest = { endpoint in
+        let endpointUrl = endpoint.url
+        return URLRequest(url: endpointUrl)
     }
     
-    func fetchPopular(from url:URL, completion: @escaping(PopularMovies?) -> ()) {
-        let urlRequest = URLRequest(url: url)
-        var populars : PopularMovies?
-        let task = session.dataTask(with: urlRequest) { data, _, error in
+    func fetchMovie(withId id: Int, completion: @escaping (Movie?) -> ()) {
+        let urlRequest = request(.movie(id))
+        fetch(with: urlRequest, type: Movie.self, completion: completion)
+    }
+    
+    func fetchPopulars(withPage page: Int, completion: @escaping (PopularMovies?) -> ()) {
+        let urlRequest = request(.popular(page))
+        fetch(with: urlRequest, type: PopularMovies.self, completion: completion)
+    }
+    
+    private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> ()) {
+        let task = session.dataTask(with: urlRequest){ data, _, error in
             guard let data = data else {
-                print("Error: \(String(describing: error))")
+                print("Error:  \(String(describing: error))")
                 return
             }
             do {
-                populars = try decoder.decode(from: data)
-                completion(populars)
-            } catch let error{
-                print("Fetch popular error: \(error)")
+                let model = try decoder.decode(from: data, type: type.self)
+                    completion(model)
+            } catch let error {
+                print("NetworkManager: Fetching error: \(error)")
             }
         }
         task.resume()
