@@ -10,8 +10,8 @@ import SwiftUI
 
 struct MainView: View {
   var body: some View {
-    NavigationStack{
-      ZStack(alignment: .top){
+    NavigationStack {
+      ZStack(alignment: .top) {
         Color("BackgroundColor")
           .ignoresSafeArea()
         ScrollView {
@@ -35,10 +35,12 @@ struct MainView: View {
   }
 }
 
-struct PosterButton: View{
+struct PosterButton: View {
   var text: String
-  var body: some View{
+  @State private var showingSheet: Bool = false
+  var body: some View {
     Button(action: {
+      showingSheet.toggle()
     }, label: {
       Image("Batman")
         .resizable()
@@ -46,6 +48,9 @@ struct PosterButton: View{
         .background(Color(.blue))
         .clipShape(RoundedRectangle(cornerRadius: 20))
     })
+    .sheet(isPresented: $showingSheet) {
+      MovieDetailsView()
+    }
   }
 }
 
@@ -56,9 +61,7 @@ struct RecomendedMovie: View {
         Text("Recomended Movie")
           .padding(.horizontal)
           .font(.system(.title3, design: .rounded))
-          
-          Spacer()
-        
+        Spacer()
       }
       PosterButton(text: "Poster")
         .padding(.bottom)
@@ -68,14 +71,12 @@ struct RecomendedMovie: View {
   }
 }
 
-
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     MainView()
     MainView()
       .preferredColorScheme(.dark)
     MainView()
-      .previewDevice(PreviewDevice(rawValue: "iPad"))
-    
+      .previewDevice(PreviewDevice(rawValue: "iPhone 14 pro"))
   }
 }
