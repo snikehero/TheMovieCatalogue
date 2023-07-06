@@ -17,6 +17,8 @@ struct MainView: View {
         ScrollView {
           RecomendedMovie()
         //Aqui va el carrousel
+          CarrouselView()
+          
         }
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing)
