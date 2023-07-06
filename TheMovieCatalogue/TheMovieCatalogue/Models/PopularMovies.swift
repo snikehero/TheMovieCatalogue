@@ -8,6 +8,6 @@
 import Foundation
 
 struct PopularMovies: Codable{
-    var page: Int?
-    var results: [Movie]?
+    var page: Int
+    var results: [MovieListItem]
 }
