@@ -15,7 +15,7 @@ struct Decoder {
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
         } catch let error {
-            print("Decoding Populars error: \(error)")
+            print("Decoder: Decoding error: \(error)")
             throw error
         }
     }
