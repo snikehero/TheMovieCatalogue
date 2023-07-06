@@ -8,8 +8,8 @@
 import Foundation
 
 struct NetworkManager {
-    let session = URLSession.shared
-    let decoder = Decoder()
+    private let session = URLSession.shared
+    private let decoder = Decoder()
     
     func fetchMovie(completion: @escaping (Movie?) -> ()){
         let movieId = 157336
@@ -24,7 +24,7 @@ struct NetworkManager {
                 return
             }
             do {
-                movie = try decoder.decodeMovie(from: data)
+                movie = try decoder.decode(from: data)
                 completion(movie)
             } catch let error{
                 print("NetworkManager: Fetch movie error: \(error)")
