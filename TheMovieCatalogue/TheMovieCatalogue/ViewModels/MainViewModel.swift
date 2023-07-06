@@ -22,7 +22,14 @@ import Foundation
         }
     }
     
-    func fetchPopularMovies(from url: URL) {
-        self.popularMovies = networkManager.fetchPopular(from: url)
+    func fetchPopularMovies() {
+        let page = 1
+        let endpoint: MovieEndpoint = .popular(page)
+        
+        networkManager.fetchPopular(from: endpoint.url) { populars in
+            if let populars = populars{
+                self.popularMovies = populars
+            }
+        }
     }
 }
