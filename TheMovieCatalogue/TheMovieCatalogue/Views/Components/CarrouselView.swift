@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct CarrouselView: View {
-  let newMovies: [Int] = [0,1,2,3,4,5,6,7,8,9]
+  let newMovies:[Int] = Array(0...9)
   
   var body: some View {
     NavigationStack {
       ScrollView {
         VStack(spacing: Constants.General.spacing) {
-          HorizontalCarrouselView(title: "New Movies >", newMovies: newMovies, navigationLinkDestination: AnyView(NewMoviesView()))
+          HorizontalCarrouselView(title: "New Movies >",
+                                  newMovies: newMovies,
+                                  navigationLinkDestination: AnyView(NewMoviesView())
+          )
           Spacer()
         }
         .padding()
@@ -45,7 +48,8 @@ private struct HorizontalCarrouselView: View {
             } label: {
               Image("Batman")
                 .resizable()
-                .frame(width: Constants.CarrouselImages.width, height: Constants.CarrouselImages.height)
+                .frame(width: Constants.CarrouselImages.width,
+                       height: Constants.CarrouselImages.height)
                 .scaledToFill()
                 .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
             }
@@ -55,7 +59,6 @@ private struct HorizontalCarrouselView: View {
     }
   }
 }
-
 
 struct CarrouselView_Previews: PreviewProvider {
   static var previews: some View {
