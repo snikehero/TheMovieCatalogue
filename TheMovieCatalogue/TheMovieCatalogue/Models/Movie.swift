@@ -25,14 +25,14 @@ struct Movie: Identifiable, Codable, Equatable {
     var genres: [Genre]
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
+        case id
         case title = "original_title"
-        case overview = "overview"
+        case overview
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
-        case runtime = "runtime"
+        case runtime
         case releaseDate = "release_date"
-        case genres = "genres"
+        case genres
     }
     
     static let mock = Movie(id: 268,

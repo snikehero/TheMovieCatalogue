@@ -17,9 +17,6 @@ struct MainView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
-                        .onAppear{
-                            mainViewModel.fetchMovie(withId: 1178)
-                        }
                     CarrouselView()
                 }
                 .toolbar {
@@ -46,7 +43,7 @@ struct PosterButton: View {
     
     var body: some View {
         Button(action: {
-            print(mainViewModel.randomMovie ?? "Error")
+            print(mainViewModel.randomMovie)
         }, label: {
             AsyncImage(
                 url: URL(string: mainViewModel.randomMovie?.poster ?? "0"),
@@ -68,6 +65,8 @@ struct PosterButton: View {
 }
 
 struct RecomendedMovie: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
+    
     var body: some View {
         VStack {
             HStack {
@@ -79,9 +78,13 @@ struct RecomendedMovie: View {
             PosterButton(text: "Poster")
                 .padding(.bottom)
         }
+        .onAppear{
+            mainViewModel.fetchMovie(withId: 119)
+        }
         .frame(maxWidth: .infinity)
         .background(LinearGradient(colors:[Color("BackgroundColor"), Color("GradientColor")],startPoint: .top, endPoint: .bottom))
     }
+    
 }
 
 struct MainView_Previews: PreviewProvider {
