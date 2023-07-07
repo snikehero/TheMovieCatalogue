@@ -47,7 +47,7 @@ private struct HorizontalCarrouselView: View {
             }
             ScrollView(.horizontal) {
                 HStack(spacing: Constants.CarrouselImages.spacing) {
-                    ForEach(newMovies) { movie in
+                    ForEach(newMovies.prefix(10)) { movie in
                         NavigationLink {
                             EmptyView()
                         } label: {
@@ -57,7 +57,7 @@ private struct HorizontalCarrouselView: View {
                                     image.resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: Constants.CarrouselImages.width, height: Constants.CarrouselImages.height)
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
                                 },
                                 placeholder: {
                                     ProgressView()
