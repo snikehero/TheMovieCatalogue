@@ -9,74 +9,87 @@ import SwiftUI
 
 
 struct MainView: View {
-  var body: some View {
-    NavigationStack {
-      ZStack(alignment: .top) {
-        Color("BackgroundColor")
-          .ignoresSafeArea()
-        ScrollView {
-          RecomendedMovie()
-          CarrouselView()
-        }
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing)
-          {
-            NavigationLink {
-              EmptyView()
-            } label: {
-              Image(systemName: "person.fill")
+    @StateObject var mainViewModel = MainViewModel()
+    var body: some View {
+        NavigationStack {
+            ZStack(alignment: .top) {
+                Color("BackgroundColor")
+                    .ignoresSafeArea()
+                ScrollView {
+                    RecomendedMovie()
+                        .onAppear{
+                            mainViewModel.fetchMovie(withId: 1178)
+                        }
+                    CarrouselView()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing)
+                    {
+                        NavigationLink {
+                            EmptyView()
+                        } label: {
+                            Image(systemName: "person.fill")
+                        }
+                        .navigationTitle("Movie")
+                    }
+                    ToolbarItem(placement: .navigationBarLeading){}
+                }
             }
-            .navigationTitle("Movie")
-          }
-          ToolbarItem(placement: .navigationBarLeading){}
         }
-      }
+        .environmentObject(mainViewModel)
     }
-  }
 }
 
 struct PosterButton: View {
-  var text: String
-  @State private var showingSheet: Bool = false
-  var body: some View {
-    Button(action: {
-      showingSheet.toggle()
-    }, label: {
-      Image("Batman")
-        .resizable()
-        .frame(width: 350, height: 460)
-        .background(Color(.blue))
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-    })
-    .sheet(isPresented: $showingSheet) {
-      MovieDetailsView()
+    var text: String
+    @EnvironmentObject var mainViewModel: MainViewModel
+    
+    var body: some View {
+        Button(action: {
+            print(mainViewModel.randomMovie ?? "Error")
+        }, label: {
+            AsyncImage(
+                url: URL(string: mainViewModel.randomMovie?.poster ?? "0"),
+                content: { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 350, height: 460)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
+            .frame(width: 300, height: 460)
+            .background(Color.gray)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+        })
     }
-  }
 }
 
 struct RecomendedMovie: View {
-  var body: some View {
-    VStack {
-      HStack {
-        Text("Recomended Movie")
-          .padding(.horizontal)
-          .font(.system(.title3, design: .rounded))
-        Spacer()
-      }
-      PosterButton(text: "Poster")
-        .padding(.bottom)
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Recomended Movie")
+                    .padding(.horizontal)
+                    .font(.system(.title3, design: .rounded))
+                Spacer()
+            }
+            PosterButton(text: "Poster")
+                .padding(.bottom)
+        }
+        .frame(maxWidth: .infinity)
+        .background(LinearGradient(colors:[Color("BackgroundColor"), Color("GradientColor")],startPoint: .top, endPoint: .bottom))
     }
-    .frame(maxWidth: .infinity)
-    .background(LinearGradient(colors:[Color("BackgroundColor"), Color("GradientColor")],startPoint: .top, endPoint: .bottom))
-  }
 }
 
 struct MainView_Previews: PreviewProvider {
-  static var previews: some View {
-    MainView()
-    MainView()
-      .preferredColorScheme(.dark)
-    MainView()
-      .previewDevice(PreviewDevice(rawValue: "iPhone 14 pro"))
-  }
+    static var previews: some View {
+        MainView()
+        MainView()
+            .preferredColorScheme(.dark)
+        MainView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 pro"))
+    }
 }
