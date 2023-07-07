@@ -37,6 +37,7 @@ struct NetworkManager {
                 completion(model)
             } catch let error {
                 print("NetworkManager: Fetching error: \(error)")
+                completion(nil)
             }
         }
         task.resume()
