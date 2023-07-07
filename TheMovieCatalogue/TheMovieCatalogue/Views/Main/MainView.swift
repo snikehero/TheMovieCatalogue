@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -17,7 +18,11 @@ struct MainView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
-                    CarrouselView()
+
+                    CarrouselView(newMovies: mainViewModel.popularMovies?.results ?? [], popularMovies: mainViewModel.popularMovies?.results ?? [])
+                        .onAppear{
+                            mainViewModel.fetchPopularMovies(withPage: 1)
+                        }
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing)
@@ -40,9 +45,10 @@ struct MainView: View {
 struct PosterButton: View {
     var text: String
     @EnvironmentObject var mainViewModel: MainViewModel
+    @State private var showingSheet: Bool = false
     
     var body: some View {
-        Button(action: { },
+        Button(action: { showingSheet.toggle() },
                label: {
             AsyncImage(
                 url: URL(string: mainViewModel.randomMovie?.poster ?? "0"),
@@ -60,6 +66,9 @@ struct PosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
         })
+        .sheet(isPresented: $showingSheet) {
+            MovieDetailsView()
+        }
     }
 }
 
@@ -83,7 +92,6 @@ struct RecomendedMovie: View {
         .frame(maxWidth: .infinity)
         .background(LinearGradient(colors:[Color("BackgroundColor"), Color("GradientColor")],startPoint: .top, endPoint: .bottom))
     }
-    
 }
 
 struct MainView_Previews: PreviewProvider {
