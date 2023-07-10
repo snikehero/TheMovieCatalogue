@@ -42,9 +42,8 @@ struct PosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     
     var body: some View {
-        Button(action: {
-            print(mainViewModel.randomMovie)
-        }, label: {
+        Button(action: { },
+               label: {
             AsyncImage(
                 url: URL(string: mainViewModel.randomMovie?.poster ?? "0"),
                 content: { image in
