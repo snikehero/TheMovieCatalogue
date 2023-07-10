@@ -11,7 +11,7 @@ import Foundation
     @Published var randomPosterImage: String = ""
     @Published var randomMovie: Movie?
     @Published var trendingMovies: [Movie] = []
-    @Published var popularMovies : PopularMovies?
+    @Published var popularMovies : MovieListPage?
     var networkManager = NetworkManager()
     
     func fetchMovie(withId id: Int) {
