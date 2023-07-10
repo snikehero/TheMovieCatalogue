@@ -11,7 +11,7 @@ struct MovieListItem: Identifiable, Codable, Hashable{
     let id: Int
     let posterPath: String
     var poster: String {
-        "https://image.tmdb.org/t/p/original\(posterPath)"
+        MovieEndpoint.image(posterPath, "w154").path
     }
 
     enum CodingKeys: String, CodingKey {

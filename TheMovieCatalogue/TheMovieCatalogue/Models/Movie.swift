@@ -17,10 +17,10 @@ struct Movie: Identifiable, Codable, Equatable {
     let runtime: Int
     let releaseDate: String
     var poster: String {
-        "https://image.tmdb.org/t/p/original\(posterPath)"
+        MovieEndpoint.image(posterPath, "w500").path
     }
     var backdrop: String {
-        "https://image.tmdb.org/t/p/original\(backdropPath)"
+        MovieEndpoint.image(backdropPath, "w500").path
     }
     var genres: [Genre]
     
