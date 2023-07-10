@@ -10,6 +10,7 @@ import Foundation
 public enum MovieEndpoint {
     case movie(Int)
     case popular(Int)
+    case nowPlaying(Int)
     
     private var scheme: String{
         return "https://"
@@ -29,7 +30,8 @@ public enum MovieEndpoint {
             return scheme + host + "\(value)" + "?api_key=" + key
         case let .popular(value):
             return scheme + host + "popular?" + "page=\(value)" + "&api_key=" + key
-
+        case let .nowPlaying(value):
+            return scheme + host + "now_playing?" + "page=\(value)" + "&api_key=" + key
         }
     }
     

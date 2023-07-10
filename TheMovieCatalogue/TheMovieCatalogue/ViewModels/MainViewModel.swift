@@ -11,7 +11,9 @@ import Foundation
     @Published var randomPosterImage: String = ""
     @Published var randomMovie: Movie?
     @Published var trendingMovies: [Movie] = []
-    @Published var popularMovies : PopularMovies?
+    @Published var popularMovies : MovieListPage?
+    @Published var nowPlaying : MovieListPage?
+    
     var networkManager = NetworkManager()
     
     func fetchMovie(withId id: Int) {
@@ -29,6 +31,16 @@ import Foundation
             if let populars = populars {
                 DispatchQueue.main.async {
                     self.popularMovies = populars
+                }
+            }
+        }
+    }
+    
+    func fetchNowPlaying(withPage page: Int) {
+        networkManager.fetchNowPlaying(withPage: page) { nowplaying in
+            if let nowplaying = nowplaying {
+                DispatchQueue.main.async {
+                    self.nowPlaying = nowplaying
                 }
             }
         }

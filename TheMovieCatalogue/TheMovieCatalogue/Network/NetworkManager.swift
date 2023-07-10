@@ -21,9 +21,14 @@ struct NetworkManager {
         fetch(with: urlRequest, type: Movie.self, completion: completion)
     }
     
-    func fetchPopulars(withPage page: Int, completion: @escaping (PopularMovies?) -> ()) {
+    func fetchPopulars(withPage page: Int, completion: @escaping (MovieListPage?) -> ()) {
         let urlRequest = request(.popular(page))
-        fetch(with: urlRequest, type: PopularMovies.self, completion: completion)
+        fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
+    }
+    
+    func fetchNowPlaying(withPage page: Int, completion: @escaping(MovieListPage?) ->()){
+        let urlRequest = request(.popular(page))
+        fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
     }
     
     private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> ()) {
@@ -37,6 +42,7 @@ struct NetworkManager {
                     completion(model)
             } catch let error {
                 print("NetworkManager: Fetching error: \(error)")
+                    completion(nil)
             }
         }
         task.resume()
