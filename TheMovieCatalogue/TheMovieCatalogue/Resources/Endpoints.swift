@@ -11,8 +11,9 @@ public enum MovieEndpoint {
     case movie(Int)
     case popular(Int)
     case nowPlaying(Int)
+    case image(String, String)
     
-    private var scheme: String{
+    private var scheme: String {
         return "https://"
     }
     
@@ -24,14 +25,20 @@ public enum MovieEndpoint {
         return "aded2171cae8dca24a5d19455224f699"
     }
     
-    public var path: String{
-        switch self{
+    private var imageHost: String {
+        "image.tmdb.org/t/p/"
+    }
+    
+    public var path: String {
+        switch self {
         case let .movie(value):
             return scheme + host + "\(value)" + "?api_key=" + key
         case let .popular(value):
             return scheme + host + "popular?" + "page=\(value)" + "&api_key=" + key
         case let .nowPlaying(value):
             return scheme + host + "now_playing?" + "page=\(value)" + "&api_key=" + key
+        case let .image(posterPath, imageSize):
+            return scheme + imageHost + imageSize + posterPath
         }
     }
     

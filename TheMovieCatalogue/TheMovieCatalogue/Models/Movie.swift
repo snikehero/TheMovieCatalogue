@@ -17,22 +17,22 @@ struct Movie: Identifiable, Codable, Equatable {
     let runtime: Int
     let releaseDate: String
     var poster: String {
-        "https://image.tmdb.org/t/p/original\(posterPath)"
+        MovieEndpoint.image(posterPath, "w500").path
     }
     var backdrop: String {
-        "https://image.tmdb.org/t/p/original\(backdropPath)"
+        MovieEndpoint.image(backdropPath, "w500").path
     }
     var genres: [Genre]
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
+        case id
         case title = "original_title"
-        case overview = "overview"
+        case overview
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
-        case runtime = "runtime"
+        case runtime
         case releaseDate = "release_date"
-        case genres = "genres"
+        case genres
     }
     
     static let mock = Movie(id: 268,
