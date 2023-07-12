@@ -10,8 +10,9 @@ import Foundation
 struct MovieListItem: Identifiable, Codable, Hashable{
     let id: Int
     let posterPath: String
+    var posterSize: String = "w154"
     var poster: String {
-        MovieEndpoint.image(posterPath, "w154").path
+        MovieEndpoint.image(posterPath, posterSize).path
     }
 
     enum CodingKeys: String, CodingKey {

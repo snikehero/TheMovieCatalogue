@@ -9,18 +9,19 @@ import Foundation
 
 @MainActor class MainViewModel: ObservableObject {
     @Published var randomPosterImage: String = ""
-    @Published var randomMovie: Movie?
+    @Published var randomMovie: MovieListItem?
+    @Published var movie: Movie?
     @Published var trendingMovies: [Movie] = []
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
     
-    var networkManager = NetworkManager()
+    private var networkManager = NetworkManager()
     
     func fetchMovie(withId id: Int) {
         networkManager.fetchMovie(withId: id) { movie in
             if let movie = movie {
                 DispatchQueue.main.async {
-                    self.randomMovie = movie
+                    self.movie = movie
                 }
             }
         }
@@ -31,6 +32,10 @@ import Foundation
             if let populars = populars {
                 DispatchQueue.main.async {
                     self.popularMovies = populars
+                    if self.randomMovie == nil {
+                        self.randomMovie = populars.results.randomElement()
+                        self.randomMovie?.posterSize = "w500"
+                    }
                 }
             }
         }
