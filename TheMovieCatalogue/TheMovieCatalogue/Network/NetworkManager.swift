@@ -27,7 +27,7 @@ struct NetworkManager {
     }
     
     func fetchNowPlaying(withPage page: Int, completion: @escaping(MovieListPage?) ->()){
-        let urlRequest = request(.popular(page))
+        let urlRequest = request(.nowPlaying(page))
         fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
     }
     
