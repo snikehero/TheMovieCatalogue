@@ -45,7 +45,7 @@ struct MovieSynopsis: View {
     
     var body: some View {
         Text(text)
-            .padding(.init(top: Texts.topSinopsys, leading: Texts.leadingText, bottom: Texts.zeroText, trailing: Texts.trailingText))
+            .padding(.init(top: Texts.topSynopsis, leading: Texts.leadingText, bottom: Texts.zeroText, trailing: Texts.trailingText))
             .font(.footnote)
             .fontDesign(.rounded)
             .lineLimit(Texts.lineLimitSynopsis)

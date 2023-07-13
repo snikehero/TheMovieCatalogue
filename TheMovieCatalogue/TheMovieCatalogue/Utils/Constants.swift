@@ -25,9 +25,9 @@ enum Texts {
     public static let specSize = CGFloat(18)
     public static let leadingText = CGFloat(12)
     public static let trailingText = CGFloat(12)
-    public static let sinopsysSize =  CGFloat(14)
+    public static let synopsisSize =  CGFloat(14)
     public static let widthID = CGFloat(268)
-    public static let topSinopsys = CGFloat(1)
+    public static let topSynopsis = CGFloat(1)
     public static let zeroText = CGFloat(0)
     public static let lineLimitSynopsis = 6
     public static let lineLimitTitle = 1
