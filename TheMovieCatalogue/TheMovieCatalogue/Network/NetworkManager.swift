@@ -21,18 +21,18 @@ struct NetworkManager {
         fetch(with: urlRequest, type: Movie.self, completion: completion)
     }
     
-    func fetchPopulars(withPage page: Int, completion: @escaping (MovieListPage?) -> Void ){
-        let urlRequest = request(.popular(page))
+    func fetchPopulars(withPage pageNumber: Int, completion: @escaping (MovieListPage?) -> Void ){
+        let urlRequest = request(.popular(pageNumber))
         fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
     }
     
-    func fetchNowPlaying(withPage page: Int, completion: @escaping(MovieListPage?) -> Void ){
-        let urlRequest = request(.nowPlaying(page))
+    func fetchNowPlaying(withPage pageNumber: Int, completion: @escaping(MovieListPage?) -> Void ){
+        let urlRequest = request(.nowPlaying(pageNumber))
         fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
     }
     
-    func fetchTopRated(withPage page: Int, completion: @escaping(MovieListPage?) -> Void ){
-        let urlRequest = request(.topRated(page))
+    func fetchTopRated(withPage pageNumber: Int, completion: @escaping(MovieListPage?) -> Void ){
+        let urlRequest = request(.topRated(pageNumber))
         fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
     }
     
