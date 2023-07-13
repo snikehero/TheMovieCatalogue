@@ -13,6 +13,7 @@ import Foundation
     @Published var trendingMovies: [Movie] = []
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
+    @Published var topRated : MovieListPage?
     
     var networkManager = NetworkManager()
     
@@ -37,12 +38,23 @@ import Foundation
     }
     
     func fetchNowPlaying(withPage page: Int) {
-        networkManager.fetchNowPlaying(withPage: page) { nowplaying in
-            if let nowplaying = nowplaying {
+        networkManager.fetchNowPlaying(withPage: page) { nowPlaying in
+            if let nowPlaying = nowPlaying {
                 DispatchQueue.main.async {
-                    self.nowPlaying = nowplaying
+                    self.nowPlaying = nowPlaying
                 }
             }
         }
     }
+    
+    func fetchTopRated(withPage page: Int) {
+        networkManager.fetchTopRated(withPage: page) { topRated in
+            if let topRated = topRated {
+                DispatchQueue.main.async {
+                    self.topRated = topRated
+                }
+            }
+        }
+    }
+    
 }

@@ -12,6 +12,7 @@ public enum MovieEndpoint {
     case popular(Int)
     case nowPlaying(Int)
     case image(String, String)
+    case topRated(Int)
     
     private var scheme: String {
         return "https://"
@@ -39,6 +40,8 @@ public enum MovieEndpoint {
             return scheme + host + "now_playing?" + "page=\(value)" + "&api_key=" + key
         case let .image(posterPath, imageSize):
             return scheme + imageHost + imageSize + posterPath
+        case let .topRated(value):
+            return scheme + host + "top_rated" + "page=\(value)" + "&api_key=" + key
         }
     }
     

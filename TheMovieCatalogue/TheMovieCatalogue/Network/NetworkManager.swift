@@ -31,6 +31,11 @@ struct NetworkManager {
         fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
     }
     
+    func fetchTopRated(withPage page: Int, completion: @escaping(MovieListPage?) ->()){
+        let urlRequest = request(.topRated(page))
+        fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
+    }
+    
     private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> ()) {
         let task = session.dataTask(with: urlRequest){ data, _, error in
             guard let data = data else {
