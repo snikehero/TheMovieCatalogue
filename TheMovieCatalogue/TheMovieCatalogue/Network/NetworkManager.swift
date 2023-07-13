@@ -16,14 +16,9 @@ struct NetworkManager {
         return URLRequest(url: endpointUrl)
     }
     
-    func fetchMovie(withId id: Int, completion: @escaping (Movie?) -> Void ) {
-        let urlRequest = request(.movie(id))
-        fetch(with: urlRequest, type: Movie.self, completion: completion)
-    }
-    
-    func fetchPage(endpoint: MovieEndpoint, completion: @escaping(MovieListPage?) -> Void){
+    func fetchData <T: Codable>(endpoint: MovieEndpoint, type: T.Type,completion: @escaping(T?) -> Void){
         let urlRequest = request(endpoint)
-        fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
+        fetch(with: urlRequest, type: T.self, completion: completion)
     }
     
     private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> Void ) {

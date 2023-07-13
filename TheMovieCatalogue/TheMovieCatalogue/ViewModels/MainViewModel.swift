@@ -18,7 +18,7 @@ import Foundation
     var networkManager = NetworkManager()
     
     func fetchMovie(withId id: Int) {
-        networkManager.fetchMovie(withId: id) { movie in
+        networkManager.fetchData(endpoint: .movie(id), type: Movie.self) { movie in
             if let movie = movie {
                 DispatchQueue.main.async {
                     self.randomMovie = movie
@@ -28,7 +28,7 @@ import Foundation
     }
     
     func fetchPopularMovies(withPage page: Int) {
-        networkManager.fetchPage(endpoint: .popular(page)) { populars in
+        networkManager.fetchData(endpoint: .popular(page), type: MovieListPage.self) { populars in
             if let populars = populars {
                 DispatchQueue.main.async {
                     self.popularMovies = populars
@@ -38,7 +38,7 @@ import Foundation
     }
     
     func fetchNowPlaying(withPage page: Int) {
-        networkManager.fetchPage(endpoint: .nowPlaying(page)) { nowPlaying in
+        networkManager.fetchData(endpoint: .nowPlaying(page), type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {
                 DispatchQueue.main.async {
                     self.nowPlaying = nowPlaying
@@ -48,7 +48,7 @@ import Foundation
     }
     
     func fetchTopRated(withPage page: Int) {
-        networkManager.fetchPage(endpoint: .topRated(page)) { topRated in
+        networkManager.fetchData(endpoint: .topRated(page), type: MovieListPage.self) { topRated in
             if let topRated = topRated {
                 DispatchQueue.main.async {
                     self.topRated = topRated
