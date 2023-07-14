@@ -19,16 +19,16 @@ struct PosterButton: View {
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: ButtonsConstants.posterButtonWidth, height: ButtonsConstants.buttonsHeight)
-                        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstants.buttonsCornerRadius))
+                        .frame(width: ButtonsConstant.posterButtonWidth, height: ButtonsConstant.buttonsHeight)
+                        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
                 },
                 placeholder: {
                     ProgressView()
                 }
             )
-            .frame(width: ButtonsConstants.buttonsWeight, height: ButtonsConstants.buttonsHeight)
+            .frame(width: ButtonsConstant.buttonsWeight, height: ButtonsConstant.buttonsHeight)
             .background(Color.gray)
-            .clipShape(RoundedRectangle(cornerRadius: ButtonsConstants.buttonsCornerRadius))
+            .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
         .sheet(isPresented: $showingSheet) {
             MovieDetailsView()
@@ -41,11 +41,11 @@ struct favoritesButton: View {
     var body: some View {
         Button(action: {
         }) {
-            Label(ButtonsConstants.addToFavorites, systemImage:"heart")
+            Label(ButtonsConstant.addToFavorites, systemImage:"heart")
         }
-        .frame(width: ButtonsConstants.buttonsWeight, height: ButtonsConstants.favoritesButtonHeigth)
+        .frame(width: ButtonsConstant.buttonsWeight, height: ButtonsConstant.favoritesButtonHeigth)
         .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstants.buttonsCornerRadius))
+        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
     }
 }
 

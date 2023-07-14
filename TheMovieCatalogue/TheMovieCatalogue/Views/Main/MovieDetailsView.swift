@@ -34,8 +34,8 @@ struct MovieSpecs: View {
             Spacer()
             MovieText(text: "\(movie.runtime) min")
         }
-        .padding(.init(top: Texts.zeroText, leading: Texts.leadingText, bottom: Texts.zeroText, trailing: Texts.trailingText))
-        .background(Color(Colors.movieDetailsBackgroundColor))
+        .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText, bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
+        .background(Color(ColorConstant.movieDetailsBackgroundColor))
         .clipShape(Capsule())
         .padding(.horizontal)
     }

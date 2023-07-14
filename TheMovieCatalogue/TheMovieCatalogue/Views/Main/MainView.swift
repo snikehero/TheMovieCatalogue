@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                Color(Colors.backgroundColor)
+                Color(ColorConstant.backgroundColor)
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
@@ -32,7 +32,7 @@ struct MainView: View {
                         } label: {
                             Image(systemName: "person.fill")
                         }
-                        .navigationTitle(StringConstants.mainTittle)
+                        .navigationTitle(StringConstant.mainTittle)
                     }
                     ToolbarItem(placement: .navigationBarLeading){}
                 }

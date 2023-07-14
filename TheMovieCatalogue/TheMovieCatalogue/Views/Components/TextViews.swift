@@ -14,7 +14,7 @@ struct MovieText: View {
         Text(text)
             .font(.body)
             .fontDesign(.default)
-            .background(Color(Colors.movieDetailsBackgroundColor))
+            .background(Color(ColorConstant.movieDetailsBackgroundColor))
     }
 }
 
@@ -23,7 +23,7 @@ struct RecomendedMovie: View {
     var body: some View {
         VStack {
             HStack {
-                Text(StringConstants.recomendedMovie)
+                Text(StringConstant.recomendedMovie)
                     .padding(.horizontal)
                     .font(.title3)
                     .fontDesign(.rounded)
@@ -33,10 +33,10 @@ struct RecomendedMovie: View {
                 .padding(.bottom)
         }
         .onAppear{
-            mainViewModel.fetchMovie(withId: Int(Texts.widthID))
+            mainViewModel.fetchMovie(withId: Int(ConstantText.widthID))
         }
         .frame(maxWidth: .infinity)
-        .background(LinearGradient(colors:[Color(Colors.backgroundColor), Color(Colors.gradientColor)],startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors:[Color(ColorConstant.backgroundColor), Color(ColorConstant.gradientColor)],startPoint: .top, endPoint: .bottom))
     }
 }
 
@@ -45,10 +45,10 @@ struct MovieSynopsis: View {
     
     var body: some View {
         Text(text)
-            .padding(.init(top: Texts.topSynopsis, leading: Texts.leadingText, bottom: Texts.zeroText, trailing: Texts.trailingText))
+            .padding(.init(top: ConstantText.topSynopsis, leading: ConstantText.leadingText, bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
             .font(.footnote)
             .fontDesign(.rounded)
-            .lineLimit(Texts.lineLimitSynopsis)
+            .lineLimit(ConstantText.lineLimitSynopsis)
     }
 }
 
@@ -60,8 +60,8 @@ struct MovieTitle: View {
             .font(.title)
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.init(top: Texts.zeroText, leading: Texts.leadingText, bottom: Texts.zeroText, trailing: Texts.trailingText))
-            .lineLimit(Texts.lineLimitTitle)
+            .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText, bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
+            .lineLimit(ConstantText.lineLimitTitle)
     }
 }
 
