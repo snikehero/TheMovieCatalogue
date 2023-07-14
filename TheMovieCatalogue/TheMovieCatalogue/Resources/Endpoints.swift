@@ -41,7 +41,7 @@ public enum MovieEndpoint {
         case let .image(posterPath, imageSize):
             return scheme + imageHost + imageSize + posterPath
         case let .topRated(value):
-            return scheme + host + "top_rated" + "page=\(value)" + "&api_key=" + key
+            return scheme + host + "top_rated?" + "page=\(value)" + "&api_key=" + key
         }
     }
     

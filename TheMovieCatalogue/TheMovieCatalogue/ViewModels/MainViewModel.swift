@@ -14,7 +14,6 @@ import Foundation
     @Published var trendingMovies: [Movie] = []
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
-    @Published var topRated : MovieListPage?
     
     private var networkManager = NetworkManager()
     
@@ -33,10 +32,6 @@ import Foundation
             if let populars = populars {
                 DispatchQueue.main.async { [weak self] in
                     self?.popularMovies = populars
-                    if self?.randomMovie == nil {
-                        self?.randomMovie = populars.results.randomElement()
-                        self?.randomMovie?.posterSize = "w500"
-                    }
                 }
             }
         }
@@ -56,9 +51,16 @@ import Foundation
         networkManager.fetchData(endpoint: .topRated(page), type: MovieListPage.self) { topRated in
             if let topRated = topRated {
                 DispatchQueue.main.async { [weak self] in
-                    self?.topRated = topRated
+                    self?.chooseRandomMovie(from: topRated.results)
                 }
             }
+        }
+    }
+    
+    func chooseRandomMovie(from moviesArray: [MovieListItem]) {
+        if self.randomMovie == nil {
+            self.randomMovie = moviesArray.randomElement()
+            self.randomMovie?.posterSize = "w500"
         }
     }
 }
