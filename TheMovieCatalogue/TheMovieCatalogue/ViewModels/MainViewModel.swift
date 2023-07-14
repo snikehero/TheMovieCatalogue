@@ -20,8 +20,8 @@ import Foundation
     func fetchMovie(withId id: Int) {
         networkManager.fetchData(endpoint: .movie(id), type: Movie.self) { movie in
             if let movie = movie {
-                DispatchQueue.main.async {
-                    self.randomMovie = movie
+                DispatchQueue.main.async { [weak self] in
+                    self?.randomMovie = movie
                 }
             }
         }
@@ -30,8 +30,8 @@ import Foundation
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: .popular(page), type: MovieListPage.self) { populars in
             if let populars = populars {
-                DispatchQueue.main.async {
-                    self.popularMovies = populars
+                DispatchQueue.main.async { [weak self] in
+                    self?.popularMovies = populars
                 }
             }
         }
@@ -40,8 +40,8 @@ import Foundation
     func fetchNowPlaying(withPage page: Int) {
         networkManager.fetchData(endpoint: .nowPlaying(page), type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {
-                DispatchQueue.main.async {
-                    self.nowPlaying = nowPlaying
+                DispatchQueue.main.async { [weak self] in
+                    self?.nowPlaying = nowPlaying
                 }
             }
         }
@@ -50,8 +50,8 @@ import Foundation
     func fetchTopRated(withPage page: Int) {
         networkManager.fetchData(endpoint: .topRated(page), type: MovieListPage.self) { topRated in
             if let topRated = topRated {
-                DispatchQueue.main.async {
-                    self.topRated = topRated
+                DispatchQueue.main.async { [weak self] in
+                    self?.topRated = topRated
                 }
             }
         }
