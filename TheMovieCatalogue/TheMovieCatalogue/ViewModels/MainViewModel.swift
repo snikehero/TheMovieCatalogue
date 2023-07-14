@@ -47,7 +47,8 @@ import Foundation
         }
     }
     
-    func fetchTopRated(withPage page: Int) {
+    func fetchTopRated() {
+        let page = Int.random(in: 1...5)
         networkManager.fetchData(endpoint: .topRated(page), type: MovieListPage.self) { topRated in
             if let topRated = topRated {
                 DispatchQueue.main.async { [weak self] in

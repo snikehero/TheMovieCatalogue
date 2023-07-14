@@ -88,7 +88,7 @@ struct RecomendedMovie: View {
                 .padding(.bottom)
         }
         .onAppear{
-            mainViewModel.fetchTopRated(withPage: 1)
+            mainViewModel.fetchTopRated()
         }
         .frame(maxWidth: .infinity)
         .background(LinearGradient(colors:[Color("BackgroundColor"), Color("GradientColor")],startPoint: .top, endPoint: .bottom))
