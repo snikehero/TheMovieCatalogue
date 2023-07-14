@@ -19,9 +19,10 @@ struct MainView: View {
                 ScrollView {
                     RecomendedMovie()
 
-                    CarrouselView(newMovies: mainViewModel.popularMovies?.results ?? [], popularMovies: mainViewModel.popularMovies?.results ?? [])
+                    CarrouselView(newMovies: mainViewModel.nowPlaying?.results ?? [], popularMovies: mainViewModel.popularMovies?.results ?? [])
                         .onAppear{
                             mainViewModel.fetchPopularMovies(withPage: 1)
+                            mainViewModel.fetchNowPlaying(withPage: 1)
                         }
                 }
                 .toolbar {

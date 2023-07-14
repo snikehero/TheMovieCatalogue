@@ -16,22 +16,12 @@ struct NetworkManager {
         return URLRequest(url: endpointUrl)
     }
     
-    func fetchMovie(withId id: Int, completion: @escaping (Movie?) -> ()) {
-        let urlRequest = request(.movie(id))
-        fetch(with: urlRequest, type: Movie.self, completion: completion)
+    func fetchData <T: Codable>(endpoint: MovieEndpoint, type: T.Type,completion: @escaping(T?) -> Void){
+        let urlRequest = request(endpoint)
+        fetch(with: urlRequest, type: T.self, completion: completion)
     }
     
-    func fetchPopulars(withPage page: Int, completion: @escaping (MovieListPage?) -> ()) {
-        let urlRequest = request(.popular(page))
-        fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
-    }
-    
-    func fetchNowPlaying(withPage page: Int, completion: @escaping(MovieListPage?) ->()){
-        let urlRequest = request(.popular(page))
-        fetch(with: urlRequest, type: MovieListPage.self, completion: completion)
-    }
-    
-    private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> ()) {
+    private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> Void ) {
         let task = session.dataTask(with: urlRequest){ data, _, error in
             guard let data = data else {
                 print("Error:  \(String(describing: error))")
