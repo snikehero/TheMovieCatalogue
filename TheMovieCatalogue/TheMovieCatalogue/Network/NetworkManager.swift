@@ -11,13 +11,8 @@ struct NetworkManager {
     private let session = URLSession.shared
     private let decoder = Decoder()
     
-    private var request: (MovieEndpoint) -> URLRequest = { endpoint in
-        let endpointUrl = endpoint.url
-        return URLRequest(url: endpointUrl)
-    }
-    
-    func fetchData <T: Codable>(endpoint: MovieEndpoint, type: T.Type,completion: @escaping(T?) -> Void){
-        let urlRequest = request(endpoint)
+    func fetchData <T: Codable>(endpoint: URL, type: T.Type,completion: @escaping(T?) -> Void){
+        let urlRequest = URLRequest(url: endpoint)
         fetch(with: urlRequest, type: T.self, completion: completion)
     }
     
