@@ -20,6 +20,7 @@ struct MovieText: View {
 
 struct RecomendedMovie: View {
     @EnvironmentObject var mainViewModel: MainViewModel
+    
     var body: some View {
         VStack {
             HStack {
@@ -33,7 +34,7 @@ struct RecomendedMovie: View {
                 .padding(.bottom)
         }
         .onAppear{
-            mainViewModel.fetchMovie(withId: Int(ConstantText.widthID))
+            mainViewModel.fetchTopRated()
         }
         .frame(maxWidth: .infinity)
         .background(LinearGradient(colors:[Color(ColorConstant.backgroundColor), Color(ColorConstant.gradientColor)],startPoint: .top, endPoint: .bottom))
