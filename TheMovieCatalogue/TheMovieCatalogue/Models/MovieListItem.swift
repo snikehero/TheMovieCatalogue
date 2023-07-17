@@ -10,7 +10,7 @@ import Foundation
 struct MovieListItem: Identifiable, Codable, Hashable{
     let id: Int
     let posterPath: String
-    var posterSize: String = "w154"
+    var posterSize: String = ImageSize.width154.rawValue
     var poster: String {
         MovieEndpoint.image(posterPath, posterSize).path
     }

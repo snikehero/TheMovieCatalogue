@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum ImageSize: String {
+    case width154 = "w154"
+    case width500 = "w500"
+}
+
 public enum MovieEndpoint {
     case movie(Int)
     case popular(Int)
