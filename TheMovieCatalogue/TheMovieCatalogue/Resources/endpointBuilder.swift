@@ -24,45 +24,45 @@ struct EndpointBuilder {
     }
     
     mutating func movie(id: Int) -> URL?{
-        self.components.path = "/3/movie/\(id)"
-        self.components.queryItems = [
-            URLQueryItem(name: "api_key", value: self.api_key)
+        components.path = "/3/movie/\(id)"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: api_key)
         ]
         return self.components.url
     }
     
     mutating func popular(page: Int) -> URL?{
-        self.components.path = "/3/movie/popular"
-        self.components.queryItems = [
+        components.path = "/3/movie/popular"
+        components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: self.api_key)
+            URLQueryItem(name: "api_key", value: api_key)
         ]
-        return self.components.url
+        return components.url
     }
     
     mutating func nowPlaying(page: Int) -> URL?{
-        self.components.path = "/3/movie/now_playing"
-        self.components.queryItems = [
+        components.path = "/3/movie/now_playing"
+        components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: self.api_key)
+            URLQueryItem(name: "api_key", value: api_key)
         ]
-        return self.components.url
+        return components.url
     }
     
     mutating func image(imageSize: String, imagePath: String) -> String?{
-        self.components.host = "image.tmdb.org"
-        self.components.path = "/t/p/\(imageSize + imagePath)"
+        components.host = "image.tmdb.org"
+        components.path = "/t/p/\(imageSize + imagePath)"
         
-        return self.components.string
+        return components.string
     }
     
     mutating func topRated(page: Int) -> URL?{
-        self.components.path = "/3/movie/top_rated"
-        self.components.queryItems = [
+        components.path = "/3/movie/top_rated"
+        components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: self.api_key)
+            URLQueryItem(name: "api_key", value: api_key)
         ]
-        return self.components.url
+        return components.url
     }
     
 }
