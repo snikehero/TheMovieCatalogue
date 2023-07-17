@@ -65,7 +65,7 @@ struct MovieDetails: View {
     
     var body: some View {
         VStack{
-            MovieImage(imageURL:  movie.backdrop)
+            MovieImage(imageURL:  movie.backdrop ?? "")
             MovieTitle(text: movie.title)
             MovieSpecs()
             MovieSynopsis(text: movie.overview)

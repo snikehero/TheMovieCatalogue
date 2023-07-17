@@ -11,9 +11,12 @@ struct NetworkManager {
     private let session = URLSession.shared
     private let decoder = Decoder()
     
-    func fetchData <T: Codable>(endpoint: URL, type: T.Type,completion: @escaping(T?) -> Void){
-        let urlRequest = URLRequest(url: endpoint)
-        fetch(with: urlRequest, type: T.self, completion: completion)
+    func fetchData <T: Codable>(endpoint: URL?, type: T.Type,completion: @escaping(T?) -> Void){
+        if let endpoint = endpoint {
+            let urlRequest = URLRequest(url: endpoint)
+            fetch(with: urlRequest, type: T.self, completion: completion)
+        }
+        
     }
     
     private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> Void ) {

@@ -11,7 +11,7 @@ struct MovieListItem: Identifiable, Codable, Hashable{
     let id: Int
     let posterPath: String
     var posterSize: String = ImageSize.width154.rawValue
-    var poster: String {
+    var poster: String? {
         var endpointBuilder = EndpointBuilder()
         
         return endpointBuilder.image(imageSize: posterSize, imagePath: posterPath)

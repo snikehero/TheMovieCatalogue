@@ -23,46 +23,46 @@ struct EndpointBuilder {
         self.components.path = "/3/movie/"
     }
     
-    mutating func movie(id: Int) -> URL{
+    mutating func movie(id: Int) -> URL?{
         self.components.path = "/3/movie/\(id)"
         self.components.queryItems = [
             URLQueryItem(name: "api_key", value: self.api_key)
         ]
-        return self.components.url!
+        return self.components.url
     }
     
-    mutating func popular(page: Int) -> URL{
+    mutating func popular(page: Int) -> URL?{
         self.components.path = "/3/movie/popular"
         self.components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "api_key", value: self.api_key)
         ]
-        return self.components.url!
+        return self.components.url
     }
     
-    mutating func nowPlaying(page: Int) -> URL{
+    mutating func nowPlaying(page: Int) -> URL?{
         self.components.path = "/3/movie/now_playing"
         self.components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "api_key", value: self.api_key)
         ]
-        return self.components.url!
+        return self.components.url
     }
     
-    mutating func image(imageSize: String, imagePath: String) -> String{
+    mutating func image(imageSize: String, imagePath: String) -> String?{
         self.components.host = "image.tmdb.org"
         self.components.path = "/t/p/\(imageSize + imagePath)"
         
-        return self.components.string!
+        return self.components.string
     }
     
-    mutating func topRated(page: Int) -> URL{
+    mutating func topRated(page: Int) -> URL?{
         self.components.path = "/3/movie/top_rated"
         self.components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "api_key", value: self.api_key)
         ]
-        return self.components.url!
+        return self.components.url
     }
     
 }
