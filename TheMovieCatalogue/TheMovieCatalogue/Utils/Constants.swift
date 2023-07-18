@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum Constants{
+enum Constants {
   enum CarrouselImages {
     public static let width = CGFloat(100.0)
     public static let height = CGFloat(150.0)
@@ -18,7 +18,6 @@ enum Constants{
   enum General {
     public static let spacing = CGFloat(20.0)
   }
-    
 }
 
 enum ConstantText {

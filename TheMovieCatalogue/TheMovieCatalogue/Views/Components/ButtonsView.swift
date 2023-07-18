@@ -10,7 +10,6 @@ import SwiftUI
 struct PosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showingSheet: Bool = false
-    
     var body: some View {
         Button(action: { showingSheet.toggle() },
                label: {
@@ -36,8 +35,7 @@ struct PosterButton: View {
     }
 }
 
-struct favoritesButton: View {
-    
+struct FavoritesButton: View {
     var body: some View {
         Button(action: {
         }) {

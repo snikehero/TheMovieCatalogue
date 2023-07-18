@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabViewNavigation: View {
   var body: some View {
-    TabView{
+    TabView {
       MainView()
         .tabItem {
           Label("Movies",systemImage: "film.stack")
@@ -23,12 +23,8 @@ struct TabViewNavigation: View {
     .tabViewStyle(.automatic)
   }
 }
-
-
 struct TabView_Previews: PreviewProvider {
   static var previews: some View {
-    TabViewNavigation() 
+    TabViewNavigation()
   }
 }
-
-

@@ -14,8 +14,7 @@ struct MainViewAux: View {
         Color.red
         Text("MainView")
           .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing)
-            {
+            ToolbarItem(placement: .navigationBarTrailing) {
               NavigationLink {
                 UserView()
               } label: {

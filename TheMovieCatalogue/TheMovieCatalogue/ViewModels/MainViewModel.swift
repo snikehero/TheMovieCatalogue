@@ -14,9 +14,7 @@ import Foundation
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
     @Published var topRated : MovieListPage?
-    
     var networkManager = NetworkManager()
-    
     func fetchMovie(withId id: Int) {
         networkManager.fetchData(endpoint: .movie(id), type: Movie.self) { movie in
             if let movie = movie {
@@ -26,7 +24,6 @@ import Foundation
             }
         }
     }
-    
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: .popular(page), type: MovieListPage.self) { populars in
             if let populars = populars {
@@ -36,7 +33,6 @@ import Foundation
             }
         }
     }
-    
     func fetchNowPlaying(withPage page: Int) {
         networkManager.fetchData(endpoint: .nowPlaying(page), type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {
@@ -46,7 +42,6 @@ import Foundation
             }
         }
     }
-    
     func fetchTopRated(withPage page: Int) {
         networkManager.fetchData(endpoint: .topRated(page), type: MovieListPage.self) { topRated in
             if let topRated = topRated {
