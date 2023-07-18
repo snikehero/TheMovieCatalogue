@@ -19,7 +19,7 @@ import Foundation
     private let endpointBuilder = EndpointBuilder()
     
     func fetchMovie(withId id: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.movie(id: id), type: Movie.self) { movie in
+        networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: Movie.self) { movie in
             if let movie = movie {
                 DispatchQueue.main.async { [weak self] in
                     self?.movie = movie
@@ -29,7 +29,7 @@ import Foundation
     }
     
     func fetchPopularMovies(withPage page: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.popular(page: page), type: MovieListPage.self) { populars in
+        networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page), type: MovieListPage.self) { populars in
             if let populars = populars {
                 DispatchQueue.main.async { [weak self] in
                     self?.popularMovies = populars
@@ -39,7 +39,7 @@ import Foundation
     }
     
     func fetchNowPlaying(withPage page: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.nowPlaying(page: page), type: MovieListPage.self) { nowPlaying in
+        networkManager.fetchData(endpoint: endpointBuilder.getNowPlayingURL(page: page), type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {
                 DispatchQueue.main.async { [weak self] in
                     self?.nowPlaying = nowPlaying
@@ -50,7 +50,7 @@ import Foundation
     
     func fetchTopRated() {
         let randomPage = Int.random(in: 1...5)
-        networkManager.fetchData(endpoint: endpointBuilder.topRated(page: randomPage), type: MovieListPage.self) { topRated in
+        networkManager.fetchData(endpoint: endpointBuilder.getTopRatedURL(page: randomPage), type: MovieListPage.self) { topRated in
             if let topRated = topRated {
                 DispatchQueue.main.async { [weak self] in
                     self?.chooseRandomMovie(from: topRated.results)

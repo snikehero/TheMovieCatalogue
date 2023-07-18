@@ -23,7 +23,7 @@ class EndpointBuilder {
         self.components.path = "/3/movie/"
     }
     
-    func movie(id: Int) -> URL?{
+    func getMovieURL(id: Int) -> URL?{
         components.path = "/3/movie/\(id)"
         components.queryItems = [
             URLQueryItem(name: "api_key", value: api_key)
@@ -31,7 +31,7 @@ class EndpointBuilder {
         return self.components.url
     }
     
-    func popular(page: Int) -> URL?{
+    func getPopularURL(page: Int) -> URL?{
         components.path = "/3/movie/popular"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
@@ -40,7 +40,7 @@ class EndpointBuilder {
         return components.url
     }
     
-    func nowPlaying(page: Int) -> URL?{
+    func getNowPlayingURL(page: Int) -> URL?{
         components.path = "/3/movie/now_playing"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
@@ -56,7 +56,7 @@ class EndpointBuilder {
         return components.string
     }
     
-    func topRated(page: Int) -> URL?{
+    func getTopRatedURL(page: Int) -> URL?{
         components.path = "/3/movie/top_rated"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
