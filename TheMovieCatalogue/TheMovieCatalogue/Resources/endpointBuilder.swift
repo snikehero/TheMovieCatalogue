@@ -12,7 +12,7 @@ enum ImageSize: String {
     case width500 = "w500"
 }
 
-struct EndpointBuilder {
+class EndpointBuilder {
     private var components = URLComponents()
     private let api_key = "aded2171cae8dca24a5d19455224f699"
     
@@ -23,7 +23,7 @@ struct EndpointBuilder {
         self.components.path = "/3/movie/"
     }
     
-    mutating func movie(id: Int) -> URL?{
+    func movie(id: Int) -> URL?{
         components.path = "/3/movie/\(id)"
         components.queryItems = [
             URLQueryItem(name: "api_key", value: api_key)
@@ -31,7 +31,7 @@ struct EndpointBuilder {
         return self.components.url
     }
     
-    mutating func popular(page: Int) -> URL?{
+    func popular(page: Int) -> URL?{
         components.path = "/3/movie/popular"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
@@ -40,7 +40,7 @@ struct EndpointBuilder {
         return components.url
     }
     
-    mutating func nowPlaying(page: Int) -> URL?{
+    func nowPlaying(page: Int) -> URL?{
         components.path = "/3/movie/now_playing"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
@@ -49,14 +49,14 @@ struct EndpointBuilder {
         return components.url
     }
     
-    mutating func image(imageSize: String, imagePath: String) -> String?{
+    func image(imageSize: String, imagePath: String) -> String?{
         components.host = "image.tmdb.org"
         components.path = "/t/p/\(imageSize + imagePath)"
         
         return components.string
     }
     
-    mutating func topRated(page: Int) -> URL?{
+    func topRated(page: Int) -> URL?{
         components.path = "/3/movie/top_rated"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
@@ -64,5 +64,4 @@ struct EndpointBuilder {
         ]
         return components.url
     }
-    
 }
