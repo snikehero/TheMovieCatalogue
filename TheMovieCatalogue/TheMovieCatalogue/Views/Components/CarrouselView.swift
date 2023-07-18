@@ -15,11 +15,11 @@ struct CarrouselView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: Constants.General.spacing) {
-                    HorizontalCarrouselView(title: "New Movies >",
+                    HorizontalCarrouselView(title: "Now Playing",
                                             newMovies: newMovies,
                                             navigationLinkDestination: AnyView(NewMoviesView())
                     )
-                    HorizontalCarrouselView(title: "Popular Movies >",
+                    HorizontalCarrouselView(title: "Popular Movies",
                                             newMovies: popularMovies,
                                             navigationLinkDestination: AnyView(PopularMoviesView())
                     )
