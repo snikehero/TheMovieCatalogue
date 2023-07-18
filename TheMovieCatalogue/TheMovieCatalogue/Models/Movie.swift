@@ -16,13 +16,13 @@ struct Movie: Identifiable, Codable, Equatable {
     let backdropPath: String
     let runtime: Int
     let releaseDate: String
-    var poster: String? {
+    var poster: String {
         let endpointBuilder = EndpointBuilder()
-        return endpointBuilder.image(imageSize: ImageSize.width500.rawValue, imagePath: posterPath)
+        return endpointBuilder.image(imageSize: ImageSize.width500.rawValue, imagePath: posterPath) ?? ""
     }
-    var backdrop: String? {
+    var backdrop: String {
         let endpointBuilder = EndpointBuilder()
-        return endpointBuilder.image(imageSize: ImageSize.width500.rawValue, imagePath: posterPath)
+        return endpointBuilder.image(imageSize: ImageSize.width500.rawValue, imagePath: posterPath) ?? ""
     }
     var genres: [Genre]
     

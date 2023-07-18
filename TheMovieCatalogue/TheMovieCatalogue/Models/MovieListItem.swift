@@ -11,10 +11,10 @@ struct MovieListItem: Identifiable, Codable, Hashable{
     let id: Int
     let posterPath: String
     var posterSize: String = ImageSize.width154.rawValue
-    var poster: String? {
+    var poster: String {
         let endpointBuilder = EndpointBuilder()
         
-        return endpointBuilder.image(imageSize: posterSize, imagePath: posterPath)
+        return endpointBuilder.image(imageSize: posterSize, imagePath: posterPath) ?? ""
     }
 
     enum CodingKeys: String, CodingKey {

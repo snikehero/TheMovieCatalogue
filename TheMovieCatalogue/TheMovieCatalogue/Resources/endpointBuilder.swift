@@ -28,7 +28,7 @@ class EndpointBuilder {
         components.queryItems = [
             URLQueryItem(name: "api_key", value: api_key)
         ]
-        return self.components.url
+        return self.components.url ?? URL(string: "")
     }
     
     func popular(page: Int) -> URL?{
@@ -37,7 +37,7 @@ class EndpointBuilder {
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "api_key", value: api_key)
         ]
-        return components.url
+        return components.url ?? URL(string: "")
     }
     
     func nowPlaying(page: Int) -> URL?{
@@ -46,14 +46,14 @@ class EndpointBuilder {
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "api_key", value: api_key)
         ]
-        return components.url
+        return components.url ?? URL(string: "")
     }
     
     func image(imageSize: String, imagePath: String) -> String?{
         components.host = "image.tmdb.org"
         components.path = "/t/p/\(imageSize + imagePath)"
         
-        return components.string
+        return components.string ?? ""
     }
     
     func topRated(page: Int) -> URL?{
@@ -62,6 +62,6 @@ class EndpointBuilder {
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "api_key", value: api_key)
         ]
-        return components.url
+        return components.url ?? URL(string: "")
     }
 }
