@@ -14,53 +14,47 @@ enum ImageSize: String {
 
 class EndpointBuilder {
     private var components = URLComponents()
-    private let api_key = "aded2171cae8dca24a5d19455224f699"
-    
+    private let apiKey = "aded2171cae8dca24a5d19455224f699"
     init(components: URLComponents = URLComponents()) {
         self.components = components
         self.components.scheme = "https"
         self.components.host = "api.themoviedb.org"
         self.components.path = "/3/movie/"
     }
-    
-    func getMovieURL(id: Int) -> URL?{
+    func getMovieURL(id: Int) -> URL? {
         components.path = "/3/movie/\(id)"
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: api_key)
+            URLQueryItem(name: "api_key", value: apiKey)
         ]
         return self.components.url
     }
-    
-    func getPopularURL(page: Int) -> URL?{
+    func getPopularURL(page: Int) -> URL? {
         components.path = "/3/movie/popular"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: api_key)
+            URLQueryItem(name: "api_key", value: apiKey)
         ]
         return components.url
     }
-    
-    func getNowPlayingURL(page: Int) -> URL?{
+    func getNowPlayingURL(page: Int) -> URL? {
         components.path = "/3/movie/now_playing"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: api_key)
+            URLQueryItem(name: "api_key", value: apiKey)
         ]
         return components.url
     }
     
-    func getImageURLString(imageSize: ImageSize, imagePath: String) -> String?{
+    func getImageURLString(imageSize: ImageSize, imagePath: String) -> String? {
         components.host = "image.tmdb.org"
         components.path = "/t/p/\(imageSize.rawValue + imagePath)"
-        
         return components.string
     }
-    
-    func getTopRatedURL(page: Int) -> URL?{
+    func getTopRatedURL(page: Int) -> URL? {
         components.path = "/3/movie/top_rated"
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: api_key)
+            URLQueryItem(name: "api_key", value: apiKey)
         ]
         return components.url
     }
