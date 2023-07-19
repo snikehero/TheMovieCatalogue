@@ -44,7 +44,6 @@ class EndpointBuilder {
         ]
         return components.url
     }
-    
     func getImageURLString(imageSize: ImageSize, imagePath: String) -> String? {
         components.host = "image.tmdb.org"
         components.path = "/t/p/\(imageSize.rawValue + imagePath)"

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MovieText: View {
     var text: String
-    
     var body: some View {
         Text(text)
             .font(.body)
@@ -20,7 +19,6 @@ struct MovieText: View {
 
 struct RecomendedMovie: View {
     @EnvironmentObject var mainViewModel: MainViewModel
-    
     var body: some View {
         VStack {
             HStack {
@@ -33,7 +31,7 @@ struct RecomendedMovie: View {
             PosterButton()
                 .padding(.bottom)
         }
-        .onAppear{
+        .onAppear {
             mainViewModel.fetchTopRated()
         }
         .frame(maxWidth: .infinity)
@@ -44,7 +42,6 @@ struct RecomendedMovie: View {
 
 struct MovieSynopsis: View {
     var text: String
-    
     var body: some View {
         Text(text)
             .padding(.init(top: ConstantText.topSynopsis, leading: ConstantText.leadingText
@@ -57,7 +54,6 @@ struct MovieSynopsis: View {
 
 struct MovieTitle: View {
     var text: String
-    
     var body: some View {
         Text(text)
             .font(.title)

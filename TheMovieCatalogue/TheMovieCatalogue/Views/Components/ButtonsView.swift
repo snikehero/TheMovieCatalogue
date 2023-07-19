@@ -37,10 +37,10 @@ struct PosterButton: View {
 
 struct FavoritesButton: View {
     var body: some View {
-        Button(action: {
-        }) {
+        Button(action: { },
+               label: {
             Label(ButtonsConstant.addToFavorites, systemImage:"heart")
-        }
+        })
         .frame(width: ButtonsConstant.buttonsWeight, height: ButtonsConstant.favoritesButtonHeigth)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))

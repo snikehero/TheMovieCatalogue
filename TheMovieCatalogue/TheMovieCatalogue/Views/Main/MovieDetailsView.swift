@@ -9,11 +9,10 @@ import SwiftUI
 
 struct MovieDetailsView: View {
     var movie: Movie = Movie.mock
-    
     var body: some View {
         ScrollView {
             ZStack {
-                VStack{
+                VStack {
                     MovieImage(imageURL:  movie.backdropString )
                     MovieTitle(text: movie.title)
                     MovieSpecs()
@@ -45,9 +44,8 @@ struct MovieSpecs: View {
 
 struct MovieDetails: View {
     var movie: Movie = Movie.mock
-    
     var body: some View {
-        VStack{
+        VStack {
             MovieImage(imageURL:  movie.backdropString )
             MovieTitle(text: movie.title)
             MovieSpecs()
@@ -55,7 +53,6 @@ struct MovieDetails: View {
         }
     }
 }
-
 
 struct MovieDetailsView_Previews: PreviewProvider {
     static var previews: some View {

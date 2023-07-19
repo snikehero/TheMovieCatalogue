@@ -19,7 +19,7 @@ struct MainView: View {
 
                     CarrouselView(newMovies: mainViewModel.nowPlaying?.results ?? [],
                                   popularMovies: mainViewModel.popularMovies?.results ?? [])
-                        .onAppear{
+                        .onAppear {
                             mainViewModel.fetchPopularMovies(withPage: 1)
                             mainViewModel.fetchNowPlaying(withPage: 1)
                         }
