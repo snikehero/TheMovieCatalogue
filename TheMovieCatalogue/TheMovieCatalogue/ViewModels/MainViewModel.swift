@@ -62,7 +62,7 @@ import Foundation
     func chooseRandomMovie(from moviesArray: [MovieListItem]) {
         if self.randomMovie == nil {
             self.randomMovie = moviesArray.randomElement()
-            self.randomMovie?.posterSize = ImageSize.width500.rawValue
+            self.randomMovie?.posterSize = ImageSize.width500
         }
     }
 }

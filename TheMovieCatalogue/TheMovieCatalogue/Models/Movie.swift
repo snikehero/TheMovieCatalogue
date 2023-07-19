@@ -16,12 +16,12 @@ struct Movie: Identifiable, Codable, Equatable {
     let backdropPath: String
     let runtime: Int
     let releaseDate: String
-    let endpointBuilder = EndpointBuilder()
-    var poster: String {
-        return endpointBuilder.getImageURLString(imageSize: ImageSize.width500.rawValue, imagePath: posterPath) ?? ""
+    private let endpointBuilder = EndpointBuilder()
+    var posterString: String {
+        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
-    var backdrop: String {
-        return endpointBuilder.getImageURLString(imageSize: ImageSize.width500.rawValue, imagePath: posterPath) ?? ""
+    var backdropString: String {
+        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
     var genres: [Genre]
     
@@ -54,8 +54,8 @@ extension Movie {
             lhs.id == rhs.id &&
             lhs.title == rhs.title &&
             lhs.overview == rhs.overview &&
-            lhs.poster == rhs.poster &&
-            lhs.backdrop == rhs.backdrop &&
+            lhs.posterString == rhs.posterString &&
+            lhs.backdropString == rhs.backdropString &&
             lhs.runtime == rhs.runtime &&
             lhs.releaseDate == rhs.releaseDate
         )

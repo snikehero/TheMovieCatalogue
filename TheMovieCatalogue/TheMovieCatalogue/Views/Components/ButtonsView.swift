@@ -15,7 +15,7 @@ struct PosterButton: View {
         Button(action: { showingSheet.toggle() },
                label: {
             AsyncImage(
-                url: URL(string: mainViewModel.randomMovie?.poster ?? "0"),
+                url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)

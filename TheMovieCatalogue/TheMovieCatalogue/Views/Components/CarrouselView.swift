@@ -52,7 +52,7 @@ private struct HorizontalCarrouselView: View {
                             EmptyView()
                         } label: {
                             AsyncImage(
-                                url: URL(string: movie.poster),
+                                url: URL(string: movie.posterString),
                                 content: { image in
                                     image.resizable()
                                         .aspectRatio(contentMode: .fit)

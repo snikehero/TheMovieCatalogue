@@ -10,8 +10,8 @@ import Foundation
 struct MovieListItem: Identifiable, Codable, Hashable{
     let id: Int
     let posterPath: String
-    var posterSize: String = ImageSize.width154.rawValue
-    var poster: String {
+    var posterSize: ImageSize = .width154
+    var posterString: String {
         let endpointBuilder = EndpointBuilder()
         return endpointBuilder.getImageURLString(imageSize: posterSize, imagePath: posterPath) ?? ""
     }
