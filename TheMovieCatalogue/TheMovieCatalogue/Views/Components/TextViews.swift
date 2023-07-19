@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MovieText: View {
     var text: String
-    
     var body: some View {
         Text(text)
             .font(.body)
@@ -32,20 +31,21 @@ struct RecomendedMovie: View {
             PosterButton()
                 .padding(.bottom)
         }
-        .onAppear{
+        .onAppear {
             mainViewModel.fetchMovie(withId: Int(ConstantText.widthID))
         }
         .frame(maxWidth: .infinity)
-        .background(LinearGradient(colors:[Color(ColorConstant.backgroundColor), Color(ColorConstant.gradientColor)],startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors:[Color(ColorConstant.backgroundColor), Color(ColorConstant.gradientColor)],
+                                   startPoint: .top, endPoint: .bottom))
     }
 }
 
 struct MovieSynopsis: View {
     var text: String
-    
     var body: some View {
         Text(text)
-            .padding(.init(top: ConstantText.topSynopsis, leading: ConstantText.leadingText, bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
+            .padding(.init(top: ConstantText.topSynopsis, leading: ConstantText.leadingText
+                           , bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
             .font(.footnote)
             .fontDesign(.rounded)
             .lineLimit(ConstantText.lineLimitSynopsis)
@@ -54,13 +54,13 @@ struct MovieSynopsis: View {
 
 struct MovieTitle: View {
     var text: String
-    
     var body: some View {
         Text(text)
             .font(.title)
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText, bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
+            .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText,
+                           bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
             .lineLimit(ConstantText.lineLimitTitle)
     }
 }

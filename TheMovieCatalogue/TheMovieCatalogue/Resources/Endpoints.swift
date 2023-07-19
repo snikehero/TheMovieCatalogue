@@ -13,23 +13,18 @@ public enum MovieEndpoint {
     case nowPlaying(Int)
     case image(String, String)
     case topRated(Int)
-    
     private var scheme: String {
         return "https://"
     }
-    
-    private var host: String{
+    private var host: String {
         return "api.themoviedb.org/3/movie/"
     }
-    
-    private var key: String{
+    private var key: String {
         return "aded2171cae8dca24a5d19455224f699"
     }
-    
     private var imageHost: String {
         "image.tmdb.org/t/p/"
     }
-    
     public var path: String {
         switch self {
         case let .movie(value):
@@ -44,7 +39,6 @@ public enum MovieEndpoint {
             return scheme + host + "top_rated" + "page=\(value)" + "&api_key=" + key
         }
     }
-    
     public var url: URL {
         return URL(string: path)!
     }

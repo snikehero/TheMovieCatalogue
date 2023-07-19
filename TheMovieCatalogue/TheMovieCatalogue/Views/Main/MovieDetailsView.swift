@@ -12,7 +12,7 @@ struct MovieDetailsView: View {
     var body: some View {
         ScrollView {
             ZStack {
-                VStack{
+                VStack {
                     MovieImage(imageURL:  movie.backdrop)
                     MovieTitle(text: movie.title)
                     MovieSpecs()
@@ -27,14 +27,15 @@ struct MovieDetailsView: View {
 struct MovieSpecs: View {
     var movie: Movie = Movie.mock
     var body: some View {
-        HStack{
+        HStack {
             MovieText(text: movie.genres[0].name)
             Spacer()
             MovieText(text: movie.releaseDate)
             Spacer()
             MovieText(text: "\(movie.runtime) min")
         }
-        .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText, bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
+        .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText,
+                       bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
         .background(Color(ColorConstant.movieDetailsBackgroundColor))
         .clipShape(Capsule())
         .padding(.horizontal)

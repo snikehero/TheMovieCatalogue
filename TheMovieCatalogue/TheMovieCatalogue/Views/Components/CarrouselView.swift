@@ -10,7 +10,6 @@ import SwiftUI
 struct CarrouselView: View {
     let newMovies: [MovieListItem]
     let popularMovies: [MovieListItem]
-    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -35,7 +34,6 @@ private struct HorizontalCarrouselView: View {
     let title: String
     let newMovies: [MovieListItem]
     let navigationLinkDestination: AnyView
-    
     var body: some View {
         VStack(alignment: .leading,spacing: Constants.CarrouselImages.spacing) {
             NavigationLink {
@@ -56,8 +54,10 @@ private struct HorizontalCarrouselView: View {
                                 content: { image in
                                     image.resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: Constants.CarrouselImages.width, height: Constants.CarrouselImages.height)
-                                        .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
+                                        .frame(width: Constants.CarrouselImages.width,
+                                               height: Constants.CarrouselImages.height)
+                                        .clipShape(RoundedRectangle(cornerRadius:
+                                                                        Constants.CarrouselImages.cornerRadius))
                                 },
                                 placeholder: {
                                     ProgressView()
@@ -77,6 +77,7 @@ private struct HorizontalCarrouselView: View {
 
 struct CarrouselView_Previews: PreviewProvider {
   static var previews: some View {
-      CarrouselView(newMovies: [MovieListItem.mock, MovieListItem.mock], popularMovies: [MovieListItem.mock, MovieListItem.mock])
+      CarrouselView(newMovies: [MovieListItem.mock, MovieListItem.mock],
+                    popularMovies: [MovieListItem.mock, MovieListItem.mock])
   }
 }
