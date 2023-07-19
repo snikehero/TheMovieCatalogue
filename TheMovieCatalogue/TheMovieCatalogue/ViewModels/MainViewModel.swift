@@ -14,6 +14,7 @@ import Foundation
     @Published var trendingMovies: [Movie] = []
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
+    @Published var topRated : MovieListPage?
     
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
@@ -27,7 +28,6 @@ import Foundation
             }
         }
     }
-    
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page), type: MovieListPage.self) { populars in
             if let populars = populars {
@@ -37,7 +37,6 @@ import Foundation
             }
         }
     }
-    
     func fetchNowPlaying(withPage page: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getNowPlayingURL(page: page), type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MovieImage: View {
     var imageURL: String
-    
     var body: some View {
         AsyncImage(
             url: URL(string: imageURL),
@@ -26,12 +25,11 @@ struct MovieImage: View {
         .frame(width: PosterImage.imageWidth, height: PosterImage.imageHeight)
         .cornerRadius(PosterImage.imagerCornerRadius)
         .overlay(alignment: .bottom) {
-            favoritesButton()
+            FavoritesButton()
                 .padding()
         }
     }
 }
-
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {

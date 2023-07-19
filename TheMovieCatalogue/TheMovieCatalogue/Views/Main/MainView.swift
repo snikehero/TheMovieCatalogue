@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-
 struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
-    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -27,8 +25,7 @@ struct MainView: View {
                         }
                 }
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing)
-                    {
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink {
                             UserView()
                         } label: {
@@ -36,7 +33,7 @@ struct MainView: View {
                         }
                         .navigationTitle(StringConstant.mainTittle)
                     }
-                    ToolbarItem(placement: .navigationBarLeading){}
+                    ToolbarItem(placement: .navigationBarLeading) {}
                 }
             }
         }

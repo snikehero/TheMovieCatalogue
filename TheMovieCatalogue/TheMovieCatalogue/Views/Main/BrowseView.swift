@@ -14,10 +14,9 @@ struct BrowseView: View {
           Color.green
           Text("Browse View")
             .toolbar {
-              ToolbarItem(placement: .primaryAction)
-              {
+              ToolbarItem(placement: .primaryAction) {
                 NavigationLink {
-                  UserView() 
+                  UserView()
                 } label: {
                   Image(systemName: "person.fill")
                 }

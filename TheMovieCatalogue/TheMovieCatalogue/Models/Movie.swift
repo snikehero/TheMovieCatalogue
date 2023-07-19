@@ -8,7 +8,6 @@
 import Foundation
 
 struct Movie: Identifiable, Codable, Equatable {
-    
     let id: Int
     let title: String
     let overview: String
@@ -24,7 +23,6 @@ struct Movie: Identifiable, Codable, Equatable {
         return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
     var genres: [Genre]
-    
     enum CodingKeys: String, CodingKey {
         case id
         case title = "original_title"
@@ -35,10 +33,12 @@ struct Movie: Identifiable, Codable, Equatable {
         case releaseDate = "release_date"
         case genres
     }
-    
     static let mock = Movie(id: 268,
                             title: "Batman",
-                            overview: "Batman must face his most ruthless nemesis when a deformed madman calling himself \"The Joker\" seizes control of Gotham's criminal underworld.",
+                            overview: """
+Batman must face his most ruthless nemesis when a deformed madman calling
+himself \"The Joker\" seizes control of Gotham's criminal underworld.
+""",
                             posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",
                             backdropPath: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,
                             runtime: 126,
@@ -48,7 +48,7 @@ struct Movie: Identifiable, Codable, Equatable {
 }
 
 extension Movie {
-    //Conform to Equatable protocol for testing
+    // Conform to Equatable protocol for testing
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         return (
             lhs.id == rhs.id &&

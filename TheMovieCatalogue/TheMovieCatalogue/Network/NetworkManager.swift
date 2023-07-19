@@ -18,9 +18,8 @@ struct NetworkManager {
         }
         
     }
-    
     private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> Void ) {
-        let task = session.dataTask(with: urlRequest){ data, _, error in
+        let task = session.dataTask(with: urlRequest) { data, _, error in
             guard let data = data else {
                 print("Error:  \(String(describing: error))")
                 return

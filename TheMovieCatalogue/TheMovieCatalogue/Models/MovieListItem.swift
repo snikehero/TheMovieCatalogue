@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieListItem: Identifiable, Codable, Hashable{
+struct MovieListItem: Identifiable, Codable, Hashable {
     let id: Int
     let posterPath: String
     var posterSize: ImageSize = .width154
@@ -20,6 +20,5 @@ struct MovieListItem: Identifiable, Codable, Hashable{
         case id = "id"
         case posterPath = "poster_path"
     }
-    
     static let mock = MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg")
 }
