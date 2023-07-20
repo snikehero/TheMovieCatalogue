@@ -7,7 +7,7 @@
 import Foundation
 
 @MainActor class MovieDetailsViewModel: ObservableObject {
-    @Published var movie: Movie = Movie(id: 0,
+    @Published var movie: Movie = Movie(id: -1,
                                          title: "",
                                          overview: "",
                                          posterPath: "",
