@@ -30,7 +30,7 @@ struct PosterButton: View {
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
         .sheet(isPresented: $showingSheet) {
-            MovieDetailsView()
+            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
         }
     }
 }

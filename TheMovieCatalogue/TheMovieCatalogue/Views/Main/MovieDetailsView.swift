@@ -8,31 +8,41 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
-    var movie: Movie = Movie.mock
+    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
+    var movieId: Int
     var body: some View {
         ScrollView {
             ZStack {
                 VStack {
-                    MovieImage(imageURL:  movie.backdropString )
-                    MovieTitle(text: movie.title)
-                    MovieSpecs()
-                    MovieSynopsis(text: movie.overview)
+                    MovieImage(imageURL:  movieDetailsViewModel.movie.backdropString)
+                    MovieTitle(text: movieDetailsViewModel.movie.title)
+                    MovieSpecs(
+                        genre: movieDetailsViewModel.movie.genres[0].name,
+                        releaseDate: movieDetailsViewModel.movie.releaseDate,
+                        runtime: movieDetailsViewModel.movie.runtime
+                    )
+                    MovieSynopsis(text: movieDetailsViewModel.movie.overview)
                 }
             }
+        }
+        .onAppear {
+            movieDetailsViewModel.fetchMovie(withId: movieId)
         }
         .ignoresSafeArea()
     }
 }
 
 struct MovieSpecs: View {
-    var movie: Movie = Movie.mock
+    var genre: String
+    var releaseDate: String
+    var runtime: Int
     var body: some View {
         HStack {
-            MovieText(text: movie.genres[0].name)
+            MovieText(text: genre)
             Spacer()
-            MovieText(text: movie.releaseDate)
+            MovieText(text: releaseDate)
             Spacer()
-            MovieText(text: "\(movie.runtime) min")
+            MovieText(text: "\(runtime) min")
         }
         .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText,
                        bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
@@ -43,19 +53,24 @@ struct MovieSpecs: View {
 }
 
 struct MovieDetails: View {
-    var movie: Movie = Movie.mock
+    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
+    var movieId: Int
     var body: some View {
         VStack {
-            MovieImage(imageURL:  movie.backdropString )
-            MovieTitle(text: movie.title)
-            MovieSpecs()
-            MovieSynopsis(text: movie.overview)
+            MovieImage(imageURL:  movieDetailsViewModel.movie.backdropString)
+            MovieTitle(text: movieDetailsViewModel.movie.title)
+            MovieSpecs(
+                genre: movieDetailsViewModel.movie.genres[0].name,
+                releaseDate: movieDetailsViewModel.movie.releaseDate,
+                runtime: movieDetailsViewModel.movie.runtime
+            )
+            MovieSynopsis(text: movieDetailsViewModel.movie.overview)
         }
     }
 }
 
 struct MovieDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailsView()
+        MovieDetailsView(movieId: Movie.mock.id)
     }
 }
