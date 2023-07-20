@@ -10,22 +10,12 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var randomPosterImage: String = ""
     @Published var randomMovie: MovieListItem?
-    @Published var movie: Movie?
     @Published var trendingMovies: [Movie] = []
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
     @Published var topRated : MovieListPage?
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
-    func fetchMovie(withId id: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: Movie.self) { movie in
-            if let movie = movie {
-                DispatchQueue.main.async { [weak self] in
-                    self?.movie = movie
-                }
-            }
-        }
-    }
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page),
                                  type: MovieListPage.self) { populars in
