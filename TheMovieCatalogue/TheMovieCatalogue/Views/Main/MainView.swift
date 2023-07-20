@@ -16,9 +16,8 @@ struct MainView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
-
-                    CarrouselView(newMovies: mainViewModel.nowPlaying?.results ?? [],
-                                  popularMovies: mainViewModel.popularMovies?.results ?? [])
+                    CarrouselInMainView()
+                        .environmentObject(mainViewModel)
                         .onAppear {
                             mainViewModel.fetchPopularMovies(withPage: 1)
                             mainViewModel.fetchNowPlaying(withPage: 1)
