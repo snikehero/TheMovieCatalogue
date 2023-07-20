@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Identifiable, Codable, Equatable {
+struct MovieDetails: Identifiable, Codable, Equatable {
     let id: Int
     let title: String
     let overview: String
@@ -33,7 +33,7 @@ struct Movie: Identifiable, Codable, Equatable {
         case releaseDate = "release_date"
         case genres
     }
-    static let mock = Movie(id: 268,
+    static let mock = MovieDetails(id: 268,
                             title: "Batman",
                             overview: """
 Batman must face his most ruthless nemesis when a deformed madman calling
@@ -47,9 +47,9 @@ himself \"The Joker\" seizes control of Gotham's criminal underworld.
     )
 }
 
-extension Movie {
+extension MovieDetails {
     // Conform to Equatable protocol for testing
-    static func == (lhs: Movie, rhs: Movie) -> Bool {
+    static func == (lhs: MovieDetails, rhs: MovieDetails) -> Bool {
         return (
             lhs.id == rhs.id &&
             lhs.title == rhs.title &&

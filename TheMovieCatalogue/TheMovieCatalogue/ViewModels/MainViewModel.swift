@@ -10,7 +10,7 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var randomPosterImage: String = ""
     @Published var randomMovie: MovieListItem?
-    @Published var trendingMovies: [Movie] = []
+    @Published var trendingMovies: [MovieDetails] = []
     @Published var popularMovies : MovieListPage?
     @Published var nowPlaying : MovieListPage?
     @Published var topRated : MovieListPage?

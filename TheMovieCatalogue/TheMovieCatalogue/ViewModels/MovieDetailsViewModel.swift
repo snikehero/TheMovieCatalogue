@@ -7,7 +7,7 @@
 import Foundation
 
 @MainActor class MovieDetailsViewModel: ObservableObject {
-    @Published var movie: Movie = Movie(id: -1,
+    @Published var movie: MovieDetails = MovieDetails(id: -1,
                                          title: "",
                                          overview: "",
                                          posterPath: "",
@@ -21,7 +21,7 @@ import Foundation
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
     func fetchMovie(withId id: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: Movie.self) { movie in
+        networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: MovieDetails.self) { movie in
             if let movie = movie {
                 DispatchQueue.main.async { [weak self] in
                     self?.movie = movie

@@ -52,7 +52,7 @@ struct MovieSpecs: View {
     }
 }
 
-struct MovieDetails: View {
+struct MovieDetailsSection: View {
     @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     var movieId: Int
     var body: some View {
@@ -71,6 +71,6 @@ struct MovieDetails: View {
 
 struct MovieDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailsView(movieId: Movie.mock.id)
+        MovieDetailsView(movieId: MovieDetails.mock.id)
     }
 }
