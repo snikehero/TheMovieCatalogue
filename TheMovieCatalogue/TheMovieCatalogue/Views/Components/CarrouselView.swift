@@ -30,7 +30,7 @@ struct CarrouselView: View {
     }
 }
 
-private struct HorizontalCarrouselView: View {
+struct HorizontalCarrouselView: View {
     let title: String
     let newMovies: [MovieListItem]
     let navigationLinkDestination: AnyView
