@@ -64,3 +64,7 @@ import Foundation
         }
     }
 }
+extension MainViewModel {
+    static let moviesMock = [MovieListItem.mock, MovieListItem.mock2, MovieListItem.mock3,
+                                    MovieListItem.mock4, MovieListItem.mock5, MovieListItem.mock6, MovieListItem.mock7]
+}
