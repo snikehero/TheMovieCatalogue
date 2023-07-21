@@ -54,6 +54,8 @@ struct HorizontalCarrouselView: View {
 
 struct HorizontalCarrouselView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalCarrouselView(title: "", newMovies: [], navigationLinkDestination: AnyView(EmptyView()))
+        HorizontalCarrouselView(title: "Carrousel Preview",
+                                newMovies: MainViewModel.moviesMock,
+                                navigationLinkDestination: AnyView(EmptyView()))
     }
 }
