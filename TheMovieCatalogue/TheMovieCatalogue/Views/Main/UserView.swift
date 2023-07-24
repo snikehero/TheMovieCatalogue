@@ -9,12 +9,14 @@ import SwiftUI
 
 struct UserView: View {
     var body: some View {
-        NavigationStack{
-            ScrollView{
-                VStack(spacing: Constants.General.spacing){
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: Constants.General.spacing) {
                     Color(ColorConstant.backgroundColor)
                         .ignoresSafeArea()
-                    HorizontalCarrouselView(title: "Favorites", newMovies: [MovieListItem.mock], navigationLinkDestination: AnyView(NewMoviesView()))
+                    HorizontalCarrouselView(title: "Favorites",
+                                            newMovies: [MovieListItem.mock],
+                                            navigationLinkDestination: AnyView(NewMoviesView()))
                 }
                 .padding()
                 .navigationTitle("User")
