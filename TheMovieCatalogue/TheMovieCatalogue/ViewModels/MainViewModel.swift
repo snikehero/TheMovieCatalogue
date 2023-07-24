@@ -12,8 +12,8 @@ import Foundation
     @Published var randomMovie: MovieListItem?
     @Published var movie: Movie?
     @Published var trendingMovies: [Movie] = []
-    @Published var popularMovies : MovieListPage?
-    @Published var nowPlaying : MovieListPage?
+    @Published var popularMovies : [MovieListItem] = []
+    @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
@@ -31,7 +31,7 @@ import Foundation
                                  type: MovieListPage.self) { populars in
             if let populars = populars {
                 DispatchQueue.main.async { [weak self] in
-                    self?.popularMovies = populars
+                    self?.popularMovies = populars.results
                 }
             }
         }
@@ -41,7 +41,7 @@ import Foundation
                                  type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {
                 DispatchQueue.main.async { [weak self] in
-                    self?.nowPlaying = nowPlaying
+                    self?.nowPlaying = nowPlaying.results
                 }
             }
         }
