@@ -8,16 +8,14 @@ import Foundation
 
 @MainActor class MovieDetailsViewModel: ObservableObject {
     @Published var movie: MovieDetails = MovieDetails(id: -1,
-                                         title: "",
-                                         overview: "",
-                                         posterPath: "",
-                                         backdropPath: "",
-                                         runtime: 0,
-                                         releaseDate: "",
-                                         genres: [Genre(id: 0,
-                                                        name: "")
-                                         ]
-    )
+                                                      title: "",
+                                                      overview: "",
+                                                      posterPath: "",
+                                                      backdropPath: "",
+                                                      runtime: 0,
+                                                      releaseDate: "",
+                                                      genres: [Genre(id: 0, name: "")]
+                                        )
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
     func fetchMovie(withId id: Int) {
