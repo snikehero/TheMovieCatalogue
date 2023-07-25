@@ -20,5 +20,4 @@ struct MovieListItem: Identifiable, Codable, Hashable {
         case id = "id"
         case posterPath = "poster_path"
     }
-    static let mock = MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg")
 }
