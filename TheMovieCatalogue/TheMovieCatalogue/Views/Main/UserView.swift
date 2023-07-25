@@ -15,7 +15,7 @@ struct UserView: View {
                     Color(ColorConstant.backgroundColor)
                         .ignoresSafeArea()
                     HorizontalCarrouselView(title: "Favorites",
-                                            newMovies: [MovieListItem.mock],
+                                            newMovies: MainViewModel.moviesMock,
                                             navigationLinkDestination: AnyView(NewMoviesView()))
                 }
                 .padding()
