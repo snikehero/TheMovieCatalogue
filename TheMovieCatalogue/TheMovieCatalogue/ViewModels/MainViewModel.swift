@@ -65,6 +65,11 @@ import Foundation
     }
 }
 extension MainViewModel {
-    static let moviesMock = [MovieListItem.mock, MovieListItem.mock2, MovieListItem.mock3,
-                                    MovieListItem.mock4, MovieListItem.mock5, MovieListItem.mock6, MovieListItem.mock7]
+    static let moviesMock = [MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg"),
+                             MovieListItem(id: 129, posterPath: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg"),
+                             MovieListItem(id: 112, posterPath: "/hOb6ODI7QQFKkOe3eJU2Fdh2fk1.jpg"),
+                             MovieListItem(id: 113, posterPath: "/NNxYkU70HPurnNCSiCjYAmacwm.jpg"),
+                             MovieListItem(id: 114, posterPath: "/8riWcADI1ekEiBguVB9vkilhiQm.jpg"),
+                             MovieListItem(id: 115, posterPath: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"),
+                             MovieListItem(id: 116, posterPath: "/nb9fc9INMg8kQ8L7sE7XTNsZnUX.jpg")]
 }
