@@ -13,7 +13,3 @@ struct Genre: Identifiable, Codable, Hashable {
     
     static var mock = Genre(id: 28, name: "Action")
 }
-
-struct SuperGenre: Codable{
-    let genres: [Genre]
-}
