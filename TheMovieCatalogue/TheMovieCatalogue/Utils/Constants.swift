@@ -58,3 +58,9 @@ enum ColorConstant {
     public static let backgroundColor = "BackgroundColor"
     public static let gradientColor = "GradientColor"
 }
+
+enum GenresButton {
+    public static let genreSpacing = CGFloat(16)
+    public static let buttonColor = "GenreButtons"
+    public static let textColor = "ButtonText"
+}
