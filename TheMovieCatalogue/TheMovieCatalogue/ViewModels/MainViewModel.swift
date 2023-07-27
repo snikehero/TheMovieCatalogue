@@ -14,6 +14,8 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
+    @Published var genres : [Genre] = []
+    
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
     func fetchPopularMovies(withPage page: Int) {
@@ -51,6 +53,16 @@ import Foundation
         if self.randomMovie == nil {
             self.randomMovie = moviesArray.randomElement()
             self.randomMovie?.posterSize = ImageSize.width500
+        }
+    }
+    func fetchGenres() {
+        networkManager.fetchData(endpoint: endpointBuilder.getGenresURL(),
+                                 type: GenreListPage.self) { genreListPage in
+            if let genreListPage = genreListPage {
+                DispatchQueue.main.async { [weak self] in
+                    self?.genres = genreListPage.genres
+                }
+            }
         }
     }
 }

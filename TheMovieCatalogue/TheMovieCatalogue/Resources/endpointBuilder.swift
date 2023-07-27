@@ -57,4 +57,11 @@ class EndpointBuilder {
         ]
         return components.url
     }
+    func getGenresURL() -> URL? {
+        components.path = "/3/genre/movie/list"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: apiKey)
+        ]
+        return components.url
+    }
 }

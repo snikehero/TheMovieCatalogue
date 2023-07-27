@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct Genre: Identifiable, Codable {
+struct Genre: Identifiable, Codable, Hashable {
     let id: Int
     let name: String
+    
     static var mock = Genre(id: 28, name: "Action")
+}
+
+struct SuperGenre: Codable{
+    let genres: [Genre]
 }
