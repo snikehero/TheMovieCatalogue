@@ -9,22 +9,22 @@ import SwiftUI
 
 struct BrowseView: View {
     var body: some View {
-      NavigationStack {
-        ZStack {
-          Color.green
-          Text("Browse View")
-            .toolbar {
-              ToolbarItem(placement: .primaryAction) {
-                NavigationLink {
-                  UserView()
-                } label: {
-                  Image(systemName: "person.fill")
-                }
-                .navigationTitle("Browse")
-              }
+        NavigationStack {
+            ZStack {
+                Color.green
+                Text("Browse View")
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            NavigationLink {
+                                UserView()
+                            } label: {
+                                Image(systemName: "person.fill")
+                            }
+                            .navigationTitle("Browse")
+                        }
+                    }
             }
         }
-      }
     }
 }
 
