@@ -35,6 +35,7 @@ struct GenreButtons: View {
         }
     }
 }
+
 struct MovieListView: View {
     let genre: String
     var body: some View {
