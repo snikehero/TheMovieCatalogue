@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4249DB812A70A524007DF43F /* GenreListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249DB802A70A524007DF43F /* GenreListPage.swift */; };
+		4249DB832A72C3E7007DF43F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249DB822A72C3E7007DF43F /* SearchViewModel.swift */; };
 		4293319F2A55F277008449F3 /* MovieListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293319E2A55F277008449F3 /* MovieListItem.swift */; };
 		4A07E6372A6992FC00A5E58B /* HorizontalCarrouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07E6362A6992FC00A5E58B /* HorizontalCarrouselView.swift */; };
 		4A3696382A5731CB00A216A5 /* CarrouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3696372A5731CB00A216A5 /* CarrouselView.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		4249DB802A70A524007DF43F /* GenreListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListPage.swift; sourceTree = "<group>"; };
+		4249DB822A72C3E7007DF43F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		4293319E2A55F277008449F3 /* MovieListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListItem.swift; sourceTree = "<group>"; };
 		4A07E6362A6992FC00A5E58B /* HorizontalCarrouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCarrouselView.swift; sourceTree = "<group>"; };
 		4A3696372A5731CB00A216A5 /* CarrouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrouselView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				4A6CBC7B2A4CE755006FABBF /* MovieDetailsViewModel.swift */,
 				E6C7BE1F2A4DFADD00AEE831 /* MainViewModel.swift */,
+				4249DB822A72C3E7007DF43F /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				71AFBDCC2A4E227F008A9B36 /* MovieDetailsView.swift in Sources */,
 				4A6CBC782A4CE724006FABBF /* CastMember.swift in Sources */,
 				4A6CBC792A4CE724006FABBF /* MovieDetails.swift in Sources */,
+				4249DB832A72C3E7007DF43F /* SearchViewModel.swift in Sources */,
 				4AE943232A423AF500B199AA /* UserView.swift in Sources */,
 				E66E52362A4F379D00BB1A23 /* Decoder.swift in Sources */,
 				E6C7BE202A4DFADD00AEE831 /* MainViewModel.swift in Sources */,

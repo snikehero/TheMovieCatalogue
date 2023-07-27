@@ -55,16 +55,6 @@ import Foundation
             self.randomMovie?.posterSize = ImageSize.width500
         }
     }
-    func fetchGenres() {
-        networkManager.fetchData(endpoint: endpointBuilder.getGenresURL(),
-                                 type: GenreListPage.self) { genreListPage in
-            if let genreListPage = genreListPage {
-                DispatchQueue.main.async { [weak self] in
-                    self?.genres = genreListPage.genres
-                }
-            }
-        }
-    }
 }
 extension MainViewModel {
     static let moviesMock = [MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg"),
