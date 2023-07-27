@@ -50,6 +50,8 @@ enum ButtonsConstant {
 enum StringConstant {
     public static let mainTittle = "Movie"
     public static let recomendedMovie = "Recomended Movie"
+    public static let browseTitle = "Browse"
+    public static let promptSearch = "Search movie"
 }
 
 enum ColorConstant {
