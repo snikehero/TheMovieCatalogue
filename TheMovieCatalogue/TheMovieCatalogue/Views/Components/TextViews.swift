@@ -35,7 +35,8 @@ struct RecomendedMovie: View {
             mainViewModel.fetchTopRated()
         }
         .frame(maxWidth: .infinity)
-        .background(LinearGradient(colors:[Color(ColorConstant.backgroundColor), Color(ColorConstant.gradientColor)],
+        .background(LinearGradient(colors:[Color(ColorConstant.mainBackgroundColor),
+                                           Color(ColorConstant.gradientColor)],
                                    startPoint: .top, endPoint: .bottom))
     }
 }

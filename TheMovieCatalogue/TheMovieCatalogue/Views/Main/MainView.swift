@@ -12,7 +12,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                Color(ColorConstant.backgroundColor)
+                Color(ColorConstant.mainBackgroundColor)
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()

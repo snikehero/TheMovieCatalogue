@@ -56,6 +56,6 @@ enum StringConstant {
 
 enum ColorConstant {
     public static let movieDetailsBackgroundColor = "MovieDetailsBackgroundColor"
-    public static let backgroundColor = "BackgroundColor"
+    public static let mainBackgroundColor = "BackgroundColor"
     public static let gradientColor = "GradientColor"
 }

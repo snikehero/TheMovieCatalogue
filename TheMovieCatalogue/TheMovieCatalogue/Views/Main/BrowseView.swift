@@ -14,7 +14,7 @@ struct BrowseView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(ColorConstant.backgroundColor)
+                Color(ColorConstant.mainBackgroundColor)
                     .ignoresSafeArea()
                     .toolbar {
                         ToolbarItem(placement: .primaryAction) {
