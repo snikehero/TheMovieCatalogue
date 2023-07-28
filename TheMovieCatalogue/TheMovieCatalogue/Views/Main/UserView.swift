@@ -12,7 +12,7 @@ struct UserView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: Constants.General.spacing) {
-                    Color(ColorConstant.backgroundColor)
+                    Color(ColorConstant.mainBackgroundColor)
                         .ignoresSafeArea()
                     HorizontalCarrouselView(title: "Favorites",
                                             newMovies: MainViewModel.moviesMock,
