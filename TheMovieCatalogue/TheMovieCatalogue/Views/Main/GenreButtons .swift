@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GenreButtons: View {
-   private let movieGenres = ["Acción", "Comedia", "Drama", "Ciencia Ficción", "Aventura", "Thriller"]
+   private let movieGenres = ["Action", "Comedy", "Drama", "Cience Fiction", "Adventure", "Thriller"]
     private let gridColumns = [
         GridItem(.flexible(), spacing: GenresButton.genreSpacing),
         GridItem(.flexible(), spacing: GenresButton.genreSpacing)
@@ -44,7 +44,7 @@ struct MovieListView: View {
 
     var body: some View {
         VStack {
-            Text("Películas de \(genre)")
+            Text("\(genre) Movies")
                 .font(.title)
                 .padding()
         }
