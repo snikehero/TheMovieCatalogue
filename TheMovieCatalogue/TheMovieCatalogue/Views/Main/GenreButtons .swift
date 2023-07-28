@@ -22,10 +22,10 @@ struct GenreButtons: View {
                                         .foregroundColor(Color(GenresButton.textColor))
                                         .bold()
                                 }
-                                .frame(width: 180, height: 95)
+                                .frame(width: GenresButton.genreWidth, height: GenresButton.genreHeight)
                                 .background(Color(GenresButton.buttonColor))
                                 .clipShape(Rectangle())
-                                .cornerRadius(30)
+                                .cornerRadius(GenresButton.genreCorner)
                             }
                       )}
                     }
