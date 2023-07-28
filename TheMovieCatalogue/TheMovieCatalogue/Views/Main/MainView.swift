@@ -7,27 +7,24 @@
 
 import SwiftUI
 
-
 struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
-    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                Color(ColorConstant.backgroundColor)
+                Color(ColorConstant.mainBackgroundColor)
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
-
-                    CarrouselView(newMovies: mainViewModel.nowPlaying?.results ?? [], popularMovies: mainViewModel.popularMovies?.results ?? [])
-                        .onAppear{
+                    CarrouselInMainView()
+                        .environmentObject(mainViewModel)
+                        .onAppear {
                             mainViewModel.fetchPopularMovies(withPage: 1)
                             mainViewModel.fetchNowPlaying(withPage: 1)
                         }
                 }
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing)
-                    {
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink {
                             UserView()
                         } label: {
@@ -35,7 +32,7 @@ struct MainView: View {
                         }
                         .navigationTitle(StringConstant.mainTittle)
                     }
-                    ToolbarItem(placement: .navigationBarLeading){}
+                    ToolbarItem(placement: .navigationBarLeading) {}
                 }
             }
         }

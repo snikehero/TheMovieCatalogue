@@ -34,8 +34,8 @@ final class TheMovieCatalogueTests: XCTestCase {
     }
 
     func testMovieModel() {
-        let mock = Movie.mock
-        let copy = Movie(
+        let mock = MovieDetails.mock
+        let copy = MovieDetails(
             id: mock.id,
             title: mock.title,
             overview: mock.overview,

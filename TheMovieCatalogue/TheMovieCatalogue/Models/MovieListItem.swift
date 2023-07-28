@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct MovieListItem: Identifiable, Codable, Hashable{
+struct MovieListItem: Identifiable, Codable, Hashable {
     let id: Int
     let posterPath: String
-    var poster: String {
-        MovieEndpoint.image(posterPath, "w154").path
+    var posterSize: ImageSize = .width154
+    var posterString: String {
+        let endpointBuilder = EndpointBuilder()
+        return endpointBuilder.getImageURLString(imageSize: posterSize, imagePath: posterPath) ?? ""
     }
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case posterPath = "poster_path"
     }
-    
-    static let mock = MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg")
 }

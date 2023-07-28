@@ -10,12 +10,11 @@ import SwiftUI
 struct PosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showingSheet: Bool = false
-    
     var body: some View {
         Button(action: { showingSheet.toggle() },
                label: {
             AsyncImage(
-                url: URL(string: mainViewModel.randomMovie?.poster ?? "0"),
+                url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
@@ -31,18 +30,17 @@ struct PosterButton: View {
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
         .sheet(isPresented: $showingSheet) {
-            MovieDetailsView()
+            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
         }
     }
 }
 
-struct favoritesButton: View {
-    
+struct FavoritesButton: View {
     var body: some View {
-        Button(action: {
-        }) {
+        Button(action: { },
+               label: {
             Label(ButtonsConstant.addToFavorites, systemImage:"heart")
-        }
+        })
         .frame(width: ButtonsConstant.buttonsWeight, height: ButtonsConstant.favoritesButtonHeigth)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))

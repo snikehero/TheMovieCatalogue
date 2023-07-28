@@ -9,51 +9,57 @@ import Foundation
 
 @MainActor class MainViewModel: ObservableObject {
     @Published var randomPosterImage: String = ""
-    @Published var randomMovie: Movie?
-    @Published var trendingMovies: [Movie] = []
-    @Published var popularMovies : MovieListPage?
-    @Published var nowPlaying : MovieListPage?
+    @Published var randomMovie: MovieListItem?
+    @Published var trendingMovies: [MovieDetails] = []
+    @Published var popularMovies : [MovieListItem] = []
+    @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
-    
-    var networkManager = NetworkManager()
-    
-    func fetchMovie(withId id: Int) {
-        networkManager.fetchData(endpoint: .movie(id), type: Movie.self) { movie in
-            if let movie = movie {
-                DispatchQueue.main.async { [weak self] in
-                    self?.randomMovie = movie
-                }
-            }
-        }
-    }
-    
+    private var networkManager = NetworkManager()
+    private let endpointBuilder = EndpointBuilder()
     func fetchPopularMovies(withPage page: Int) {
-        networkManager.fetchData(endpoint: .popular(page), type: MovieListPage.self) { populars in
+        networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page),
+                                 type: MovieListPage.self) { populars in
             if let populars = populars {
                 DispatchQueue.main.async { [weak self] in
-                    self?.popularMovies = populars
+                    self?.popularMovies = populars.results
                 }
             }
         }
     }
-    
     func fetchNowPlaying(withPage page: Int) {
-        networkManager.fetchData(endpoint: .nowPlaying(page), type: MovieListPage.self) { nowPlaying in
+        networkManager.fetchData(endpoint: endpointBuilder.getNowPlayingURL(page: page),
+                                 type: MovieListPage.self) { nowPlaying in
             if let nowPlaying = nowPlaying {
                 DispatchQueue.main.async { [weak self] in
-                    self?.nowPlaying = nowPlaying
+                    self?.nowPlaying = nowPlaying.results
                 }
             }
         }
     }
-    
-    func fetchTopRated(withPage page: Int) {
-        networkManager.fetchData(endpoint: .topRated(page), type: MovieListPage.self) { topRated in
+    func fetchTopRated() {
+        let randomPage = Int.random(in: 1...5)
+        networkManager.fetchData(endpoint: endpointBuilder.getTopRatedURL(page: randomPage),
+                                 type: MovieListPage.self) { topRated in
             if let topRated = topRated {
                 DispatchQueue.main.async { [weak self] in
-                    self?.topRated = topRated
+                    self?.chooseRandomMovie(from: topRated.results)
                 }
             }
         }
     }
+    func chooseRandomMovie(from moviesArray: [MovieListItem]) {
+        if self.randomMovie == nil {
+            self.randomMovie = moviesArray.randomElement()
+            self.randomMovie?.posterSize = ImageSize.width500
+        }
+    }
+}
+extension MainViewModel {
+    static let moviesMock = [MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg"),
+                             MovieListItem(id: 129, posterPath: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg"),
+                             MovieListItem(id: 112, posterPath: "/hOb6ODI7QQFKkOe3eJU2Fdh2fk1.jpg"),
+                             MovieListItem(id: 113, posterPath: "/NNxYkU70HPurnNCSiCjYAmacwm.jpg"),
+                             MovieListItem(id: 114, posterPath: "/8riWcADI1ekEiBguVB9vkilhiQm.jpg"),
+                             MovieListItem(id: 115, posterPath: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"),
+                             MovieListItem(id: 116, posterPath: "/nb9fc9INMg8kQ8L7sE7XTNsZnUX.jpg")]
 }

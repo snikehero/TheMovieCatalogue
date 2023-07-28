@@ -7,20 +7,18 @@
 
 import SwiftUI
 
-struct CarrouselView: View {
-    let newMovies: [MovieListItem]
-    let popularMovies: [MovieListItem]
-    
+struct CarrouselInMainView: View {
+    @EnvironmentObject var viewModel: MainViewModel
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: Constants.General.spacing) {
                     HorizontalCarrouselView(title: "Now Playing",
-                                            newMovies: newMovies,
+                                            newMovies: viewModel.nowPlaying,
                                             navigationLinkDestination: AnyView(NewMoviesView())
                     )
                     HorizontalCarrouselView(title: "Popular Movies",
-                                            newMovies: popularMovies,
+                                            newMovies: viewModel.popularMovies,
                                             navigationLinkDestination: AnyView(PopularMoviesView())
                     )
                     Spacer()
@@ -31,52 +29,14 @@ struct CarrouselView: View {
     }
 }
 
-private struct HorizontalCarrouselView: View {
-    let title: String
-    let newMovies: [MovieListItem]
-    let navigationLinkDestination: AnyView
-    
-    var body: some View {
-        VStack(alignment: .leading,spacing: Constants.CarrouselImages.spacing) {
-            NavigationLink {
-                navigationLinkDestination
-            } label: {
-                Text(title)
-                    .font(.system(.title2, design: .rounded))
-                    .accentColor(.primary)
-            }
-            ScrollView(.horizontal) {
-                HStack(spacing: Constants.CarrouselImages.spacing) {
-                    ForEach(newMovies.prefix(10)) { movie in
-                        NavigationLink {
-                            EmptyView()
-                        } label: {
-                            AsyncImage(
-                                url: URL(string: movie.poster),
-                                content: { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: Constants.CarrouselImages.width, height: Constants.CarrouselImages.height)
-                                        .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
-                                },
-                                placeholder: {
-                                    ProgressView()
-                                }
-                            )
-                            .frame(width: Constants.CarrouselImages.width,
-                                   height: Constants.CarrouselImages.height)
-                            .scaledToFill()
-                            .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 struct CarrouselView_Previews: PreviewProvider {
   static var previews: some View {
-      CarrouselView(newMovies: [MovieListItem.mock, MovieListItem.mock], popularMovies: [MovieListItem.mock, MovieListItem.mock])
+      let mainViewModel = MainViewModel()
+      CarrouselInMainView()
+          .environmentObject(mainViewModel)
+          .onAppear {
+              mainViewModel.fetchPopularMovies(withPage: 1)
+              mainViewModel.fetchNowPlaying(withPage: 1)
+          }
   }
 }

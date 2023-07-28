@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Movie: Identifiable, Codable, Equatable {
-    
+struct MovieDetails: Identifiable, Codable, Equatable {
     let id: Int
     let title: String
     let overview: String
@@ -16,14 +15,14 @@ struct Movie: Identifiable, Codable, Equatable {
     let backdropPath: String
     let runtime: Int
     let releaseDate: String
-    var poster: String {
-        MovieEndpoint.image(posterPath, "w500").path
+    private let endpointBuilder = EndpointBuilder()
+    var posterString: String {
+        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
-    var backdrop: String {
-        MovieEndpoint.image(backdropPath, "w500").path
+    var backdropString: String {
+        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
     var genres: [Genre]
-    
     enum CodingKeys: String, CodingKey {
         case id
         case title = "original_title"
@@ -34,10 +33,12 @@ struct Movie: Identifiable, Codable, Equatable {
         case releaseDate = "release_date"
         case genres
     }
-    
-    static let mock = Movie(id: 268,
+    static let mock = MovieDetails(id: 268,
                             title: "Batman",
-                            overview: "Batman must face his most ruthless nemesis when a deformed madman calling himself \"The Joker\" seizes control of Gotham's criminal underworld.",
+                            overview: """
+Batman must face his most ruthless nemesis when a deformed madman calling
+himself \"The Joker\" seizes control of Gotham's criminal underworld.
+""",
                             posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg",
                             backdropPath: "/frDS8A5vIP927KYAxTVVKRIbqZw.jpg" ,
                             runtime: 126,
@@ -46,15 +47,15 @@ struct Movie: Identifiable, Codable, Equatable {
     )
 }
 
-extension Movie {
-    //Conform to Equatable protocol for testing
-    static func == (lhs: Movie, rhs: Movie) -> Bool {
+extension MovieDetails {
+    // Conform to Equatable protocol for testing
+    static func == (lhs: MovieDetails, rhs: MovieDetails) -> Bool {
         return (
             lhs.id == rhs.id &&
             lhs.title == rhs.title &&
             lhs.overview == rhs.overview &&
-            lhs.poster == rhs.poster &&
-            lhs.backdrop == rhs.backdrop &&
+            lhs.posterString == rhs.posterString &&
+            lhs.backdropString == rhs.backdropString &&
             lhs.runtime == rhs.runtime &&
             lhs.releaseDate == rhs.releaseDate
         )

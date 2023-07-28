@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct UserView: View {
-  var body: some View {
-    ZStack {
-      Color.blue
-      Text("UserView")
-        .navigationTitle("User")
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: Constants.General.spacing) {
+                    Color(ColorConstant.mainBackgroundColor)
+                        .ignoresSafeArea()
+                    HorizontalCarrouselView(title: "Favorites",
+                                            newMovies: MainViewModel.moviesMock,
+                                            navigationLinkDestination: AnyView(NewMoviesView()))
+                }
+                .padding()
+                .navigationTitle("User")
+            }
+        }
     }
-  }
 }
 
 struct UserView_Previews: PreviewProvider {
