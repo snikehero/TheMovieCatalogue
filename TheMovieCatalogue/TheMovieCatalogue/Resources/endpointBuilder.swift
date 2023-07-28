@@ -52,7 +52,7 @@ class EndpointBuilder {
         return components.url
     }
     func getMovieListBySearch(searchText: String) -> URL? {
-        components.path = "/3/search/movie"
+        components.path = EndpointBuilder.searchMoviePath
         components.queryItems = [
             URLQueryItem(name: "query", value: searchText)
         ]
@@ -68,4 +68,5 @@ extension EndpointBuilder {
     static let moviePath: String = "/3/movie"
     static let genresPath: String = "/3/genre"
     static let movieListPath: String = "/movie/list"
+    static let searchMoviePath: String = "/3/search/movie"
 }
