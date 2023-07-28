@@ -29,8 +29,7 @@ struct GenreButtons: View {
                             }
                       )}
                     }
-                }
-                .padding()
+                }.padding()
             }
         }
     }
