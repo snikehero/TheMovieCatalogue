@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GenreButtons: View {
-   private let movieGenres = ["Action", "Comedy", "Drama", "Cience Fiction", "Adventure", "Thriller"]
+   private let movieGenres = ["Action", "Comedy", "Drama", "Science Fiction", "Adventure", "Thriller"]
     private let gridColumns = [
         GridItem(.flexible(), spacing: GenresButton.genreSpacing),
         GridItem(.flexible(), spacing: GenresButton.genreSpacing)
@@ -19,7 +19,6 @@ struct GenreButtons: View {
             ScrollView {
                 LazyVGrid(columns: gridColumns, spacing: GenresButton.genreSpacing) {
                     ForEach(movieGenres, id: \.self) { genre in
-                        ZStack {
                             NavigationLink(destination: MovieListView(genre: genre), label: {
                                 VStack {
                                     Text(genre)
@@ -31,7 +30,7 @@ struct GenreButtons: View {
                                 .clipShape(Rectangle())
                                 .cornerRadius(GenresButton.genreCorner)
                             }
-                      )}
+                      )
                     }
                 }.padding()
             }
