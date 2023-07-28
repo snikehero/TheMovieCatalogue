@@ -14,7 +14,7 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
-    
+
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
     func fetchPopularMovies(withPage page: Int) {

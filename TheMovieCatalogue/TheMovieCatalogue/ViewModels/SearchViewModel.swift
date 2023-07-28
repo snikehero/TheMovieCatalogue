@@ -8,9 +8,9 @@
 import Foundation
 
 @MainActor class SearchViewModel: ObservableObject {
-    
+
     @Published var genres : [Genre] = []
-    
+
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
     func fetchGenres() {
