@@ -67,5 +67,4 @@ enum GenresButton {
     public static let genreCorner = CGFloat(30)
     public static let genreWidth =  CGFloat(180)
     public static let genreHeight = CGFloat(95)
-    
 }
