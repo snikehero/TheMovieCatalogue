@@ -22,11 +22,11 @@ struct GenreButtons: View {
                             NavigationLink(destination: MovieListView(genre: genre), label: {
                                 VStack {
                                     Text(genre)
-                                        .foregroundColor(GenresButton.textColorGenre)
+                                        .foregroundColor(GenresButton.genreTextColor)
                                         .bold()
                                 }
                                 .frame(width: GenresButton.genreWidth, height: GenresButton.genreHeight)
-                                .background(GenresButton.buttonColorGenre)
+                                .background(GenresButton.genreButtonColor)
                                 .clipShape(Rectangle())
                                 .cornerRadius(GenresButton.genreCorner)
                             }
