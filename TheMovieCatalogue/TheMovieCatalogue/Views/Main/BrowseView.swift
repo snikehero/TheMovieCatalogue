@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BrowseView: View {
-    @State private var searchTerm = ""
+    @State private var searchTerm: String = ""
     @State private var showingFullScreenCover = false
+    @StateObject private var searchViewModel = SearchViewModel()
 
     var body: some View {
         NavigationStack {
@@ -30,11 +31,15 @@ struct BrowseView: View {
         }
         .searchable(text: $searchTerm, prompt: StringConstant.promptSearch)
         .onSubmit(of: .search) {
-            showingFullScreenCover.toggle()
+            let cleanSearchTerm = searchTerm.trimmingCharacters(in: .whitespacesAndNewlines)
+            if cleanSearchTerm != "" {
+                searchViewModel.fetchSearchList(search: cleanSearchTerm)
+                showingFullScreenCover.toggle()
+            }
         }
         .fullScreenCover(isPresented: $showingFullScreenCover) {
             ModularMovieListView(generalMovieName: searchTerm,
-                           moviesForFill: MainViewModel.moviesMock,
+                                 moviesForFill: searchViewModel.searchResults,
                            navigationLinkDestintion: AnyView(EmptyView()))
         }
     }

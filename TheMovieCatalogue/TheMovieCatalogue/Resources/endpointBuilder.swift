@@ -19,28 +19,23 @@ class EndpointBuilder {
         self.components = components
         self.components.scheme = "https"
         self.components.host = "api.themoviedb.org"
-        self.components.path = "/3/movie/"
+        self.components.path = EndpointBuilder.moviePath
     }
     func getMovieURL(id: Int) -> URL? {
-        components.path = "/3/movie/\(id)"
-        components.queryItems = [
-            URLQueryItem(name: "api_key", value: apiKey)
-        ]
+        components.path = EndpointBuilder.moviePath + "/" + String(id)
         return self.components.url
     }
     func getPopularURL(page: Int) -> URL? {
-        components.path = "/3/movie/popular"
+        components.path = EndpointBuilder.moviePath + "/popular"
         components.queryItems = [
-            URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: apiKey)
+            URLQueryItem(name: "page", value: "\(page)")
         ]
         return components.url
     }
     func getNowPlayingURL(page: Int) -> URL? {
-        components.path = "/3/movie/now_playing"
+        components.path = EndpointBuilder.moviePath + "/now_playing"
         components.queryItems = [
-            URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: apiKey)
+            URLQueryItem(name: "page", value: "\(page)")
         ]
         return components.url
     }
@@ -50,11 +45,28 @@ class EndpointBuilder {
         return components.string
     }
     func getTopRatedURL(page: Int) -> URL? {
-        components.path = "/3/movie/top_rated"
+        components.path = EndpointBuilder.moviePath + "/top_rated"
         components.queryItems = [
-            URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "api_key", value: apiKey)
+            URLQueryItem(name: "page", value: "\(page)")
         ]
         return components.url
     }
+    func getMovieListBySearch(searchText: String) -> URL? {
+        components.path = EndpointBuilder.searchMoviePath
+        components.queryItems = [
+            URLQueryItem(name: "query", value: searchText)
+        ]
+        return components.url
+    }
+    func getGenresURL() -> URL? {
+        components.path = EndpointBuilder.genresPath + EndpointBuilder.movieListPath
+        return components.url
+    }
+}
+
+extension EndpointBuilder {
+    static let moviePath: String = "/3/movie"
+    static let genresPath: String = "/3/genre"
+    static let movieListPath: String = "/movie/list"
+    static let searchMoviePath: String = "/3/search/movie"
 }
