@@ -31,8 +31,11 @@ struct BrowseView: View {
         }
         .searchable(text: $searchTerm, prompt: StringConstant.promptSearch)
         .onSubmit(of: .search) {
-            searchViewModel.fetchSearchList(search: searchTerm)
-            showingFullScreenCover.toggle()
+            let cleanSearchTerm = searchTerm.trimmingCharacters(in: .whitespacesAndNewlines)
+            if cleanSearchTerm != "" {
+                searchViewModel.fetchSearchList(search: cleanSearchTerm)
+                showingFullScreenCover.toggle()
+            }
         }
         .fullScreenCover(isPresented: $showingFullScreenCover) {
             ModularMovieListView(generalMovieName: searchTerm,
