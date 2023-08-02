@@ -18,7 +18,7 @@ struct ModularMovieListView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text(title)
+                SectionTitle(text: title)
                 VStack {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(moviesForFill) { fill in
