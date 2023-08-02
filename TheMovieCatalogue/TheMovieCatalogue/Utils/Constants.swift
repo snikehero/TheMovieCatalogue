@@ -76,7 +76,7 @@ enum NoNetwork {
     public static let noNetworkLeading = CGFloat(20)
     public static let noNetworkBottomPading = CGFloat(250)
     public static let noNetworkTrailing = CGFloat(20)
-    public static let noNetworkImage = Image("wifi.slash")
+    public static let noNetworkString = "wifi.slash"
     public static let networkImageSystemSyze = CGFloat(40)
     public static let DescriptionNoNetworkImage = Image("NetworkImage")
 }

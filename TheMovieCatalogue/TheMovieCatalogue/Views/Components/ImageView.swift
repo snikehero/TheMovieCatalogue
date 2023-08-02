@@ -32,7 +32,7 @@ struct MovieImage: View {
 }
 struct NoNetworkImage: View {
     var body: some View {
-        NoNetwork.noNetworkImage
+        Image(systemName: NoNetwork.noNetworkString)
             .foregroundColor(Color(.black))
             .font(.system(size: NoNetwork.networkImageSystemSyze))
             .padding()
