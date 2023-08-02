@@ -12,12 +12,36 @@ struct ModularMovieListView: View {
     let generalMovieName: String
     let moviesForFill: [MovieListItem]
     let navigationLinkDestintion: AnyView
+    let columns = [
+        GridItem(.adaptive(minimum: 140))
+    ]
     var body: some View {
         NavigationStack {
-            VStack {
-                HorizontalCarrouselView(title: generalMovieName,
-                                        newMovies: moviesForFill,
-                                        navigationLinkDestination: navigationLinkDestintion)
+            ScrollView {
+                VStack {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(moviesForFill) { fill in
+                            AsyncImage(
+                                url: URL(string: fill.posterString),
+                                content: { image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: Constants.CarrouselImages.width,
+                                               height: Constants.CarrouselImages.height)
+                                        .clipShape(RoundedRectangle(cornerRadius:
+                                                                        Constants.CarrouselImages.cornerRadius))
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                }
+                            )
+                            .frame(width: Constants.CarrouselImages.width,
+                                   height: Constants.CarrouselImages.height)
+                            .scaledToFill()
+                            .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
+                        }
+                    }
+                }
             }
             Spacer()
             .toolbar {
