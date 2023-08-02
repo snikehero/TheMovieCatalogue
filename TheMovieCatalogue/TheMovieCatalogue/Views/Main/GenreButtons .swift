@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct GenreButtons: View {
-   private let movieGenres = ["Action", "Comedy", "Drama", "Science Fiction", "Adventure", "Thriller"]
+    @ObservedObject var searchViewModel: SearchViewModel
+
     private let gridColumns = [
         GridItem(.flexible(), spacing: GenresButton.genreSpacing),
         GridItem(.flexible(), spacing: GenresButton.genreSpacing)
@@ -18,10 +19,10 @@ struct GenreButtons: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: gridColumns, spacing: GenresButton.genreSpacing) {
-                    ForEach(movieGenres, id: \.self) { genre in
-                            NavigationLink(destination: MovieListView(genre: genre), label: {
+                    ForEach(searchViewModel.genres, id: \.self) { genre in
+                        NavigationLink(destination: MovieListView(genre: genre.name), label: {
                                 VStack {
-                                    Text(genre)
+                                    Text(genre.name)
                                         .foregroundColor(GenresButton.genreTextColor)
                                         .bold()
                                 }
@@ -33,6 +34,9 @@ struct GenreButtons: View {
                       )
                     }
                 }.padding()
+            }
+            .onAppear {
+                searchViewModel.fetchGenres()
             }
         }
     }
@@ -53,6 +57,6 @@ struct MovieListView: View {
 
 struct GenreButtonsPreviews: PreviewProvider {
     static var previews: some View {
-        GenreButtons()
+        GenreButtons(searchViewModel: SearchViewModel.init())
     }
 }
