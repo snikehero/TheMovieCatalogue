@@ -18,14 +18,14 @@ struct CarrouselInMainView: View {
                                             navigationLinkDestination:
                                                 AnyView(ModularMovieListView(title: "Now Playing",
                                                                              moviesForFill: viewModel.nowPlaying,
-                                                                             showBackButton: false))
+                                                                             showBackButtonState: false))
                     )
                     HorizontalCarrouselView(title: "Popular Movies",
                                             newMovies: viewModel.popularMovies,
                                             navigationLinkDestination:
                                                 AnyView(ModularMovieListView(title: "Popular Movies",
                                                                              moviesForFill: viewModel.popularMovies,
-                                                                             showBackButton: false))
+                                                                             showBackButtonState: false))
                     )
                     Spacer()
                 }

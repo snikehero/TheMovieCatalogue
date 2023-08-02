@@ -14,7 +14,7 @@ struct ModularMovieListView: View {
     let columns = [
         GridItem(.adaptive(minimum: 100))
     ]
-    let showBackButton: Bool
+    let showBackButtonState: Bool
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -46,7 +46,7 @@ struct ModularMovieListView: View {
             }
             Spacer()
                 .toolbar {
-                    if(showBackButton) {
+                    if(showBackButtonState) {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button {
                                 dismiss()
@@ -64,7 +64,7 @@ struct ModularMovieListView: View {
 struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
         ModularMovieListView(title: "Mock",
-                             moviesForFill: MainViewModel.moviesMock, showBackButton: true
+                             moviesForFill: MainViewModel.moviesMock, showBackButtonState: true
                              )
     }
 }
