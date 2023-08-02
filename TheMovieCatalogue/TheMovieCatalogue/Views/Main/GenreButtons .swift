@@ -19,7 +19,7 @@ struct GenreButtons: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: gridColumns, spacing: GenresButton.genreSpacing) {
-                    ForEach(searchViewModel.genres, id: \.self) { genre in
+                    ForEach(searchViewModel.genres) { genre in
                         NavigationLink(destination: MovieListView(genre: genre.name), label: {
                                 VStack {
                                     Text(genre.name)
