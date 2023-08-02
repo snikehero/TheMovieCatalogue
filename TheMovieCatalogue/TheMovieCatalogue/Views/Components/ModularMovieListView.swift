@@ -9,15 +9,16 @@ import SwiftUI
 
 struct ModularMovieListView: View {
     @Environment(\.dismiss) var dismiss
-    let generalMovieName: String
+    let title: String
     let moviesForFill: [MovieListItem]
-    let navigationLinkDestintion: AnyView
     let columns = [
-        GridItem(.adaptive(minimum: 140))
+        GridItem(.adaptive(minimum: 100))
     ]
+    let showBackButton: Bool
     var body: some View {
         NavigationStack {
             ScrollView {
+                Text(title)
                 VStack {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(moviesForFill) { fill in
@@ -44,24 +45,26 @@ struct ModularMovieListView: View {
                 }
             }
             Spacer()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.backward")
-                        Text(StringConstant.browseTitle)
+                .toolbar {
+                    if(showBackButton) {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "chevron.backward")
+                                Text(StringConstant.browseTitle)
+                            }
+                        }
                     }
                 }
-            }
         }
     }
 }
 
 struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        ModularMovieListView(generalMovieName: "General",
-                             moviesForFill: MainViewModel.moviesMock,
-                             navigationLinkDestintion: AnyView(EmptyView()))
+        ModularMovieListView(title: "Mock",
+                             moviesForFill: MainViewModel.moviesMock, showBackButton: true
+                             )
     }
 }
