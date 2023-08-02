@@ -10,6 +10,7 @@ import Foundation
 enum ImageSize: String {
     case width154 = "w154"
     case width500 = "w500"
+    case original = "original"
 }
 
 class EndpointBuilder {
