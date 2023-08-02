@@ -27,6 +27,7 @@ struct BrowseView: View {
                             .navigationTitle(StringConstant.browseTitle)
                         }
                     }
+                GenreButtons()
             }
         }
         .searchable(text: $searchTerm, prompt: StringConstant.promptSearch)
