@@ -15,11 +15,17 @@ struct CarrouselInMainView: View {
                 VStack(spacing: Constants.General.spacing) {
                     HorizontalCarrouselView(title: "Now Playing",
                                             newMovies: viewModel.nowPlaying,
-                                            navigationLinkDestination: AnyView(NewMoviesView())
+                                            navigationLinkDestination:
+                                                AnyView(ModularMovieListView(title: "Now Playing",
+                                                                             moviesForFill: viewModel.nowPlaying,
+                                                                             showBackButton: false))
                     )
                     HorizontalCarrouselView(title: "Popular Movies",
                                             newMovies: viewModel.popularMovies,
-                                            navigationLinkDestination: AnyView(PopularMoviesView())
+                                            navigationLinkDestination:
+                                                AnyView(ModularMovieListView(title: "Popular Movies",
+                                                                             moviesForFill: viewModel.popularMovies,
+                                                                             showBackButton: false))
                     )
                     Spacer()
                 }
@@ -30,13 +36,13 @@ struct CarrouselInMainView: View {
 }
 
 struct CarrouselView_Previews: PreviewProvider {
-  static var previews: some View {
-      let mainViewModel = MainViewModel()
-      CarrouselInMainView()
-          .environmentObject(mainViewModel)
-          .onAppear {
-              mainViewModel.fetchPopularMovies(withPage: 1)
-              mainViewModel.fetchNowPlaying(withPage: 1)
-          }
-  }
+    static var previews: some View {
+        let mainViewModel = MainViewModel()
+        CarrouselInMainView()
+            .environmentObject(mainViewModel)
+            .onAppear {
+                mainViewModel.fetchPopularMovies(withPage: 1)
+                mainViewModel.fetchNowPlaying(withPage: 1)
+            }
+    }
 }
