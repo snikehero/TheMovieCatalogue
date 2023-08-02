@@ -62,6 +62,15 @@ class EndpointBuilder {
         components.path = EndpointBuilder.genresPath + EndpointBuilder.movieListPath
         return components.url
     }
+    func getMoviesByGenre(genre: String, page: Int) -> URL? {
+        //https://api.themoviedb.org/3/discover/movie?api_key=aded2171cae8dca24a5d19455224f699&with_genres=28&page=2
+        components.path = EndpointBuilder.discoverPath
+        components.queryItems = [
+            URLQueryItem(name: "page", value: "\(page)"),
+            URLQueryItem(name: "with_genres", value: "\(genre)")
+        ]
+        return components.url
+    }
 }
 
 extension EndpointBuilder {
@@ -69,4 +78,5 @@ extension EndpointBuilder {
     static let genresPath: String = "/3/genre"
     static let movieListPath: String = "/movie/list"
     static let searchMoviePath: String = "/3/search/movie"
+    static let discoverPath: String = "/3/discover/movie"
 }
