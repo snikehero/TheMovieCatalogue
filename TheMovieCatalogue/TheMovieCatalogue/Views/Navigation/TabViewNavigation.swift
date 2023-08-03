@@ -15,11 +15,13 @@ struct TabViewNavigation: View {
             if networkMonitor.isConnected {
                 MainView()
                     .tabItem {
-                        Label(TabViewConstants.moviesLabelDescription, systemImage:  TabViewConstants.movieLabelString)
+                        Label(TabViewConstants.moviesLabelDescription,
+                              systemImage:  TabViewConstants.filmStackMovieIconName)
                     }
                 BrowseView()
                     .tabItem {
-                        Label(TabViewConstants.browseLabelDescription, systemImage: TabViewConstants.browseLabelString)
+                        Label(TabViewConstants.browseLabelDescription,
+                              systemImage: TabViewConstants.movieSearchIconName)
                     }
             } else {
                 NoNetworkView()
@@ -30,6 +32,6 @@ struct TabViewNavigation: View {
 }
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        TabViewNavigation().environmentObject(NetworkMonitor.init(isConnected: false))
+        TabViewNavigation().environmentObject(NetworkMonitor.init(isConnected: true))
     }
 }
