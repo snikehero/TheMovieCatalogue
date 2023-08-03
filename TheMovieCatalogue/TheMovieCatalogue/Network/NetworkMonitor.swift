@@ -25,10 +25,10 @@ class NetworkMonitor: ObservableObject {
             monitor: .init(),
             queue: .init(label: NetworkMonitorConstants.networkMonitor)
         )
-        self.begginChecking()
+        self.beginChecking()
     }
 
-    private func begginChecking() {
+    private func beginChecking() {
         debugPrint(NetworkMonitorConstants.networkMonitor, #function)
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
