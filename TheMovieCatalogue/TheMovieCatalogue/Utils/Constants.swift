@@ -90,6 +90,6 @@ enum NetworkMonitorConstants {
 enum TabViewConstants {
     public static let moviesLabelDescription = "Movies"
     public static let browseLabelDescription = "Browse"
-    public static let movieLabelString = "film.stack"
-    public static let browseLabelString = "magnifyingglass"
+    public static let filmStackMovieIconName = "film.stack"
+    public static let movieSearchIconName = "magnifyingglass"
 }
