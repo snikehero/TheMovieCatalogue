@@ -24,7 +24,7 @@ struct HorizontalCarrouselView: View {
                 HStack(spacing: Constants.CarrouselImages.spacing) {
                     ForEach(newMovies.prefix(10)) { movie in
                         NavigationLink {
-                            EmptyView()
+                            MovieDetailsView(movieId: movie.id)
                         } label: {
                             AsyncImage(
                                 url: URL(string: movie.posterString),
