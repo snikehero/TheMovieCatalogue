@@ -64,7 +64,6 @@ class EndpointBuilder {
         return components.url
     }
     func getMoviesByGenre(genre: String, page: Int) -> URL? {
-        //https://api.themoviedb.org/3/discover/movie?api_key=aded2171cae8dca24a5d19455224f699&with_genres=28&page=2
         components.path = EndpointBuilder.discoverPath
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),

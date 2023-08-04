@@ -38,7 +38,7 @@ import Foundation
 
     func fetchByGenre(genre: String, page: Int){
         networkManager.fetchData(endpoint: endpointBuilder.getMoviesByGenre(genre: genre, page: page), type: MovieListPage.self) { found in
-            if let found = found{
+            if let found = found {
                 DispatchQueue.main.async { [weak self] in
                     self?.byGenre = found.results
                 }
