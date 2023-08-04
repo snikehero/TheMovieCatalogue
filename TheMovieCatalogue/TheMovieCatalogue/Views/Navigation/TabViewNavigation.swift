@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct TabViewNavigation: View {
-  var body: some View {
-    TabView {
-      MainView()
-        .tabItem {
-          Label("Movies",systemImage: "film.stack")
-        }
+    @EnvironmentObject var networkMonitor: NetworkMonitor
 
-      BrowseView()
-        .tabItem {
-          Label("Browse",systemImage: "magnifyingglass")
+    var body: some View {
+        TabView {
+            if networkMonitor.isConnected {
+                MainView()
+                    .tabItem {
+                        Label(TabViewConstants.moviesLabelDescription,
+                              systemImage:  TabViewConstants.filmStackMovieIconName)
+                    }
+                BrowseView()
+                    .tabItem {
+                        Label(TabViewConstants.browseLabelDescription,
+                              systemImage: TabViewConstants.movieSearchIconName)
+                    }
+            } else {
+                NoNetworkView()
+            }
         }
+        .tabViewStyle(.automatic)
     }
-    .tabViewStyle(.automatic)
-  }
 }
 struct TabView_Previews: PreviewProvider {
-  static var previews: some View {
-    TabViewNavigation()
-  }
+    static var previews: some View {
+        TabViewNavigation().environmentObject(NetworkMonitor.init(isConnected: true))
+    }
 }

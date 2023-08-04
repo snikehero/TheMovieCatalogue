@@ -68,3 +68,28 @@ enum GenresButton {
     public static let genreWidth =  CGFloat(180)
     public static let genreHeight = CGFloat(95)
 }
+
+enum NoNetwork {
+    public static let noNetworkTitle = "Movies not available"
+    public static let noNetworkDescription = "The Movie Catalog app has no internet conection."
+    public static let noNetworkTopPading = CGFloat(150)
+    public static let noNetworkLeading = CGFloat(20)
+    public static let noNetworkBottomPading = CGFloat(250)
+    public static let noNetworkTrailing = CGFloat(20)
+    public static let noNetworkString = "wifi.slash"
+    public static let networkImageSystemSyze = CGFloat(40)
+    public static let DescriptionNoNetworkImage = Image("NetworkImage")
+}
+
+enum NetworkMonitorConstants {
+    public static let networkMonitor = "NetworkMonitor"
+    public static let networkMonitorMock = "MockNetworkMonitor"
+    public static let networkMonitorStatus = "NetworkMonitor status:"
+}
+
+enum TabViewConstants {
+    public static let moviesLabelDescription = "Movies"
+    public static let browseLabelDescription = "Browse"
+    public static let filmStackMovieIconName = "film.stack"
+    public static let movieSearchIconName = "magnifyingglass"
+}
