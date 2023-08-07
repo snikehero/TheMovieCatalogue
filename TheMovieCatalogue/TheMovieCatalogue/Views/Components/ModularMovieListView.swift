@@ -22,6 +22,10 @@ struct ModularMovieListView: View {
                 VStack {
                     LazyVGrid(columns: columns, spacing: ModularMovie.gridSpacing) {
                         ForEach(moviesForFill) { fill in
+                            NavigationLink {
+                                MovieDetailsView(movieId: fill.id)
+                            }
+                        label: {
                             AsyncImage(
                                 url: URL(string: fill.posterString),
                                 content: { image in
@@ -40,6 +44,7 @@ struct ModularMovieListView: View {
                                    height: Constants.CarrouselImages.height)
                             .scaledToFill()
                             .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
+                        }
                         }
                     }
                 }
@@ -65,6 +70,6 @@ struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
         ModularMovieListView(title: "Mock",
                              moviesForFill: MainViewModel.moviesMock, showBackButtonState: true
-                             )
+        )
     }
 }
