@@ -52,6 +52,8 @@ enum StringConstant {
     public static let recomendedMovie = "Recomended Movie"
     public static let browseTitle = "Browse"
     public static let promptSearch = "Search movie"
+    public static let nowPlayingTitle = "Now Playing"
+    public static let popularTitle = "Popular Movies"
 }
 
 enum ColorConstant {

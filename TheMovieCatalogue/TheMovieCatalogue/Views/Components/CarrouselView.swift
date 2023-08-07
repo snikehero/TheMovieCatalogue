@@ -13,17 +13,17 @@ struct CarrouselInMainView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: Constants.General.spacing) {
-                    HorizontalCarrouselView(title: "Now Playing",
+                    HorizontalCarrouselView(title: StringConstant.nowPlayingTitle,
                                             newMovies: viewModel.nowPlaying,
                                             navigationLinkDestination:
-                                                AnyView(ModularMovieListView(title: "Now Playing",
+                                                AnyView(ModularMovieListView(title: StringConstant.nowPlayingTitle,
                                                                              moviesForFill: viewModel.nowPlaying,
                                                                              showBackButtonState: false))
                     )
-                    HorizontalCarrouselView(title: "Popular Movies",
+                    HorizontalCarrouselView(title: StringConstant.popularTitle,
                                             newMovies: viewModel.popularMovies,
                                             navigationLinkDestination:
-                                                AnyView(ModularMovieListView(title: "Popular Movies",
+                                                AnyView(ModularMovieListView(title: StringConstant.popularTitle,
                                                                              moviesForFill: viewModel.popularMovies,
                                                                              showBackButtonState: false))
                     )
