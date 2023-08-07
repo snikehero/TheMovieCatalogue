@@ -10,6 +10,7 @@ import Foundation
 enum ImageSize: String {
     case width154 = "w154"
     case width500 = "w500"
+    case original = "original"
 }
 
 class EndpointBuilder {
@@ -62,6 +63,14 @@ class EndpointBuilder {
         components.path = EndpointBuilder.genresPath + EndpointBuilder.movieListPath
         return components.url
     }
+    func getMoviesByGenre(genre: String, page: Int) -> URL? {
+        components.path = EndpointBuilder.discoverPath
+        components.queryItems = [
+            URLQueryItem(name: "page", value: "\(page)"),
+            URLQueryItem(name: "with_genres", value: "\(genre)")
+        ]
+        return components.url
+    }
 }
 
 extension EndpointBuilder {
@@ -69,4 +78,5 @@ extension EndpointBuilder {
     static let genresPath: String = "/3/genre"
     static let movieListPath: String = "/movie/list"
     static let searchMoviePath: String = "/3/search/movie"
+    static let discoverPath: String = "/3/discover/movie"
 }

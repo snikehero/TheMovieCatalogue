@@ -30,7 +30,22 @@ struct MovieImage: View {
         }
     }
 }
-
+struct NoNetworkImage: View {
+    var body: some View {
+        Image(systemName: NoNetwork.noNetworkString)
+            .foregroundColor(Color(.black))
+            .font(.system(size: NoNetwork.networkImageSystemSyze))
+            .padding()
+    }
+}
+struct DescriptionNoNetworkImage: View {
+    var body: some View {
+        Image("NoNetworkImage")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .clipShape(Circle())
+    }
+}
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         Text("Image View")

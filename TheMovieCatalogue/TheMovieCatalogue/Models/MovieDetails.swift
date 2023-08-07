@@ -20,7 +20,7 @@ struct MovieDetails: Identifiable, Codable, Equatable {
         return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
     var backdropString: String {
-        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
+        return endpointBuilder.getImageURLString(imageSize: .original, imagePath: backdropPath) ?? ""
     }
     var genres: [Genre]
     enum CodingKeys: String, CodingKey {

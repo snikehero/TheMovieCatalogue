@@ -16,7 +16,23 @@ struct MovieText: View {
             .background(Color(ColorConstant.movieDetailsBackgroundColor))
     }
 }
-
+struct NoNetworkDescription: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(.body)
+            .fontDesign(.default)
+    }
+}
+struct NoNetworkTitle: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(.title)
+            .bold()
+            .padding()
+    }
+}
 struct RecomendedMovie: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     var body: some View {
