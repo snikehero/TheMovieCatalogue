@@ -31,10 +31,6 @@ struct ModularMovieListView: View {
                                 content: { image in
                                     image.resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: Constants.CarrouselImages.width,
-                                               height: Constants.CarrouselImages.height)
-                                        .clipShape(RoundedRectangle(cornerRadius:
-                                                                        Constants.CarrouselImages.cornerRadius))
                                 },
                                 placeholder: {
                                     ProgressView()
