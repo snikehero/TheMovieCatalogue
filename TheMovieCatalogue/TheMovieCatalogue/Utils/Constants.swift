@@ -68,3 +68,9 @@ enum GenresButton {
     public static let genreWidth =  CGFloat(180)
     public static let genreHeight = CGFloat(95)
 }
+
+enum ModularMovie {
+    public static let gridSpacing = CGFloat(10)
+    public static let gridItemMin = CGFloat(100)
+    public static let customBackButtonLabel = "chevron.backward"
+}

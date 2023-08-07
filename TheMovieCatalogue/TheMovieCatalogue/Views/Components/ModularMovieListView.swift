@@ -12,7 +12,7 @@ struct ModularMovieListView: View {
     let title: String
     let moviesForFill: [MovieListItem]
     let columns = [
-        GridItem(.adaptive(minimum: 100))
+        GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
     ]
     let showBackButtonState: Bool
     var body: some View {
@@ -20,7 +20,7 @@ struct ModularMovieListView: View {
             ScrollView {
                 SectionTitle(text: title)
                 VStack {
-                    LazyVGrid(columns: columns, spacing: 20) {
+                    LazyVGrid(columns: columns, spacing: ModularMovie.gridSpacing) {
                         ForEach(moviesForFill) { fill in
                             AsyncImage(
                                 url: URL(string: fill.posterString),
@@ -51,7 +51,7 @@ struct ModularMovieListView: View {
                             Button {
                                 dismiss()
                             } label: {
-                                Image(systemName: "chevron.backward")
+                                Image(systemName: ModularMovie.customBackButtonLabel)
                                 Text(StringConstant.browseTitle)
                             }
                         }
