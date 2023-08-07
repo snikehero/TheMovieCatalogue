@@ -81,6 +81,18 @@ struct MovieTitle: View {
             .lineLimit(ConstantText.lineLimitTitle)
     }
 }
+struct SectionTitle: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(.title)
+            .bold()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.init(top: ConstantText.zeroText, leading: ConstantText.leadingText,
+                           bottom: ConstantText.zeroText, trailing: ConstantText.trailingText))
+            .lineLimit(ConstantText.lineLimitTitle)
+    }
+}
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
