@@ -12,7 +12,7 @@ struct MainViewLandscape_: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @ObservedObject var mainViewModel : MainViewModel
     var isLandscape: Bool {
-    verticalSizeClass == .compact
+        verticalSizeClass == .compact
     }
     var body: some View {
         NavigationStack {
@@ -22,26 +22,26 @@ struct MainViewLandscape_: View {
                                    leading: LandscapeConstant.landscapeRecomendedLeadingPading,
                                    bottom: LandscapeConstant.landscapeRecomendedBottomPading,
                                    trailing: LandscapeConstant.landscapeRecomendedTrailingPading))
-                    CarrouselInMainView()
+                CarrouselInMainView()
                     .padding(.init(top: LandscapeConstant.landscapeRecomendedLeadingPading,
                                    leading: LandscapeConstant.landscapeCarrouselLeadingPading,
                                    bottom: LandscapeConstant.landscapeCarrouselBottomPading,
                                    trailing: LandscapeConstant.landscapeCarrouselTrailingPading))
-                            .environmentObject(mainViewModel)
-                            .onAppear {
-                                mainViewModel.fetchPopularMovies(withPage: 1)
-                                mainViewModel.fetchNowPlaying(withPage: 1)
-                        }
-                            .toolbar {
-                                ToolbarItem(placement: .navigationBarTrailing) {
-                                    NavigationLink {
-                                        UserView()
-                                    } label: {
-                                        Image(systemName: "person.fill")
-                                    }
-                                }
-                                ToolbarItem(placement: .navigationBarLeading) {}
+                    .environmentObject(mainViewModel)
+                    .onAppear {
+                        mainViewModel.fetchPopularMovies(withPage: 1)
+                        mainViewModel.fetchNowPlaying(withPage: 1)
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink {
+                                UserView()
+                            } label: {
+                                Image(systemName: "person.fill")
                             }
+                        }
+                        ToolbarItem(placement: .navigationBarLeading) {}
+                    }
             }
             .environmentObject(mainViewModel)
         }

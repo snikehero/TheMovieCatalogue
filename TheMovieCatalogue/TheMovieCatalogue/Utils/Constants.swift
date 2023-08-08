@@ -110,4 +110,6 @@ public static let landscapeRecomendedTopPading = CGFloat(120)
     public static let landscapeCarrouselTopPading = CGFloat(1)
     public static let landscapeCarrouselBottomPading = CGFloat(1)
     public static let landscapeCarrouselTrailingPading = CGFloat(1)
+    public static let LandcapePosterButtonWidth = CGFloat(200)
+    public static let LandcapePosterButtonHeight = CGFloat(300)
 }

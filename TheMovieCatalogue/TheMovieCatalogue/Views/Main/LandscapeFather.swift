@@ -18,8 +18,8 @@ struct LandscapeFather: View {
                 MainView(mainViewModel: mainViewModel)
             }
         }
-        }
     }
+}
 struct LandscapeFather_Previews: PreviewProvider {
     static var previews: some View {
         LandscapeFather(mainViewModel: MainViewModel())

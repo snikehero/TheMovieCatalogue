@@ -45,14 +45,13 @@ struct LandscapePosterButton: View {
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 300)
-                        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
                 },
                 placeholder: {
                     ProgressView()
                 }
             )
-            .frame(width: 200, height: 300)
+            .frame(width: LandscapeConstant.LandcapePosterButtonWidth,
+                   height: LandscapeConstant.LandcapePosterButtonHeight)
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
@@ -76,6 +75,6 @@ struct FavoritesButton: View {
 
 struct ButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-      Text("ButtondView")
+        Text("ButtondView")
     }
 }
