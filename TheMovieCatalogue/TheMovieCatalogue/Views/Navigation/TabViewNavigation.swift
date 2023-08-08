@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TabViewNavigation: View {
     @EnvironmentObject var networkMonitor: NetworkMonitor
-
+    @StateObject var mainViewModel = MainViewModel()
     var body: some View {
         TabView {
             if networkMonitor.isConnected {
-                MainView()
+                LandscapeFather(mainViewModel: mainViewModel)
                     .tabItem {
                         Label(TabViewConstants.moviesLabelDescription,
                               systemImage:  TabViewConstants.filmStackMovieIconName)
