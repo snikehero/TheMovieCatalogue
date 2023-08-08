@@ -13,13 +13,19 @@ struct CarrouselInMainView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: Constants.General.spacing) {
-                    HorizontalCarrouselView(title: "Now Playing",
+                    HorizontalCarrouselView(title: StringConstant.nowPlayingTitle,
                                             newMovies: viewModel.nowPlaying,
-                                            navigationLinkDestination: AnyView(NewMoviesView())
+                                            navigationLinkDestination:
+                                                AnyView(ModularMovieListView(title: StringConstant.nowPlayingTitle,
+                                                                             moviesForFill: viewModel.nowPlaying,
+                                                                             showBackButtonState: false))
                     )
-                    HorizontalCarrouselView(title: "Popular Movies",
+                    HorizontalCarrouselView(title: StringConstant.popularTitle,
                                             newMovies: viewModel.popularMovies,
-                                            navigationLinkDestination: AnyView(PopularMoviesView())
+                                            navigationLinkDestination:
+                                                AnyView(ModularMovieListView(title: StringConstant.popularTitle,
+                                                                             moviesForFill: viewModel.popularMovies,
+                                                                             showBackButtonState: false))
                     )
                     Spacer()
                 }
@@ -30,13 +36,13 @@ struct CarrouselInMainView: View {
 }
 
 struct CarrouselView_Previews: PreviewProvider {
-  static var previews: some View {
-      let mainViewModel = MainViewModel()
-      CarrouselInMainView()
-          .environmentObject(mainViewModel)
-          .onAppear {
-              mainViewModel.fetchPopularMovies(withPage: 1)
-              mainViewModel.fetchNowPlaying(withPage: 1)
-          }
-  }
+    static var previews: some View {
+        let mainViewModel = MainViewModel()
+        CarrouselInMainView()
+            .environmentObject(mainViewModel)
+            .onAppear {
+                mainViewModel.fetchPopularMovies(withPage: 1)
+                mainViewModel.fetchNowPlaying(withPage: 1)
+            }
+    }
 }

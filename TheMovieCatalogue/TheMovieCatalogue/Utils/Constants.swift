@@ -52,6 +52,8 @@ enum StringConstant {
     public static let recomendedMovie = "Recomended Movie"
     public static let browseTitle = "Browse"
     public static let promptSearch = "Search movie"
+    public static let nowPlayingTitle = "Now Playing"
+    public static let popularTitle = "Popular Movies"
 }
 
 enum ColorConstant {
@@ -67,6 +69,12 @@ enum GenresButton {
     public static let genreCorner = CGFloat(30)
     public static let genreWidth =  CGFloat(180)
     public static let genreHeight = CGFloat(95)
+}
+
+enum ModularMovie {
+    public static let gridSpacing = CGFloat(10)
+    public static let gridItemMin = CGFloat(100)
+    public static let customBackButtonLabel = "chevron.backward"
 }
 
 enum NoNetwork {
