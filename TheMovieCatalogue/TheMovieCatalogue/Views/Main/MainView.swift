@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var mainViewModel : MainViewModel
+    @ObservedObject var mainViewModel: MainViewModel
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
