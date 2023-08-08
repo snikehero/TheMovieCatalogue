@@ -8,7 +8,6 @@
 import Foundation
 
 @MainActor class SearchViewModel: ObservableObject {
-    
     @Published var genres : [Genre] = []
     @Published var searchResults : [MovieListItem] = []
     @Published var byGenre : [MovieListItem] = []
@@ -36,8 +35,9 @@ import Foundation
         }
     }
 
-    func fetchByGenre(genre: String, page: Int){
-        networkManager.fetchData(endpoint: endpointBuilder.getMoviesByGenre(genre: genre, page: page), type: MovieListPage.self) { found in
+    func fetchByGenre(genre: String, page: Int) {
+        networkManager.fetchData(endpoint: endpointBuilder.getMoviesByGenre(genre: genre, page: page),
+                                 type: MovieListPage.self) { found in
             if let found = found {
                 DispatchQueue.main.async { [weak self] in
                     self?.byGenre = found.results
