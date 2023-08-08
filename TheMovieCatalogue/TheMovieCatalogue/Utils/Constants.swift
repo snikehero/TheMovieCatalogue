@@ -93,3 +93,13 @@ enum TabViewConstants {
     public static let filmStackMovieIconName = "film.stack"
     public static let movieSearchIconName = "magnifyingglass"
 }
+enum LandscapeConstant {
+public static let landscapeRecomendedTopPading = CGFloat(120)
+    public static let landscapeRecomendedBottomPading = CGFloat(120)
+    public static let landscapeRecomendedTrailingPading = CGFloat(120)
+    public static let landscapeRecomendedLeadingPading = CGFloat(1)
+    public static let landscapeCarrouselLeadingPading = CGFloat(-120)
+    public static let landscapeCarrouselTopPading = CGFloat(1)
+    public static let landscapeCarrouselBottomPading = CGFloat(1)
+    public static let landscapeCarrouselTrailingPading = CGFloat(1)
+}
