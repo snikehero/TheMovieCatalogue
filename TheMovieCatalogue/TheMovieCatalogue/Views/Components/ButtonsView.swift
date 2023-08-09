@@ -40,8 +40,7 @@ struct LandscapePosterButton: View {
     var body: some View {
         Button(action: { showingSheet.toggle() },
                label: {
-            AsyncImage(
-                url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
+            AsyncImage(url: URL(string: mainViewModel.posterString),
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
