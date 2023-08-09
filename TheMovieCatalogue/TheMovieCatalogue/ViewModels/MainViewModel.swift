@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor class MainViewModel: ObservableObject {
     @Published var randomPosterImage: String = ""
-    @Published var randomMovie: MovieListItem = MovieListItem(id: -1, posterPath: "")
+    @Published var randomMovie: MovieListItem?
     @Published var trendingMovies: [MovieDetails] = []
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
@@ -49,9 +49,9 @@ import Foundation
         }
     }
     func chooseRandomMovie(from moviesArray: [MovieListItem]) {
-        if self.randomMovie.id == -1 {
-            self.randomMovie = moviesArray.randomElement() ?? MovieListItem(id: -1, posterPath: "")
-            self.randomMovie.posterSize = ImageSize.width500
+        if self.randomMovie == nil {
+            self.randomMovie = moviesArray.randomElement()
+            self.randomMovie?.posterSize = ImageSize.width500
         }
     }
 }
