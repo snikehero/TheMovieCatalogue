@@ -13,7 +13,7 @@ struct LandscapeFatherView: View {
     var body: some View {
         Group {
             if verticalSizeClass == .compact {
-                MainViewLandscape(mainViewModel: mainViewModel)
+                LandscapeMainView(mainViewModel: mainViewModel)
             } else {
                 MainView(mainViewModel: mainViewModel)
             }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainViewLandscape: View {
+struct LandscapeMainView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @ObservedObject var mainViewModel : MainViewModel
@@ -47,9 +47,9 @@ struct MainViewLandscape: View {
         }
     }
 }
-struct MainViewLandscape__Previews: PreviewProvider {
+struct LandscapeMainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainViewLandscape(mainViewModel: MainViewModel())
+        LandscapeMainView(mainViewModel: MainViewModel())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
