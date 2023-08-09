@@ -16,16 +16,26 @@ struct CarrouselInMainView: View {
                     HorizontalCarrouselView(title: StringConstant.nowPlayingTitle,
                                             newMovies: viewModel.nowPlaying,
                                             navigationLinkDestination:
-                                                AnyView(ModularMovieListView(title: StringConstant.nowPlayingTitle,
-                                                                             moviesForFill: viewModel.nowPlaying,
-                                                                             showBackButtonState: false))
+                                                AnyView(
+                                                    ModularMovieListView(
+                                                        showBackButtonState: false,
+                                                        modularMovieListViewModel: ModularMovieListViewModel(
+                                                            title: StringConstant.nowPlayingTitle
+                                                        )
+                                                    )
+                                                )
                     )
                     HorizontalCarrouselView(title: StringConstant.popularTitle,
                                             newMovies: viewModel.popularMovies,
                                             navigationLinkDestination:
-                                                AnyView(ModularMovieListView(title: StringConstant.popularTitle,
-                                                                             moviesForFill: viewModel.popularMovies,
-                                                                             showBackButtonState: false))
+                                                AnyView(
+                                                    ModularMovieListView(
+                                                        showBackButtonState: false,
+                                                        modularMovieListViewModel: ModularMovieListViewModel(
+                                                            title: StringConstant.popularTitle
+                                                        )
+                                                    )
+                                                )
                     )
                     Spacer()
                 }
