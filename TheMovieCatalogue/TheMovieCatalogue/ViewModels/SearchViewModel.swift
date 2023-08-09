@@ -26,7 +26,7 @@ import Foundation
     }
 
     func fetchSearchList(search: String) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMovieListBySearch(searchText: search),
+        networkManager.fetchData(endpoint: endpointBuilder.getMovieListBySearch(searchText: search, withPage: 1),
                                  type: MovieListPage.self) { coincidences in
             if let coincidences = coincidences {
                 DispatchQueue.main.async { [weak self] in
