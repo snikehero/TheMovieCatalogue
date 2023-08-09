@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainViewLandscape_: View {
+struct MainViewLandscape: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @ObservedObject var mainViewModel : MainViewModel
@@ -17,7 +17,7 @@ struct MainViewLandscape_: View {
     var body: some View {
         NavigationStack {
             HStack {
-                LandscapeRecomendedMovie()
+                LandscapeRecomendedMovieView()
                     .padding(.init(top: LandscapeConstant.landscapeRecomendedTopPading,
                                    leading: LandscapeConstant.landscapeRecomendedLeadingPading,
                                    bottom: LandscapeConstant.landscapeRecomendedBottomPading,
@@ -49,7 +49,7 @@ struct MainViewLandscape_: View {
 }
 struct MainViewLandscape__Previews: PreviewProvider {
     static var previews: some View {
-        MainViewLandscape_(mainViewModel: MainViewModel())
+        MainViewLandscape(mainViewModel: MainViewModel())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

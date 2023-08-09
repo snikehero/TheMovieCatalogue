@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct LandscapeFather: View {
+struct LandscapeFatherView: View {
     @ObservedObject var mainViewModel : MainViewModel
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass!
     var body: some View {
         Group {
             if verticalSizeClass == .compact {
-                MainViewLandscape_(mainViewModel: mainViewModel)
+                MainViewLandscape(mainViewModel: mainViewModel)
             } else {
                 MainView(mainViewModel: mainViewModel)
             }
@@ -22,6 +22,6 @@ struct LandscapeFather: View {
 }
 struct LandscapeFather_Previews: PreviewProvider {
     static var previews: some View {
-        LandscapeFather(mainViewModel: MainViewModel())
+        LandscapeFatherView(mainViewModel: MainViewModel())
     }
 }

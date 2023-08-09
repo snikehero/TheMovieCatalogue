@@ -19,7 +19,6 @@
 		4A6CBC792A4CE724006FABBF /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CBC762A4CE723006FABBF /* MovieDetails.swift */; };
 		4A6CBC7A2A4CE724006FABBF /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CBC772A4CE724006FABBF /* Genre.swift */; };
 		4A6CBC7C2A4CE755006FABBF /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6CBC7B2A4CE755006FABBF /* MovieDetailsViewModel.swift */; };
-		4AE943212A42365C00B199AA /* TabViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE943202A42365C00B199AA /* TabViewNavigation.swift */; };
 		4AE943232A423AF500B199AA /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE943222A423AF500B199AA /* UserView.swift */; };
 		4AE943272A42539F00B199AA /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE943262A42539F00B199AA /* BrowseView.swift */; };
 		4AE943292A42599D00B199AA /* MainViewAux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE943282A42599D00B199AA /* MainViewAux.swift */; };
@@ -28,8 +27,9 @@
 		716614642A7AC1CB00CC0B96 /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716614632A7AC1CA00CC0B96 /* NoNetworkView.swift */; };
 		716614662A7AD20300CC0B96 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716614652A7AD20300CC0B96 /* NetworkMonitor.swift */; };
 		7166146C2A817AD100CC0B96 /* MainViewLandscape .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166146B2A817AD100CC0B96 /* MainViewLandscape .swift */; };
-		7166146E2A8182E700CC0B96 /* LandscapeFather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166146D2A8182E700CC0B96 /* LandscapeFather.swift */; };
 		71AFBDCC2A4E227F008A9B36 /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFBDCB2A4E227F008A9B36 /* MovieDetailsView.swift */; };
+		71ECC3EF2A84221F00CCFF83 /* LandscapeFatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ECC3EE2A84221F00CCFF83 /* LandscapeFatherView.swift */; };
+		71ECC3F12A84225700CCFF83 /* TabNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ECC3F02A84225700CCFF83 /* TabNavigationView.swift */; };
 		71EE3C842A60C0DD0094EE0F /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EE3C832A60C0DD0094EE0F /* ButtonsView.swift */; };
 		71EE3C862A60C0E10094EE0F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EE3C852A60C0E10094EE0F /* ImageView.swift */; };
 		71EE3C882A60C0ED0094EE0F /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EE3C872A60C0ED0094EE0F /* TextViews.swift */; };
@@ -69,7 +69,6 @@
 		4A6CBC762A4CE723006FABBF /* MovieDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		4A6CBC772A4CE724006FABBF /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		4A6CBC7B2A4CE755006FABBF /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
-		4AE943202A42365C00B199AA /* TabViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNavigation.swift; sourceTree = "<group>"; };
 		4AE943222A423AF500B199AA /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		4AE943262A42539F00B199AA /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		4AE943282A42599D00B199AA /* MainViewAux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewAux.swift; sourceTree = "<group>"; };
@@ -78,8 +77,9 @@
 		716614632A7AC1CA00CC0B96 /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
 		716614652A7AD20300CC0B96 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		7166146B2A817AD100CC0B96 /* MainViewLandscape .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewLandscape .swift"; sourceTree = "<group>"; };
-		7166146D2A8182E700CC0B96 /* LandscapeFather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeFather.swift; sourceTree = "<group>"; };
 		71AFBDCB2A4E227F008A9B36 /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
+		71ECC3EE2A84221F00CCFF83 /* LandscapeFatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeFatherView.swift; sourceTree = "<group>"; };
+		71ECC3F02A84225700CCFF83 /* TabNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabNavigationView.swift; sourceTree = "<group>"; };
 		71EE3C832A60C0DD0094EE0F /* ButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		71EE3C852A60C0E10094EE0F /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		71EE3C872A60C0ED0094EE0F /* TextViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 				4AE943282A42599D00B199AA /* MainViewAux.swift */,
 				E6C7BE212A4DFB0F00AEE831 /* MainView.swift */,
 				7166146B2A817AD100CC0B96 /* MainViewLandscape .swift */,
-				7166146D2A8182E700CC0B96 /* LandscapeFather.swift */,
+				71ECC3EE2A84221F00CCFF83 /* LandscapeFatherView.swift */,
 				4A36963D2A574C4000A216A5 /* PopularMoviesView.swift */,
 				71AFBDCB2A4E227F008A9B36 /* MovieDetailsView.swift */,
 			);
@@ -179,7 +179,7 @@
 		4A9D8FCC2A3B8B0400C7EA5E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				4AE943202A42365C00B199AA /* TabViewNavigation.swift */,
+				71ECC3F02A84225700CCFF83 /* TabNavigationView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -399,6 +399,7 @@
 			files = (
 				71EE3C862A60C0E10094EE0F /* ImageView.swift in Sources */,
 				716614662A7AD20300CC0B96 /* NetworkMonitor.swift in Sources */,
+				71ECC3EF2A84221F00CCFF83 /* LandscapeFatherView.swift in Sources */,
 				4A6CBC7A2A4CE724006FABBF /* Genre.swift in Sources */,
 				E6C7BE222A4DFB0F00AEE831 /* MainView.swift in Sources */,
 				71EE3C882A60C0ED0094EE0F /* TextViews.swift in Sources */,
@@ -406,12 +407,12 @@
 				4A36963C2A5731F300A216A5 /* NewMoviesView.swift in Sources */,
 				E6C7BE252A4E041F00AEE831 /* NetworkManager.swift in Sources */,
 				71EE3C842A60C0DD0094EE0F /* ButtonsView.swift in Sources */,
+				71ECC3F12A84225700CCFF83 /* TabNavigationView.swift in Sources */,
 				711F69CB2A6ECCDB002C79F8 /* GenreButtons .swift in Sources */,
 				E6CC673B2A3B895900C2C015 /* ContentView.swift in Sources */,
 				E69FBC842A65C41800A5BB53 /* endpointBuilder.swift in Sources */,
 				E63AC3142A4E108000919C30 /* MovieListPage.swift in Sources */,
 				4A36963E2A574C4000A216A5 /* PopularMoviesView.swift in Sources */,
-				4AE943212A42365C00B199AA /* TabViewNavigation.swift in Sources */,
 				E6CC67392A3B895900C2C015 /* TheMovieCatalogueApp.swift in Sources */,
 				4A36963A2A5731DF00A216A5 /* Constants.swift in Sources */,
 				4AE943292A42599D00B199AA /* MainViewAux.swift in Sources */,
@@ -421,7 +422,6 @@
 				71AFBDCC2A4E227F008A9B36 /* MovieDetailsView.swift in Sources */,
 				4A6CBC782A4CE724006FABBF /* CastMember.swift in Sources */,
 				4A6CBC792A4CE724006FABBF /* MovieDetails.swift in Sources */,
-				7166146E2A8182E700CC0B96 /* LandscapeFather.swift in Sources */,
 				716614642A7AC1CB00CC0B96 /* NoNetworkView.swift in Sources */,
 				4249DB832A72C3E7007DF43F /* SearchViewModel.swift in Sources */,
 				4AE943232A423AF500B199AA /* UserView.swift in Sources */,

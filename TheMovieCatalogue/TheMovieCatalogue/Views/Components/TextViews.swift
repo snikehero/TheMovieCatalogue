@@ -56,7 +56,7 @@ struct RecomendedMovie: View {
                                    startPoint: .top, endPoint: .bottom))
     }
 }
-struct LandscapeRecomendedMovie: View {
+struct LandscapeRecomendedMovieView: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     var body: some View {
         VStack {
