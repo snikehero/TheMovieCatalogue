@@ -8,17 +8,29 @@
 import SwiftUI
 
 struct GenreButtons: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    var isLandscape: Bool {
+            verticalSizeClass == .compact
+        }
     @ObservedObject var searchViewModel: SearchViewModel
 
-    private let gridColumns = [
+    private let gridColumnsPortrait = [
         GridItem(.flexible(), spacing: GenresButton.genreSpacing),
         GridItem(.flexible(), spacing: GenresButton.genreSpacing)
+    ]
+    private let gridColumnsLandscape = [
+        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape),
+        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape),
+        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape),
+        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape)
     ]
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: gridColumns, spacing: GenresButton.genreSpacing) {
+                LazyVGrid(columns: !isLandscape ? gridColumnsPortrait : gridColumnsLandscape,
+                          spacing: GenresButton.genreSpacing) {
                     ForEach(searchViewModel.genres) { genre in
                         NavigationLink(destination: MovieListView(genre: genre.name), label: {
                                 VStack {

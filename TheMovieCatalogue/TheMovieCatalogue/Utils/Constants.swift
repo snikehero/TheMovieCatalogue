@@ -64,6 +64,7 @@ enum ColorConstant {
 
 enum GenresButton {
     public static let genreSpacing = CGFloat(16)
+    public static let genreSpacingLandscape = CGFloat(32)
     public static let genreButtonColor = Color("GenreButtons")
     public static let genreTextColor = Color("ButtonText")
     public static let genreCorner = CGFloat(30)
