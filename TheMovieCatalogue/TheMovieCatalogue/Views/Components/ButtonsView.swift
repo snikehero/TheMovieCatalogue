@@ -14,7 +14,7 @@ struct PosterButton: View {
         Button(action: { showingSheet.toggle() },
                label: {
             AsyncImage(
-                url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
+                url: URL(string: mainViewModel.randomMovie.posterString),
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
@@ -30,7 +30,7 @@ struct PosterButton: View {
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
         .sheet(isPresented: $showingSheet) {
-            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
+            MovieDetailsView(movieId: mainViewModel.randomMovie.id)
         }
     }
 }
@@ -41,7 +41,7 @@ struct LandscapePosterButton: View {
         Button(action: { showingSheet.toggle() },
                label: {
             AsyncImage(
-                url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
+                url: URL(string: mainViewModel.randomMovie.posterString),
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
@@ -56,7 +56,7 @@ struct LandscapePosterButton: View {
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
         .sheet(isPresented: $showingSheet) {
-            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
+            MovieDetailsView(movieId: mainViewModel.randomMovie.id)
         }
     }
 }
