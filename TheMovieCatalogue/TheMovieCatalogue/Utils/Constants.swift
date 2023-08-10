@@ -64,13 +64,14 @@ enum ColorConstant {
 
 enum GenresButton {
     public static let genreSpacing = CGFloat(16)
-    public static let genreSpacingLandscape = CGFloat(32)
+    public static let genreSpacingLandscape = CGFloat(38)
     public static let genreButtonColor = Color("GenreButtons")
     public static let genreTextColor = Color("ButtonText")
     public static let genreCorner = CGFloat(30)
-    public static let genreWidth =  CGFloat(180)
-    public static let genreWidthLandscape = CGFloat(150)
+    public static let genreWidth =  CGFloat(150)
     public static let genreHeight = CGFloat(95)
+    public static let gridMinimum = CGFloat(130)
+    public static let gridMaximun = CGFloat(400)
 }
 
 enum ModularMovie {

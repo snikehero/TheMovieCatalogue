@@ -11,40 +11,34 @@ struct GenreButtons: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var isLandscape: Bool {
-            verticalSizeClass == .compact
-        }
+        verticalSizeClass == .compact
+    }
     @ObservedObject var searchViewModel: SearchViewModel
-
-    private let gridColumnsPortrait = [
-        GridItem(.flexible(), spacing: GenresButton.genreSpacing),
-        GridItem(.flexible(), spacing: GenresButton.genreSpacing)
-    ]
-    private let gridColumnsLandscape = [
-        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape),
-        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape),
-        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape),
-        GridItem(.flexible(), spacing: GenresButton.genreSpacingLandscape)
+    private let gridColumns = [
+        GridItem(.adaptive(minimum: GenresButton.gridMinimum,
+                           maximum: GenresButton.gridMaximun),
+                 spacing: GenresButton.genreSpacingLandscape)
     ]
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: !isLandscape ? gridColumnsPortrait : gridColumnsLandscape,
+                LazyVGrid(columns: gridColumns,
                           spacing: GenresButton.genreSpacing) {
                     ForEach(searchViewModel.genres) { genre in
                         NavigationLink(destination: MovieListView(genre: genre.name), label: {
-                                VStack {
-                                    Text(genre.name)
-                                        .foregroundColor(GenresButton.genreTextColor)
-                                        .bold()
-                                }
-                                .frame(width: !isLandscape ? GenresButton.genreWidth : GenresButton.genreWidthLandscape,
-                                       height: GenresButton.genreHeight)
-                                .background(GenresButton.genreButtonColor)
-                                .clipShape(Rectangle())
-                                .cornerRadius(GenresButton.genreCorner)
+                            VStack {
+                                Text(genre.name)
+                                    .foregroundColor(GenresButton.genreTextColor)
+                                    .bold()
                             }
-                      )
+                            .frame(width:  GenresButton.genreWidth,
+                                   height: GenresButton.genreHeight)
+                            .background(GenresButton.genreButtonColor)
+                            .clipShape(Rectangle())
+                            .cornerRadius(GenresButton.genreCorner)
+                        }
+                        )
                     }
                 }.padding()
             }
