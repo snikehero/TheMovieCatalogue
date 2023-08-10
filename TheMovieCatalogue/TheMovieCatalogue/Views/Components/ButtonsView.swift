@@ -34,6 +34,31 @@ struct PosterButton: View {
         }
     }
 }
+struct LandscapePosterButton: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
+    @State private var showingSheet: Bool = false
+    var body: some View {
+        Button(action: { showingSheet.toggle() },
+               label: {
+            AsyncImage(url: URL(string: mainViewModel.posterString),
+                content: { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
+            .frame(width: LandscapeConstant.LandcapePosterButtonWidth,
+                   height: LandscapeConstant.LandcapePosterButtonHeight)
+            .background(Color.gray)
+            .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
+        })
+        .sheet(isPresented: $showingSheet) {
+            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
+        }
+    }
+}
 
 struct FavoritesButton: View {
     var body: some View {
@@ -49,6 +74,6 @@ struct FavoritesButton: View {
 
 struct ButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-      Text("ButtondView")
+        Text("ButtondView")
     }
 }
