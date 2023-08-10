@@ -11,8 +11,8 @@ import Foundation
     @Published var genres : [Genre] = []
     @Published var searchResults : [MovieListItem] = []
     @Published var byGenre : [MovieListItem] = []
-    private var networkManager = NetworkManager()
-    private let endpointBuilder = EndpointBuilder()
+    var networkManager = NetworkManager()
+    let endpointBuilder = EndpointBuilder()
     func fetchGenres() {
         networkManager.fetchData(endpoint: endpointBuilder.getGenresURL(),
                                  type: GenreListPage.self) { genreListPage in

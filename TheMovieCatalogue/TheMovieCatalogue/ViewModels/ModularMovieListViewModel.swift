@@ -42,12 +42,14 @@ enum ModularViews {
         }
     }
 
-    var networkManager: NetworkManager = NetworkManager()
-    var endpointBuilder: EndpointBuilder = EndpointBuilder()
+    var networkManager: NetworkManager
+    var endpointBuilder: EndpointBuilder
 
-    init(title: String, withView: ModularViews) {
+    init(title: String, withView: ModularViews, networkManager: NetworkManager, endpointBuilder: EndpointBuilder) {
         self.title = title
         self.withView = withView
+        self.networkManager = networkManager
+        self.endpointBuilder = endpointBuilder
     }
 
     enum BrowsingState: Comparable {

@@ -41,7 +41,12 @@ struct BrowseView: View {
         .fullScreenCover(isPresented: $showingFullScreenCover) {
             ModularMovieListView(
                 showBackButtonState: true,
-                modularMovieListViewModel: ModularMovieListViewModel(title: searchTerm, withView: .search)
+                modularMovieListViewModel: ModularMovieListViewModel(
+                    title: searchTerm,
+                    withView: .search,
+                    networkManager: searchViewModel.networkManager,
+                    endpointBuilder: searchViewModel.endpointBuilder
+                )
             )
         }
     }

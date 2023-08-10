@@ -19,8 +19,8 @@ import Foundation
         randomMovie?.posterString ?? "0"
     }
 
-    private var networkManager = NetworkManager()
-    private let endpointBuilder = EndpointBuilder()
+    var networkManager = NetworkManager()
+    let endpointBuilder = EndpointBuilder()
 
     func loadContent() {
         networkManager.fetchData(

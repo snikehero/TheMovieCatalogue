@@ -69,7 +69,9 @@ struct ModularMovieListView_Previews: PreviewProvider {
             showBackButtonState: true,
             modularMovieListViewModel: ModularMovieListViewModel(
                 title: StringConstant.nowPlayingTitle,
-                withView: .nowPlaying
+                withView: .nowPlaying,
+                networkManager: NetworkManager(),
+                endpointBuilder: EndpointBuilder()
             )
         )
     }
