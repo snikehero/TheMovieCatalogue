@@ -38,7 +38,8 @@ struct GenreButtons: View {
                                         .foregroundColor(GenresButton.genreTextColor)
                                         .bold()
                                 }
-                                .frame(width: GenresButton.genreWidth, height: GenresButton.genreHeight)
+                                .frame(width: !isLandscape ? GenresButton.genreWidth : GenresButton.genreWidthLandscape,
+                                       height: GenresButton.genreHeight)
                                 .background(GenresButton.genreButtonColor)
                                 .clipShape(Rectangle())
                                 .cornerRadius(GenresButton.genreCorner)
