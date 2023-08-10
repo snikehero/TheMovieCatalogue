@@ -48,7 +48,6 @@ struct HorizontalCarrouselView: View {
                     }
                 }
             }
-            .scrollIndicators(.hidden)
         }
     }
 }
