@@ -14,11 +14,13 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
+    var pageControl = 1
+    var posterString: String {
+        randomMovie?.posterString ?? "0"
+    }
 
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()
-
-    var pageControl = 1
 
     func loadContent() {
         networkManager.fetchData(

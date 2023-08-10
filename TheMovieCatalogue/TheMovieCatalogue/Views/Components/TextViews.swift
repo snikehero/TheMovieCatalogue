@@ -56,7 +56,29 @@ struct RecomendedMovie: View {
                                    startPoint: .top, endPoint: .bottom))
     }
 }
-
+struct LandscapeRecomendedMovieView: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
+    var body: some View {
+        VStack {
+            HStack {
+                Text(StringConstant.recomendedMovie)
+                    .padding(.horizontal)
+                    .font(.title3)
+                    .fontDesign(.rounded)
+                Spacer()
+            }
+            LandscapePosterButton()
+                .padding(.bottom)
+        }
+        .onAppear {
+            mainViewModel.fetchTopRated()
+        }
+        .frame(maxWidth: .infinity)
+        .background(LinearGradient(colors:[Color(ColorConstant.mainBackgroundColor),
+                                           Color(ColorConstant.gradientColor)],
+                                   startPoint: .top, endPoint: .bottom))
+    }
+}
 struct MovieSynopsis: View {
     var text: String
     var body: some View {

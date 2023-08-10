@@ -8,7 +8,6 @@
 import Foundation
 
 @MainActor class SearchViewModel: ObservableObject {
-
     @Published var genres : [Genre] = []
     @Published var searchResults : [MovieListItem] = []
     @Published var byGenre : [MovieListItem] = []
