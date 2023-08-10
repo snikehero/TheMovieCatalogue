@@ -7,21 +7,30 @@
 
 import Foundation
 
+enum ModularViews {
+    case search
+    case popular
+    case nowPlaying
+}
+
 @MainActor class ModularMovieListViewModel: ObservableObject {
-    var title: String = ""
     @Published var movies : [MovieListItem] = []
-    var currentPage: Int = 1
-    var totalPages: Int = 1
     @Published var state: BrowsingState = .good {
         didSet {
             print("state changed to: \(state)")
         }
     }
+    var title: String = ""
+    var currentPage: Int = 1
+    var totalPages: Int = 1
+    var withView: ModularViews
+
     var networkManager: NetworkManager = NetworkManager()
     var endpointBuilder: EndpointBuilder = EndpointBuilder()
 
-    init(title: String) {
+    init(title: String, withView: ModularViews) {
         self.title = title
+        self.withView = withView
     }
 
     enum BrowsingState: Comparable {
@@ -33,11 +42,18 @@ import Foundation
 
     func loadMore() {
         if self.currentPage <= self.totalPages {
-            fetchSearchList(search: title)
+            switch self.withView {
+            case .search:
+                fetchMovieListPage(endpoint: endpointBuilder.getMovieListBySearch(searchText: title, withPage: currentPage))
+            case .nowPlaying:
+                fetchMovieListPage(endpoint: endpointBuilder.getNowPlayingURL(page: currentPage))
+            case .popular:
+                fetchMovieListPage(endpoint: endpointBuilder.getPopularURL(page: currentPage))
+            }
         }
     }
 
-    func fetchSearchList(search: String) {
+    func fetchMovieListPage(endpoint: URL?) {
 
         // Only load when search term isnt empty
         guard !title.isEmpty else {
@@ -52,7 +68,7 @@ import Foundation
         state = .isLoading
 
         networkManager.fetchData(
-            endpoint: endpointBuilder.getMovieListBySearch(searchText: title, withPage: currentPage),
+            endpoint: endpoint,
             type: MovieListPage.self
         ) { result in
             if let result = result {

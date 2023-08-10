@@ -20,7 +20,7 @@ struct CarrouselInMainView: View {
                                                     ModularMovieListView(
                                                         showBackButtonState: false,
                                                         modularMovieListViewModel: ModularMovieListViewModel(
-                                                            title: StringConstant.nowPlayingTitle
+                                                            title: StringConstant.nowPlayingTitle, withView: .nowPlaying
                                                         )
                                                     )
                                                 )
@@ -32,7 +32,7 @@ struct CarrouselInMainView: View {
                                                     ModularMovieListView(
                                                         showBackButtonState: false,
                                                         modularMovieListViewModel: ModularMovieListViewModel(
-                                                            title: StringConstant.popularTitle
+                                                            title: StringConstant.popularTitle, withView: .popular
                                                         )
                                                     )
                                                 )

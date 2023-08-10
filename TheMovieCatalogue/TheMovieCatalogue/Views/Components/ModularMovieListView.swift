@@ -43,7 +43,7 @@ struct ModularMovieListView: View {
                         }
                         switch modularMovieListViewModel.state {
                         case .good :
-                            Color.clear
+                            Color.gray
                                 .onAppear {
                                     modularMovieListViewModel.loadMore()
                                 }
@@ -80,7 +80,7 @@ struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
         ModularMovieListView(
             showBackButtonState: true,
-            modularMovieListViewModel: ModularMovieListViewModel(title: "Batman")
+            modularMovieListViewModel: ModularMovieListViewModel(title: "Batman", withView: .nowPlaying)
         )
     }
 }
