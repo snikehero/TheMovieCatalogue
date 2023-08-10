@@ -14,23 +14,12 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
-    var pageControl = 1
     var posterString: String {
         randomMovie?.posterString ?? "0"
     }
 
     var networkManager = NetworkManager()
     let endpointBuilder = EndpointBuilder()
-
-    func loadContent() {
-        networkManager.fetchData(
-            endpoint: endpointBuilder.getPopularURL(page: pageControl),
-            type: MovieListPage.self
-        ) {
-            self.popularMovies.append(contentsOf: $0?.results ?? [])
-            self.pageControl += 1
-        }
-    }
 
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page),
