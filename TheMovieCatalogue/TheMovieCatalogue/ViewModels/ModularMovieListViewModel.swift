@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum ModularViews {
     case search
@@ -24,6 +25,22 @@ enum ModularViews {
     var currentPage: Int = 1
     var totalPages: Int = 1
     var withView: ModularViews
+    @ViewBuilder var loadingStateView: some View {
+        switch self.state {
+        case .good :
+            Color.gray
+                .onAppear {
+                    self.loadMore()
+                }
+        case .isLoading :
+            ProgressView()
+        case .loadedAll:
+            Text("No more results")
+                .foregroundColor(.red)
+        case .error(let message):
+            Text(message)
+        }
+    }
 
     var networkManager: NetworkManager = NetworkManager()
     var endpointBuilder: EndpointBuilder = EndpointBuilder()
@@ -42,26 +59,26 @@ enum ModularViews {
 
     func loadMore() {
         if self.currentPage <= self.totalPages {
+            let endpoint: URL?
             switch self.withView {
             case .search:
-                fetchMovieListPage(endpoint: endpointBuilder.getMovieListBySearch(searchText: title, withPage: currentPage))
+                endpoint = endpointBuilder.getMovieListBySearch(searchText: title,withPage: currentPage)
             case .nowPlaying:
-                fetchMovieListPage(endpoint: endpointBuilder.getNowPlayingURL(page: currentPage))
+                endpoint = endpointBuilder.getNowPlayingURL(page: currentPage)
             case .popular:
-                fetchMovieListPage(endpoint: endpointBuilder.getPopularURL(page: currentPage))
+                endpoint = endpointBuilder.getPopularURL(page: currentPage)
             }
+            fetchMovieListPage(endpoint: endpoint)
         }
     }
 
     func fetchMovieListPage(endpoint: URL?) {
 
         // Only load when search term isnt empty
-        guard !title.isEmpty else {
-            return
-        }
-
         // Only load when you are not already loading
-        guard state == .good else {
+        guard !title.isEmpty,
+              state == .good
+        else {
             return
         }
 

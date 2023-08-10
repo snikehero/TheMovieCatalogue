@@ -41,20 +41,7 @@ struct ModularMovieListView: View {
                             .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
                         }
                         }
-                        switch modularMovieListViewModel.state {
-                        case .good :
-                            Color.gray
-                                .onAppear {
-                                    modularMovieListViewModel.loadMore()
-                                }
-                        case .isLoading :
-                            ProgressView()
-                        case .loadedAll:
-                            RoundedRectangle(cornerRadius: 12)
-                                .foregroundColor(.red)
-                        case .error(let message):
-                            Text(message)
-                        }
+                        modularMovieListViewModel.loadingStateView
                     }
                 }
             }
@@ -80,7 +67,10 @@ struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
         ModularMovieListView(
             showBackButtonState: true,
-            modularMovieListViewModel: ModularMovieListViewModel(title: "Batman", withView: .nowPlaying)
+            modularMovieListViewModel: ModularMovieListViewModel(
+                title: StringConstant.nowPlayingTitle,
+                withView: .nowPlaying
+            )
         )
     }
 }
