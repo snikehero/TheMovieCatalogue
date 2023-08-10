@@ -20,7 +20,9 @@ struct GenreButtons: View {
             ScrollView {
                 LazyVGrid(columns: gridColumns, spacing: GenresButton.genreSpacing) {
                     ForEach(searchViewModel.genres) { genre in
-                        NavigationLink(destination: MovieListView(genre: genre.name), label: {
+                        NavigationLink(destination: ModularMovieListView(title: genre.name, moviesForFill: searchViewModel.byGenre, showBackButtonState: false).onAppear{
+                            searchViewModel.fetchByGenre(genre: String(genre.id), page: 1)
+                        }, label: {
                                 VStack {
                                     Text(genre.name)
                                         .foregroundColor(GenresButton.genreTextColor)
