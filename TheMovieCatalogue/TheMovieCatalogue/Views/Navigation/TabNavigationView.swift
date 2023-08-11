@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct TabViewNavigation: View {
+struct TabNavigationView: View {
     @EnvironmentObject var networkMonitor: NetworkMonitor
-
+    @StateObject var mainViewModel = MainViewModel()
     var body: some View {
         TabView {
             if networkMonitor.isConnected {
-                MainView()
+                LandscapeFatherView(mainViewModel: mainViewModel)
                     .tabItem {
                         Label(TabViewConstants.moviesLabelDescription,
                               systemImage:  TabViewConstants.filmStackMovieIconName)
@@ -32,6 +32,6 @@ struct TabViewNavigation: View {
 }
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        TabViewNavigation().environmentObject(NetworkMonitor.init(isConnected: true))
+        TabNavigationView().environmentObject(NetworkMonitor.init(isConnected: true))
     }
 }
