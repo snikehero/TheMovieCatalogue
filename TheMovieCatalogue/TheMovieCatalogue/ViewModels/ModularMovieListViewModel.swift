@@ -12,6 +12,19 @@ enum ModularViews {
     case search
     case popular
     case nowPlaying
+    case genres(id: String)
+    var genreId: String? {
+        switch self {
+        case .search:
+            return nil
+        case .popular:
+            return nil
+        case .nowPlaying:
+            return nil
+        case .genres(let id):
+            return id
+        }
+    }
 }
 
 @MainActor class ModularMovieListViewModel: ObservableObject {
@@ -69,6 +82,8 @@ enum ModularViews {
                 endpoint = endpointBuilder.getNowPlayingURL(page: currentPage)
             case .popular:
                 endpoint = endpointBuilder.getPopularURL(page: currentPage)
+            case .genres:
+                endpoint = endpointBuilder.getMoviesByGenreURL(genre: withView.genreId!, page: currentPage)
             }
             fetchMovieListPage(endpoint: endpoint)
         }

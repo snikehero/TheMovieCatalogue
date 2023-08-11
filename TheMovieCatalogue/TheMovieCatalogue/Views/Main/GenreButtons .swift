@@ -26,9 +26,14 @@ struct GenreButtons: View {
                 LazyVGrid(columns: gridColumns,
                           spacing: GenresButton.genreSpacing) {
                     ForEach(searchViewModel.genres) { genre in
-                        NavigationLink(destination: ModularMovieListView(title: genre.name,
-                                                                         moviesForFill: searchViewModel.byGenre,
-                                                                         showBackButtonState: false)
+                        NavigationLink(destination: ModularMovieListView(
+                            showBackButtonState: false,
+                            modularMovieListViewModel: ModularMovieListViewModel(
+                                title: genre.name,
+                                withView: .genres(id: String(genre.id)),
+                                networkManager: searchViewModel.networkManager, endpointBuilder: searchViewModel.endpointBuilder
+                            )
+                        )
                             .onAppear {
                                 searchViewModel.fetchByGenre(genre: String(genre.id), page: 1)
                             }, label: {

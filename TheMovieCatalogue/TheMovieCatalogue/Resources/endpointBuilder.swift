@@ -64,7 +64,7 @@ class EndpointBuilder {
         components.path = EndpointBuilder.genresPath + EndpointBuilder.movieListPath
         return components.url
     }
-    func getMoviesByGenre(genre: String, page: Int) -> URL? {
+    func getMoviesByGenreURL(genre: String, page: Int) -> URL? {
         components.path = EndpointBuilder.discoverPath
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
