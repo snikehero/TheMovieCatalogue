@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
-    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
+    @Binding var showingSheet: Bool
+    @ObservedObject var movieDetailsViewModel: MovieDetailsViewModel
     var movieId: Int
     var body: some View {
         ScrollView {
@@ -71,6 +72,7 @@ struct MovieDetailsSection: View {
 
 struct MovieDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailsView(movieId: MovieDetails.mock.id)
+        MovieDetailsView(showingSheet: .constant(false),
+                         movieDetailsViewModel: MovieDetailsViewModel(), movieId: MovieDetails.mock.id)
     }
 }

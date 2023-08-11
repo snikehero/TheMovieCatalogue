@@ -14,6 +14,7 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
+    @Published var showingSheet: Bool = false
 
     private var networkManager = NetworkManager()
     private let endpointBuilder = EndpointBuilder()

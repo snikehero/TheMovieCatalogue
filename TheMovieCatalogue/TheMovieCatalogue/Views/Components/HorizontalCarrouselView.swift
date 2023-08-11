@@ -11,6 +11,7 @@ struct HorizontalCarrouselView: View {
     let title: String
     let newMovies: [MovieListItem]
     let navigationLinkDestination: AnyView
+    @State var showingSheet: Bool = false
     var body: some View {
         VStack(alignment: .leading,spacing: Constants.CarrouselImages.spacing) {
             NavigationLink {
@@ -24,7 +25,9 @@ struct HorizontalCarrouselView: View {
                 HStack(spacing: Constants.CarrouselImages.spacing) {
                     ForEach(newMovies.prefix(10)) { movie in
                         NavigationLink {
-                            MovieDetailsView(movieId: movie.id)
+                            MovieDetailsView(showingSheet: $showingSheet,
+                                             movieDetailsViewModel: MovieDetailsViewModel(),
+                                             movieId: movie.id)
                         } label: {
                             AsyncImage(
                                 url: URL(string: movie.posterString),
