@@ -9,9 +9,10 @@ import SwiftUI
 
 struct PosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
+    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     @State private var showingSheet: Bool = false
     var body: some View {
-        Button(action: { showingSheet.toggle() },
+        Button(action: { mainViewModel.showingSheet = true },
                label: {
             AsyncImage(
                 url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
@@ -29,16 +30,19 @@ struct PosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
-        .sheet(isPresented: $showingSheet) {
-            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
+        .sheet(isPresented: $mainViewModel.showingSheet) {
+            LandscapeFatherDetailsView(movieDetailsViewModel: movieDetailsViewModel,
+                                       showingSheet: $mainViewModel.showingSheet,
+                                       movieId: mainViewModel.randomMovie?.id ?? 0)
         }
     }
 }
 struct LandscapePosterButton: View {
+    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showingSheet: Bool = false
     var body: some View {
-        Button(action: { showingSheet.toggle() },
+        Button(action: { mainViewModel.showingSheet = true },
                label: {
             AsyncImage(url: URL(string: mainViewModel.posterString),
                 content: { image in
@@ -54,8 +58,10 @@ struct LandscapePosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
-        .sheet(isPresented: $showingSheet) {
-            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
+        .sheet(isPresented: $mainViewModel.showingSheet) {
+            LandscapeFatherDetailsView(movieDetailsViewModel: movieDetailsViewModel,
+                                       showingSheet: $mainViewModel.showingSheet,
+                                       movieId: mainViewModel.randomMovie?.id ?? 0)
         }
     }
 }
