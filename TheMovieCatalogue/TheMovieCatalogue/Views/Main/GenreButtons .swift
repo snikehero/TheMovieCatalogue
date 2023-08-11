@@ -19,7 +19,7 @@ struct GenreButtons: View {
                            maximum: GenresButton.gridMaximun),
                  spacing: GenresButton.genreSpacingLandscape)
     ]
-
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -31,7 +31,7 @@ struct GenreButtons: View {
                                                                          showBackButtonState: false)
                             .onAppear {
                                 searchViewModel.fetchByGenre(genre: String(genre.id), page: 1)
-                        }, label: {
+                            }, label: {
                                 VStack {
                                     Text(genre.name)
                                         .foregroundColor(GenresButton.genreTextColor)
@@ -42,12 +42,6 @@ struct GenreButtons: View {
                                 .clipShape(Rectangle())
                                 .cornerRadius(GenresButton.genreCorner)
                             }
-                            .frame(width:  GenresButton.genreWidth,
-                                   height: GenresButton.genreHeight)
-                            .background(GenresButton.genreButtonColor)
-                            .clipShape(Rectangle())
-                            .cornerRadius(GenresButton.genreCorner)
-                        }
                         )
                     }
                 }.padding()
