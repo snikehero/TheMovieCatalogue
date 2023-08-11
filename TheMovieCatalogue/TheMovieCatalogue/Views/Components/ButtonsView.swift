@@ -30,13 +30,9 @@ struct PosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
-        .sheet(isPresented: $mainViewModel.showingSheet) {
-            LandscapeFatherDetailsView(movieDetailsViewModel: movieDetailsViewModel,
-                                       showingSheet: $mainViewModel.showingSheet,
-                                       movieId: mainViewModel.randomMovie?.id ?? 0)
         }
     }
-}
+
 struct LandscapePosterButton: View {
     @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     @EnvironmentObject var mainViewModel: MainViewModel
@@ -58,11 +54,6 @@ struct LandscapePosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
-        .sheet(isPresented: $mainViewModel.showingSheet) {
-            LandscapeFatherDetailsView(movieDetailsViewModel: movieDetailsViewModel,
-                                       showingSheet: $mainViewModel.showingSheet,
-                                       movieId: mainViewModel.randomMovie?.id ?? 0)
-        }
     }
 }
 
