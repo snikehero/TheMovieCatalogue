@@ -61,11 +61,11 @@ struct FavoritesButton: View {
     var body: some View {
         Button(action: { },
                label: {
-            Label(ButtonsConstant.addToFavorites, systemImage:"heart")
+            Image(systemName: "heart.fill")
         })
         .frame(width: ButtonsConstant.buttonsWeight, height: ButtonsConstant.favoritesButtonHeigth)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
+        .background(Color(ColorConstant.favoritesColorButton)
+        .clipShape(Circle()))
     }
 }
 
