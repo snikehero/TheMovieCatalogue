@@ -17,13 +17,14 @@ struct ModularMovieListView: View {
         GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
     ]
     let showBackButtonState: Bool
+    @ObservedObject var modularMovieListViewModel : ModularMovieListViewModel
+
     var body: some View {
         NavigationStack {
             ScrollView {
-                SectionTitle(text: title)
                 VStack {
                     LazyVGrid(columns: columns, spacing: ModularMovie.gridSpacing) {
-                        ForEach(moviesForFill) { fill in
+                        ForEach(modularMovieListViewModel.movies) { fill in
                             NavigationLink {
                                 LandscapeFatherDetailsView(movieDetailsViewModel: mainViewModel.movieDetailsViewModel,
                                                            showingSheet: $showingSheet,
@@ -37,7 +38,7 @@ struct ModularMovieListView: View {
                                         .aspectRatio(contentMode: .fit)
                                 },
                                 placeholder: {
-                                    ProgressView()
+                                    Text(fill.title)
                                 }
                             )
                             .frame(width: Constants.CarrouselImages.width,
@@ -46,9 +47,11 @@ struct ModularMovieListView: View {
                             .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
                         }
                         }
+                        modularMovieListViewModel.loadingStateView
                     }
                 }
             }
+            .navigationTitle(modularMovieListViewModel.title)
             Spacer()
                 .toolbar {
                     if(showBackButtonState) {
@@ -68,8 +71,14 @@ struct ModularMovieListView: View {
 
 struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        ModularMovieListView(title: "Mock",
-                             moviesForFill: MainViewModel.moviesMock, showBackButtonState: true
+        ModularMovieListView(
+            showBackButtonState: true,
+            modularMovieListViewModel: ModularMovieListViewModel(
+                title: StringConstant.nowPlayingTitle,
+                withView: .nowPlaying,
+                networkManager: NetworkManager(),
+                endpointBuilder: EndpointBuilder()
+            )
         )
     }
 }
