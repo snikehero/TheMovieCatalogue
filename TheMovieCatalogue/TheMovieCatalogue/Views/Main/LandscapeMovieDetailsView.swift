@@ -15,7 +15,8 @@ struct LandscapeMovieDetailsView: View {
         ZStack {
             HStack {
                 MovieImage(imageURL:  movieDetailsViewModel.movie.backdropString)
-                    .frame(width: ButtonsConstant.posterButtonWidth, height: 320)
+                    .frame(width: ButtonsConstant.posterButtonWidth,
+                           height: LandscapeConstant.landscapeDetailsFrameHeigh)
                     .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
                 VStack {
                     MovieTitle(text: movieDetailsViewModel.movie.title)
@@ -25,9 +26,15 @@ struct LandscapeMovieDetailsView: View {
                     runtime: movieDetailsViewModel.movie.runtime)
                     MovieSynopsis(text: movieDetailsViewModel.movie.overview)
                     FavoritesButton()
-                        .padding(.init(top: 20, leading: 1, bottom: 1, trailing: 1))
+                        .padding(.init(top: LandscapeConstant.landscapeDetailsTopPadding,
+                                       leading: LandscapeConstant.landscapeCarrouselTopPading,
+                                       bottom: LandscapeConstant.landscapeCarrouselTopPading,
+                                       trailing: LandscapeConstant.landscapeCarrouselTopPading))
                     }
-                .padding(.init(top: 50, leading: 10, bottom: 100, trailing: 40))
+                .padding(.init(top: LandscapeConstant.landscapeDetailsVStackTopPadding,
+                               leading: LandscapeConstant.landscapeDetailsVStackleadingPadding,
+                               bottom: LandscapeConstant.landscapeDetailsVStackBottomPadding,
+                               trailing: LandscapeConstant.landscapeDetailsVStackTrailingPadding))
             }
             .environmentObject(movieDetailsViewModel)
         }

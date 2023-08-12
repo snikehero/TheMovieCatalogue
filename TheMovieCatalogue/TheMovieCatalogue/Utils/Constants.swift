@@ -60,6 +60,7 @@ enum ColorConstant {
     public static let movieDetailsBackgroundColor = "MovieDetailsBackgroundColor"
     public static let mainBackgroundColor = "BackgroundColor"
     public static let gradientColor = "GradientColor"
+    public static let favoritesColorButton = "GenreButtons"
 }
 
 enum GenresButton {
@@ -103,6 +104,12 @@ enum TabViewConstants {
 }
 enum LandscapeConstant {
 public static let landscapeRecomendedTopPading = CGFloat(120)
+    public static  let landscapeDetailsFrameHeigh = CGFloat(320)
+    public static  let landscapeDetailsTopPadding = CGFloat(20)
+    public static  let landscapeDetailsVStackTopPadding = CGFloat(50)
+    public static  let landscapeDetailsVStackBottomPadding = CGFloat(100)
+    public static  let landscapeDetailsVStackTrailingPadding = CGFloat(40)
+    public static  let landscapeDetailsVStackleadingPadding = CGFloat(10)
     public static let landscapeRecomendedBottomPading = CGFloat(120)
     public static let landscapeRecomendedTrailingPading = CGFloat(120)
     public static let landscapeRecomendedLeadingPading = CGFloat(1)
