@@ -10,6 +10,7 @@ import SwiftUI
 struct ModularMovieListView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingSheet: Bool = false
+    @ObservedObject var mainViewModel = MainViewModel()
     let title: String
     let moviesForFill: [MovieListItem]
     let columns = [
@@ -24,9 +25,9 @@ struct ModularMovieListView: View {
                     LazyVGrid(columns: columns, spacing: ModularMovie.gridSpacing) {
                         ForEach(moviesForFill) { fill in
                             NavigationLink {
-                                MovieDetailsView(showingSheet: $showingSheet,
-                                                 movieDetailsViewModel: MovieDetailsViewModel(),
-                                                 movieId: fill.id)
+                                LandscapeFatherDetailsView(movieDetailsViewModel: mainViewModel.movieDetailsViewModel,
+                                                           showingSheet: $showingSheet,
+                                                           movieId: fill.id)
                             }
                         label: {
                             AsyncImage(
