@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4216D7E22A87117D00CA2C5D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4216D7E12A87117D00CA2C5D /* ErrorView.swift */; };
 		4249DB812A70A524007DF43F /* GenreListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249DB802A70A524007DF43F /* GenreListPage.swift */; };
 		4249DB832A72C3E7007DF43F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249DB822A72C3E7007DF43F /* SearchViewModel.swift */; };
 		4293319F2A55F277008449F3 /* MovieListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293319E2A55F277008449F3 /* MovieListItem.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4216D7E12A87117D00CA2C5D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4249DB802A70A524007DF43F /* GenreListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListPage.swift; sourceTree = "<group>"; };
 		4249DB822A72C3E7007DF43F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		4293319E2A55F277008449F3 /* MovieListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListItem.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				4A07E6362A6992FC00A5E58B /* HorizontalCarrouselView.swift */,
 				4AF075C82A72D7740083D7B8 /* ModularMovieListView.swift */,
 				716614632A7AC1CA00CC0B96 /* NoNetworkView.swift */,
+				4216D7E12A87117D00CA2C5D /* ErrorView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				E6C7BE252A4E041F00AEE831 /* NetworkManager.swift in Sources */,
 				71EE3C842A60C0DD0094EE0F /* ButtonsView.swift in Sources */,
 				711F69CB2A6ECCDB002C79F8 /* GenreButtons .swift in Sources */,
+				4216D7E22A87117D00CA2C5D /* ErrorView.swift in Sources */,
 				E6CC673B2A3B895900C2C015 /* ContentView.swift in Sources */,
 				E69FBC842A65C41800A5BB53 /* endpointBuilder.swift in Sources */,
 				E63AC3142A4E108000919C30 /* MovieListPage.swift in Sources */,

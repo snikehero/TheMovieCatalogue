@@ -20,25 +20,50 @@ struct NetworkManager {
       "Authorization": NetworkManager.authorizationBearer
     ]
 
-    func fetchData <T: Codable>(endpoint: URL?, type: T.Type,completion: @escaping(T?) -> Void) {
+    enum NetworkError: Error {
+        case notFound
+        case badRequest
+        case serverError
+        case unknown
+    }
+
+    func fetchData<T: Codable>(endpoint: URL?, type: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) {
         if let endpoint = endpoint {
             var urlRequest = URLRequest(url: endpoint)
             urlRequest.allHTTPHeaderFields = headers
             fetch(with: urlRequest, type: T.self, completion: completion)
         }
     }
-    private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (T?) -> Void ) {
-        let task = session.dataTask(with: urlRequest) { data, _, error in
-            guard let data = data else {
-                print("Error:  \(String(describing: error))")
+
+    private func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void ) {
+        let task = session.dataTask(with: urlRequest) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(.unknown))
                 return
             }
-            do {
-                let model = try decoder.decode(from: data, type: type.self)
-                completion(model)
-            } catch let error {
-                print("NetworkManager: Fetching error: \(error)")
-                completion(nil)
+
+            switch httpResponse.statusCode {
+            case 200...299:
+                guard let data = data else {
+                    completion(.failure(.unknown))
+                    return
+                }
+                do {
+                    let model = try decoder.decode(from: data, type: type.self)
+                    completion(.success(model))
+                } catch let error {
+                    print("NetworkManager: Decoding error: \(error)")
+                    completion(.failure(.unknown))
+                }
+
+            case 400:
+                completion(.failure(.badRequest))
+            case 404:
+                completion(.failure(.notFound))
+            case 500...599:
+                completion(.failure(.serverError))
+            default:
+                completion(.failure(.unknown))
             }
         }
         task.resume()

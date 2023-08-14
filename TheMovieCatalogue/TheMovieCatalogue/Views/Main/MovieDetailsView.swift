@@ -11,20 +11,28 @@ struct MovieDetailsView: View {
     @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     var movieId: Int
     var body: some View {
-        ScrollView {
-            ZStack {
-                VStack {
-                    MovieImage(imageURL:  movieDetailsViewModel.movie.backdropString)
-                    MovieTitle(text: movieDetailsViewModel.movie.title)
-                    MovieSpecs(
-                        genre: movieDetailsViewModel.movie.genres[0].name,
-                        releaseDate: movieDetailsViewModel.movie.releaseDate,
-                        runtime: movieDetailsViewModel.movie.runtime
-                    )
-                    MovieSynopsis(text: movieDetailsViewModel.movie.overview)
-                }
-            }
-        }
+
+                    Group {
+                        if movieDetailsViewModel.hasError == true{
+                            ErrorView(errorMessage: movieDetailsViewModel.errorMessage!)
+                        }
+                        else{
+                            ScrollView {
+                                ZStack {
+                                    VStack {
+                            MovieImage(imageURL:  movieDetailsViewModel.movie.backdropString)
+                            MovieTitle(text: movieDetailsViewModel.movie.title)
+                            MovieSpecs(
+                                genre: movieDetailsViewModel.movie.genres[0].name,
+                                releaseDate: movieDetailsViewModel.movie.releaseDate,
+                                runtime: movieDetailsViewModel.movie.runtime
+                            )
+                            MovieSynopsis(text: movieDetailsViewModel.movie.overview)
+                                    }
+                                }
+                            }
+                        }
+                    }
         .onAppear {
             movieDetailsViewModel.fetchMovie(withId: movieId)
         }
