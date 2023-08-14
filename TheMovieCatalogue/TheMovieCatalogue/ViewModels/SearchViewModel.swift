@@ -11,8 +11,8 @@ import Foundation
     @Published var genres : [Genre] = []
     @Published var searchResults : [MovieListItem] = []
     @Published var byGenre : [MovieListItem] = []
-    var networkManager = NetworkManager()
-    let endpointBuilder = EndpointBuilder()
+    private var networkManager = NetworkManager()
+    private let endpointBuilder = EndpointBuilder()
     func fetchGenres() {
         networkManager.fetchData(endpoint: endpointBuilder.getGenresURL(),
                                  type: GenreListPage.self) { genreListPage in
@@ -25,7 +25,7 @@ import Foundation
     }
 
     func fetchSearchList(search: String) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMovieListBySearch(searchText: search, withPage: 1),
+        networkManager.fetchData(endpoint: endpointBuilder.getMovieListBySearch(searchText: search),
                                  type: MovieListPage.self) { coincidences in
             if let coincidences = coincidences {
                 DispatchQueue.main.async { [weak self] in

@@ -35,9 +35,7 @@ struct NetworkManager {
             }
             do {
                 let model = try decoder.decode(from: data, type: type.self)
-                DispatchQueue.main.async {
-                    completion(model)
-                }
+                completion(model)
             } catch let error {
                 print("NetworkManager: Fetching error: \(error)")
                 completion(nil)
