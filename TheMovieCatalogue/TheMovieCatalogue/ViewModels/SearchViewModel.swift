@@ -13,7 +13,7 @@ import Foundation
     @Published var searchResults : [MovieListItem] = []
     @Published var byGenre : [MovieListItem] = []
     @Published var hasError: Bool = false
-    @Published var errorMessage: String? = nil
+    @Published var errorMessage: String? = ""
 
     var networkManager = NetworkManager()
     let endpointBuilder = EndpointBuilder()
@@ -74,4 +74,3 @@ import Foundation
         hasError = true
     }
 }
-

@@ -16,10 +16,8 @@ import Foundation
                                                       releaseDate: "",
                                                       genres: [Genre(id: 0, name: "")]
                                         )
-    @Published var errorMessage: String? = nil
+    @Published var errorMessage: String? = ""
     @Published var hasError: Bool = false
-
-
     var networkManager = NetworkManager()
     let endpointBuilder = EndpointBuilder()
 

@@ -16,11 +16,10 @@ struct MainView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
-                    Group{
-                        if mainViewModel.hasError == true{
-                            ErrorView(errorMessage: mainViewModel.errorMessage!)
-                        }
-                        else{
+                    Group {
+                        if mainViewModel.hasError == true {
+                        ErrorView(errorMessage: mainViewModel.errorMessage!)
+                        } else {
                             CarrouselInMainView()
                                 .environmentObject(mainViewModel)
                                 .onAppear {

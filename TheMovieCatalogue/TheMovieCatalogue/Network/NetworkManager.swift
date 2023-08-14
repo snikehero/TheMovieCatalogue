@@ -35,7 +35,9 @@ struct NetworkManager {
         }
     }
 
-    func fetch<T: Codable>(with urlRequest: URLRequest, type: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void ) {
+    func fetch<T: Codable>(with urlRequest: URLRequest,
+                           type: T.Type,
+                           completion: @escaping (Result<T, NetworkError>) -> Void ) {
         let task = session.dataTask(with: urlRequest) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.unknown))

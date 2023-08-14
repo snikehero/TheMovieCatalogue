@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ErrorView: View {
     var errorMessage: String
-    
     var body: some View {
         VStack {
             Image(systemName: "xmark.octagon.fill")

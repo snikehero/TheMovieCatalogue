@@ -20,12 +20,10 @@ enum ModularViews {
             print("state changed to: \(state)")
         }
     }
-    
     var title: String = ""
     var currentPage: Int = 1
     var totalPages: Int = 1
     var withView: ModularViews
-    
     @ViewBuilder var loadingStateView: some View {
         switch self.state {
         case .good:
@@ -43,24 +41,20 @@ enum ModularViews {
                 .foregroundColor(.red)
         }
     }
-    
     var networkManager: NetworkManager
     var endpointBuilder: EndpointBuilder
-    
     init(title: String, withView: ModularViews, networkManager: NetworkManager, endpointBuilder: EndpointBuilder) {
         self.title = title
         self.withView = withView
         self.networkManager = networkManager
         self.endpointBuilder = endpointBuilder
     }
-    
     enum BrowsingState: Comparable {
         case good
         case isLoading
         case loadedAll
         case error(String)
     }
-    
     func loadMore() {
         if self.currentPage <= self.totalPages {
             let endpoint: URL?
@@ -75,34 +69,27 @@ enum ModularViews {
             fetchMovieListPage(endpoint: endpoint)
         }
     }
-    
     func fetchMovieListPage(endpoint: URL?) {
-        
         // Only load when search term isn't empty
         // Only load when you are not already loading
         guard !title.isEmpty, state == .good else {
             return
         }
-        
         state = .isLoading
-        
         networkManager.fetchData(endpoint: endpoint, type: MovieListPage.self) { result in
             switch result {
             case .success(let movieListPage):
                 DispatchQueue.main.async { [weak self] in
                     self?.movies.append(contentsOf: movieListPage.results)
                     self?.totalPages = movieListPage.totalPages
-                    
                     self?.state = (movieListPage.totalPages == self?.currentPage) ? .loadedAll : .good
                     self?.currentPage += 1
                 }
-                
             case .failure(let error):
                 self.handle(error: error)
             }
         }
     }
-    
     private func handle(error: NetworkManager.NetworkError) {
         switch error {
         case .notFound:
@@ -116,4 +103,3 @@ enum ModularViews {
         }
     }
 }
-
