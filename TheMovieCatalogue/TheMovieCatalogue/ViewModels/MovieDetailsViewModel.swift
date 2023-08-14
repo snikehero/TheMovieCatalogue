@@ -16,11 +16,15 @@ import Foundation
                                                       releaseDate: "",
                                                       genres: [Genre(id: 0, name: "")]
                                         )
-    private var networkManager = NetworkManager()
-    private let endpointBuilder = EndpointBuilder()
+    @Published var errorMessage: String? = ""
+    @Published var hasError: Bool = false
+    var networkManager = NetworkManager()
+    let endpointBuilder = EndpointBuilder()
+
     func fetchMovie(withId id: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: MovieDetails.self) { movie in
-            if let movie = movie {
+        networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: MovieDetails.self) { result in
+            switch result {
+            case .success(let movie):
                 DispatchQueue.main.async { [weak self] in
                     var movieTemp = movie
                     if movieTemp.genres.isEmpty {
@@ -28,7 +32,23 @@ import Foundation
                     }
                     self?.movie = movieTemp
                 }
+            case .failure(let error):
+                self.handle(error: error)
             }
         }
+    }
+
+    private func handle(error: NetworkManager.NetworkError) {
+        switch error {
+        case .notFound:
+            errorMessage = "Resource not found."
+        case .badRequest:
+            errorMessage = "Bad request."
+        case .serverError:
+            errorMessage = "Server error."
+        default:
+            errorMessage = "An unknown error occurred."
+        }
+        hasError = true
     }
 }
