@@ -22,7 +22,6 @@ import Foundation
     var posterString: String {
         randomMovie?.posterString ?? "0"
     }
-    
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page),
                                  type: MovieListPage.self) { populars in

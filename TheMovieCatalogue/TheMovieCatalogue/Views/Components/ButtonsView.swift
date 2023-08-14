@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
-    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     @State private var showingSheet: Bool = false
     var body: some View {
         Button(action: { mainViewModel.showingSheet = true },
@@ -34,7 +33,6 @@ struct PosterButton: View {
     }
 
 struct LandscapePosterButton: View {
-    @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showingSheet: Bool = false
     var body: some View {
