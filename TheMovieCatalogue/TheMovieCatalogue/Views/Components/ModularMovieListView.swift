@@ -12,7 +12,9 @@ struct ModularMovieListView: View {
     @State private var showingSheet: Bool = false
     @ObservedObject var mainViewModel = MainViewModel()
     let columns = [
-        GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
+        GridItem(.adaptive(minimum: ModularMovie.gridItemMin,
+                           maximum: ModularMovie.gridItemMax),
+                 spacing: ModularMovie.gridModularSpacing)
     ]
     let showBackButtonState: Bool
     @ObservedObject var modularMovieListViewModel : ModularMovieListViewModel
