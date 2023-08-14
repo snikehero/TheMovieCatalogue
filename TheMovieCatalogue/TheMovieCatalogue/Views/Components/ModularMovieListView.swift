@@ -11,8 +11,6 @@ struct ModularMovieListView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingSheet: Bool = false
     @ObservedObject var mainViewModel = MainViewModel()
-    let title: String
-    let moviesForFill: [MovieListItem]
     let columns = [
         GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
     ]
