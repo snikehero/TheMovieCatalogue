@@ -39,15 +39,8 @@ struct BrowseView: View {
             }
         }
         .fullScreenCover(isPresented: $showingFullScreenCover) {
-            ModularMovieListView(
-                showBackButtonState: true,
-                modularMovieListViewModel: ModularMovieListViewModel(
-                    title: searchTerm,
-                    withView: .search,
-                    networkManager: searchViewModel.networkManager,
-                    endpointBuilder: searchViewModel.endpointBuilder
-                )
-            )
+            ModularMovieListView(title: searchTerm,
+                                 moviesForFill: searchViewModel.searchResults, showBackButtonState: true)
         }
     }
 }

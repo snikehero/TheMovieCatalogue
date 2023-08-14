@@ -64,14 +64,11 @@ enum ColorConstant {
 
 enum GenresButton {
     public static let genreSpacing = CGFloat(16)
-    public static let genreSpacingLandscape = CGFloat(38)
     public static let genreButtonColor = Color("GenreButtons")
     public static let genreTextColor = Color("ButtonText")
     public static let genreCorner = CGFloat(30)
-    public static let genreWidth =  CGFloat(150)
+    public static let genreWidth =  CGFloat(180)
     public static let genreHeight = CGFloat(95)
-    public static let gridMinimum = CGFloat(130)
-    public static let gridMaximun = CGFloat(400)
 }
 
 enum ModularMovie {
@@ -103,16 +100,4 @@ enum TabViewConstants {
     public static let browseLabelDescription = "Browse"
     public static let filmStackMovieIconName = "film.stack"
     public static let movieSearchIconName = "magnifyingglass"
-}
-enum LandscapeConstant {
-public static let landscapeRecomendedTopPading = CGFloat(120)
-    public static let landscapeRecomendedBottomPading = CGFloat(120)
-    public static let landscapeRecomendedTrailingPading = CGFloat(120)
-    public static let landscapeRecomendedLeadingPading = CGFloat(1)
-    public static let landscapeCarrouselLeadingPading = CGFloat(-120)
-    public static let landscapeCarrouselTopPading = CGFloat(1)
-    public static let landscapeCarrouselBottomPading = CGFloat(1)
-    public static let landscapeCarrouselTrailingPading = CGFloat(1)
-    public static let LandcapePosterButtonWidth = CGFloat(200)
-    public static let LandcapePosterButtonHeight = CGFloat(300)
 }

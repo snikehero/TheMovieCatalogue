@@ -16,32 +16,16 @@ struct CarrouselInMainView: View {
                     HorizontalCarrouselView(title: StringConstant.nowPlayingTitle,
                                             newMovies: viewModel.nowPlaying,
                                             navigationLinkDestination:
-                                                AnyView(
-                                                    ModularMovieListView(
-                                                        showBackButtonState: false,
-                                                        modularMovieListViewModel: ModularMovieListViewModel(
-                                                            title: StringConstant.nowPlayingTitle,
-                                                            withView: .nowPlaying,
-                                                            networkManager: viewModel.networkManager,
-                                                            endpointBuilder: viewModel.endpointBuilder
-                                                        )
-                                                    )
-                                                )
+                                                AnyView(ModularMovieListView(title: StringConstant.nowPlayingTitle,
+                                                                             moviesForFill: viewModel.nowPlaying,
+                                                                             showBackButtonState: false))
                     )
                     HorizontalCarrouselView(title: StringConstant.popularTitle,
                                             newMovies: viewModel.popularMovies,
                                             navigationLinkDestination:
-                                                AnyView(
-                                                    ModularMovieListView(
-                                                        showBackButtonState: false,
-                                                        modularMovieListViewModel: ModularMovieListViewModel(
-                                                            title: StringConstant.popularTitle,
-                                                            withView: .popular,
-                                                            networkManager: viewModel.networkManager,
-                                                            endpointBuilder: viewModel.endpointBuilder
-                                                        )
-                                                    )
-                                                )
+                                                AnyView(ModularMovieListView(title: StringConstant.popularTitle,
+                                                                             moviesForFill: viewModel.popularMovies,
+                                                                             showBackButtonState: false))
                     )
                     Spacer()
                 }

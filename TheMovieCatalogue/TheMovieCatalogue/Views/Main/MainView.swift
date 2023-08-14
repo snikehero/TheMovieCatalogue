@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var mainViewModel: MainViewModel
+    @StateObject var mainViewModel = MainViewModel()
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -23,7 +23,6 @@ struct MainView: View {
                             mainViewModel.fetchNowPlaying(withPage: 1)
                         }
                 }
-                .scrollIndicators(.hidden)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink {
@@ -43,7 +42,10 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(mainViewModel: MainViewModel())
+        MainView()
+        MainView()
+            .preferredColorScheme(.dark)
+        MainView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 14 pro"))
     }
 }

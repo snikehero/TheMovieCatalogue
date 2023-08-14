@@ -12,7 +12,7 @@ struct TheMovieCatalogueApp: App {
     @StateObject var networkMonitor = NetworkMonitor()
     var body: some Scene {
         WindowGroup {
-            TabNavigationView()
+            TabViewNavigation()
                 .environmentObject(networkMonitor)
         }
     }

@@ -52,11 +52,10 @@ class EndpointBuilder {
         ]
         return components.url
     }
-    func getMovieListBySearch(searchText: String, withPage: Int) -> URL? {
+    func getMovieListBySearch(searchText: String) -> URL? {
         components.path = EndpointBuilder.searchMoviePath
         components.queryItems = [
-            URLQueryItem(name: "query", value: searchText),
-            URLQueryItem(name: "page", value: "\(withPage)")
+            URLQueryItem(name: "query", value: searchText)
         ]
         return components.url
     }

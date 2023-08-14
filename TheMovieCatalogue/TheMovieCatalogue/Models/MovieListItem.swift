@@ -9,7 +9,6 @@ import Foundation
 
 struct MovieListItem: Identifiable, Codable, Hashable {
     let id: Int
-    let title: String
     let posterPath: String?
     var posterSize: ImageSize = .width154
     var posterString: String {
@@ -19,7 +18,6 @@ struct MovieListItem: Identifiable, Codable, Hashable {
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case title = "title"
         case posterPath = "poster_path"
     }
 }

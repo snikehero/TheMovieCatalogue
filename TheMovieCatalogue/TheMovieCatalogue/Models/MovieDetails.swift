@@ -11,16 +11,16 @@ struct MovieDetails: Identifiable, Codable, Equatable {
     let id: Int
     let title: String
     let overview: String
-    let posterPath: String?
-    let backdropPath: String?
+    let posterPath: String
+    let backdropPath: String
     let runtime: Int
     let releaseDate: String
     private let endpointBuilder = EndpointBuilder()
     var posterString: String {
-        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath ?? "") ?? ""
+        return endpointBuilder.getImageURLString(imageSize: .width500, imagePath: posterPath) ?? ""
     }
     var backdropString: String {
-        return endpointBuilder.getImageURLString(imageSize: .original, imagePath: backdropPath ?? "") ?? ""
+        return endpointBuilder.getImageURLString(imageSize: .original, imagePath: backdropPath) ?? ""
     }
     var genres: [Genre]
     enum CodingKeys: String, CodingKey {
