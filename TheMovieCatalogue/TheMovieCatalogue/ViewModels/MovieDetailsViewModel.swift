@@ -28,7 +28,11 @@ import Foundation
             switch result {
             case .success(let movie):
                 DispatchQueue.main.async { [weak self] in
-                    self?.movie = movie
+                    var movieTemp = movie
+                    if movieTemp.genres.isEmpty {
+                        movieTemp.genres = [Genre(id: -1, name: "No Genre")]
+                    }
+                    self?.movie = movieTemp
                 }
             case .failure(let error):
                 self.handle(error: error)
