@@ -10,6 +10,7 @@ import SwiftUI
 struct TabNavigationView: View {
     @EnvironmentObject var networkMonitor: NetworkMonitor
     @StateObject var mainViewModel = MainViewModel()
+    @ObservedObject var movieDetailsViewModel = MovieDetailsViewModel()
     var body: some View {
         TabView {
             if networkMonitor.isConnected {
@@ -26,6 +27,11 @@ struct TabNavigationView: View {
             } else {
                 NoNetworkView()
             }
+        }
+        .sheet(isPresented: $mainViewModel.showingSheet) {
+            LandscapeFatherDetailsView(movieDetailsViewModel: movieDetailsViewModel,
+                                       showingSheet: $mainViewModel.showingSheet,
+                                       movieId: mainViewModel.randomMovie?.id ?? 0)
         }
         .tabViewStyle(.automatic)
     }

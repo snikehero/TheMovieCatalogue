@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ModularMovieListView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showingSheet: Bool = false
+    @ObservedObject var mainViewModel = MainViewModel()
     let columns = [
-        GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
+        GridItem(.adaptive(minimum: ModularMovie.gridItemMin,
+                           maximum: ModularMovie.gridItemMax),
+                 spacing: ModularMovie.gridModularSpacing)
     ]
     let showBackButtonState: Bool
     @ObservedObject var modularMovieListViewModel : ModularMovieListViewModel
@@ -22,7 +26,9 @@ struct ModularMovieListView: View {
                     LazyVGrid(columns: columns, spacing: ModularMovie.gridSpacing) {
                         ForEach(modularMovieListViewModel.movies) { fill in
                             NavigationLink {
-                                MovieDetailsView(movieId: fill.id)
+                                LandscapeFatherDetailsView(movieDetailsViewModel: mainViewModel.movieDetailsViewModel,
+                                                           showingSheet: $showingSheet,
+                                                           movieId: fill.id)
                             }
                         label: {
                             AsyncImage(

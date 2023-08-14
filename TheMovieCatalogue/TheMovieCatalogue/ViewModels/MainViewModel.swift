@@ -14,13 +14,14 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
+    @Published var showingSheet: Bool = false
+    @Published var movieDetailsViewModel = MovieDetailsViewModel()
+
+     var networkManager = NetworkManager()
+     let endpointBuilder = EndpointBuilder()
     var posterString: String {
         randomMovie?.posterString ?? "0"
     }
-
-    var networkManager = NetworkManager()
-    let endpointBuilder = EndpointBuilder()
-
     func fetchPopularMovies(withPage page: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getPopularURL(page: page),
                                  type: MovieListPage.self) { populars in
