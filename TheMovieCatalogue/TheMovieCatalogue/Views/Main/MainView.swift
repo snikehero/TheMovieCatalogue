@@ -16,12 +16,19 @@ struct MainView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     RecomendedMovie()
-                    CarrouselInMainView()
-                        .environmentObject(mainViewModel)
-                        .onAppear {
-                            mainViewModel.fetchPopularMovies(withPage: 1)
-                            mainViewModel.fetchNowPlaying(withPage: 1)
+                    Group{
+                        if mainViewModel.hasError == true{
+                            ErrorView(errorMessage: mainViewModel.errorMessage!)
                         }
+                        else{
+                            CarrouselInMainView()
+                                .environmentObject(mainViewModel)
+                                .onAppear {
+                                    mainViewModel.fetchPopularMovies(withPage: 1)
+                                    mainViewModel.fetchNowPlaying(withPage: 1)
+                                }
+                        }
+                    }
                 }
                 .scrollIndicators(.hidden)
                 .toolbar {

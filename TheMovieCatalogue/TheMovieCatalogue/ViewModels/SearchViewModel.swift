@@ -12,11 +12,11 @@ import Foundation
     @Published var genres : [Genre] = []
     @Published var searchResults : [MovieListItem] = []
     @Published var byGenre : [MovieListItem] = []
-    
+    @Published var hasError: Bool = false
     @Published var errorMessage: String? = nil
 
-    private var networkManager = NetworkManager()
-    private let endpointBuilder = EndpointBuilder()
+    var networkManager = NetworkManager()
+    let endpointBuilder = EndpointBuilder()
 
     func fetchGenres() {
         networkManager.fetchData(endpoint: endpointBuilder.getGenresURL(),
@@ -33,7 +33,7 @@ import Foundation
     }
 
     func fetchSearchList(search: String) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMovieListBySearch(searchText: search),
+        networkManager.fetchData(endpoint: endpointBuilder.getMovieListBySearch(searchText: search, withPage: 1),
                                  type: MovieListPage.self) { result in
             switch result {
             case .success(let coincidences):
@@ -71,6 +71,7 @@ import Foundation
         default:
             errorMessage = "An unknown error occurred."
         }
+        hasError = true
     }
 }
 

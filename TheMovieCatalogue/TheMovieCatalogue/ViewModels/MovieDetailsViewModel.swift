@@ -20,8 +20,8 @@ import Foundation
     @Published var hasError: Bool = false
 
 
-    private var networkManager = NetworkManager()
-    private let endpointBuilder = EndpointBuilder()
+    var networkManager = NetworkManager()
+    let endpointBuilder = EndpointBuilder()
 
     func fetchMovie(withId id: Int) {
         networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: MovieDetails.self) { result in

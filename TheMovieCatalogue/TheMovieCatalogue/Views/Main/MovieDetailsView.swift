@@ -11,7 +11,6 @@ struct MovieDetailsView: View {
     @StateObject var movieDetailsViewModel = MovieDetailsViewModel()
     var movieId: Int
     var body: some View {
-
                     Group {
                         if movieDetailsViewModel.hasError == true{
                             ErrorView(errorMessage: movieDetailsViewModel.errorMessage!)
