@@ -10,7 +10,9 @@ import SwiftUI
 struct ModularMovieListView: View {
     @Environment(\.dismiss) var dismiss
     let columns = [
-        GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
+        GridItem(.adaptive(minimum: ModularMovie.gridItemMin,
+                           maximum: ModularMovie.gridItemMax),
+                 spacing: ModularMovie.gridModularSpacing)
     ]
     let showBackButtonState: Bool
     @ObservedObject var modularMovieListViewModel : ModularMovieListViewModel
