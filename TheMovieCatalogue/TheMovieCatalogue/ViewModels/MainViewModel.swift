@@ -16,7 +16,8 @@ import Foundation
     @Published var topRated : MovieListPage?
     @Published var errorMessage: String? = ""
     @Published var hasError: Bool = false
-
+    @Published var showingSheet: Bool = false
+    @Published var movieDetailsViewModel = MovieDetailsViewModel()
     var posterString: String {
            randomMovie?.posterString ?? "0"
        }

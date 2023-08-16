@@ -47,7 +47,7 @@ import Foundation
     }
 
     func fetchByGenre(genre: String, page: Int) {
-        networkManager.fetchData(endpoint: endpointBuilder.getMoviesByGenre(genre: genre, page: page),
+        networkManager.fetchData(endpoint: endpointBuilder.getMoviesByGenreURL(genre: genre, page: page),
                                  type: MovieListPage.self) { result in
             switch result {
             case .success(let found):

@@ -19,7 +19,6 @@ struct GenreButtons: View {
                            maximum: GenresButton.gridMaximun),
                  spacing: GenresButton.genreSpacingLandscape)
     ]
-    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -31,7 +30,8 @@ struct GenreButtons: View {
                             modularMovieListViewModel: ModularMovieListViewModel(
                                 title: genre.name,
                                 withView: .genres(id: String(genre.id)),
-                                networkManager: searchViewModel.networkManager, endpointBuilder: searchViewModel.endpointBuilder
+                                networkManager: searchViewModel.networkManager,
+                                endpointBuilder: searchViewModel.endpointBuilder
                             )
                         )
                             .onAppear {
