@@ -19,25 +19,34 @@ struct GenreButtons: View {
                            maximum: GenresButton.gridMaximun),
                  spacing: GenresButton.genreSpacingLandscape)
     ]
-
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: gridColumns,
                           spacing: GenresButton.genreSpacing) {
                     ForEach(searchViewModel.genres) { genre in
-                        NavigationLink(destination: MovieListView(genre: genre.name), label: {
-                            VStack {
-                                Text(genre.name)
-                                    .foregroundColor(GenresButton.genreTextColor)
-                                    .bold()
+                        NavigationLink(destination: ModularMovieListView(
+                            showBackButtonState: false,
+                            modularMovieListViewModel: ModularMovieListViewModel(
+                                title: genre.name,
+                                withView: .genres(id: String(genre.id)),
+                                networkManager: searchViewModel.networkManager,
+                                endpointBuilder: searchViewModel.endpointBuilder
+                            )
+                        )
+                            .onAppear {
+                                searchViewModel.fetchByGenre(genre: String(genre.id), page: 1)
+                            }, label: {
+                                VStack {
+                                    Text(genre.name)
+                                        .foregroundColor(GenresButton.genreTextColor)
+                                        .bold()
+                                }
+                                .frame(width: GenresButton.genreWidth, height: GenresButton.genreHeight)
+                                .background(GenresButton.genreButtonColor)
+                                .clipShape(Rectangle())
+                                .cornerRadius(GenresButton.genreCorner)
                             }
-                            .frame(width:  GenresButton.genreWidth,
-                                   height: GenresButton.genreHeight)
-                            .background(GenresButton.genreButtonColor)
-                            .clipShape(Rectangle())
-                            .cornerRadius(GenresButton.genreCorner)
-                        }
                         )
                     }
                 }.padding()
