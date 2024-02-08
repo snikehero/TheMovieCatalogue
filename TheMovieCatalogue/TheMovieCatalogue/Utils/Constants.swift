@@ -60,20 +60,26 @@ enum ColorConstant {
     public static let movieDetailsBackgroundColor = "MovieDetailsBackgroundColor"
     public static let mainBackgroundColor = "BackgroundColor"
     public static let gradientColor = "GradientColor"
+    public static let favoritesColorButton = "GenreButtons"
 }
 
 enum GenresButton {
     public static let genreSpacing = CGFloat(16)
+    public static let genreSpacingLandscape = CGFloat(38)
     public static let genreButtonColor = Color("GenreButtons")
     public static let genreTextColor = Color("ButtonText")
     public static let genreCorner = CGFloat(30)
-    public static let genreWidth =  CGFloat(180)
+    public static let genreWidth =  CGFloat(150)
     public static let genreHeight = CGFloat(95)
+    public static let gridMinimum = CGFloat(130)
+    public static let gridMaximun = CGFloat(400)
 }
 
 enum ModularMovie {
     public static let gridSpacing = CGFloat(10)
-    public static let gridItemMin = CGFloat(100)
+    public static let gridItemMin = CGFloat(130)
+    public static let gridItemMax = CGFloat(400)
+    public static let gridModularSpacing = CGFloat(38)
     public static let customBackButtonLabel = "chevron.backward"
 }
 
@@ -103,6 +109,12 @@ enum TabViewConstants {
 }
 enum LandscapeConstant {
 public static let landscapeRecomendedTopPading = CGFloat(120)
+    public static  let landscapeDetailsFrameHeigh = CGFloat(320)
+    public static  let landscapeDetailsTopPadding = CGFloat(20)
+    public static  let landscapeDetailsVStackTopPadding = CGFloat(50)
+    public static  let landscapeDetailsVStackBottomPadding = CGFloat(100)
+    public static  let landscapeDetailsVStackTrailingPadding = CGFloat(40)
+    public static  let landscapeDetailsVStackleadingPadding = CGFloat(10)
     public static let landscapeRecomendedBottomPading = CGFloat(120)
     public static let landscapeRecomendedTrailingPading = CGFloat(120)
     public static let landscapeRecomendedLeadingPading = CGFloat(1)

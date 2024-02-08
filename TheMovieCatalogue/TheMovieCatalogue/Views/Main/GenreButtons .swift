@@ -8,30 +8,37 @@
 import SwiftUI
 
 struct GenreButtons: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    var isLandscape: Bool {
+        verticalSizeClass == .compact
+    }
     @ObservedObject var searchViewModel: SearchViewModel
-
     private let gridColumns = [
-        GridItem(.flexible(), spacing: GenresButton.genreSpacing),
-        GridItem(.flexible(), spacing: GenresButton.genreSpacing)
+        GridItem(.adaptive(minimum: GenresButton.gridMinimum,
+                           maximum: GenresButton.gridMaximun),
+                 spacing: GenresButton.genreSpacingLandscape)
     ]
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: gridColumns, spacing: GenresButton.genreSpacing) {
+                LazyVGrid(columns: gridColumns,
+                          spacing: GenresButton.genreSpacing) {
                     ForEach(searchViewModel.genres) { genre in
                         NavigationLink(destination: MovieListView(genre: genre.name), label: {
-                                VStack {
-                                    Text(genre.name)
-                                        .foregroundColor(GenresButton.genreTextColor)
-                                        .bold()
-                                }
-                                .frame(width: GenresButton.genreWidth, height: GenresButton.genreHeight)
-                                .background(GenresButton.genreButtonColor)
-                                .clipShape(Rectangle())
-                                .cornerRadius(GenresButton.genreCorner)
+                            VStack {
+                                Text(genre.name)
+                                    .foregroundColor(GenresButton.genreTextColor)
+                                    .bold()
                             }
-                      )
+                            .frame(width:  GenresButton.genreWidth,
+                                   height: GenresButton.genreHeight)
+                            .background(GenresButton.genreButtonColor)
+                            .clipShape(Rectangle())
+                            .cornerRadius(GenresButton.genreCorner)
+                        }
+                        )
                     }
                 }.padding()
             }

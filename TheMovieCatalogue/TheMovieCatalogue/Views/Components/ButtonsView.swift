@@ -11,7 +11,7 @@ struct PosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showingSheet: Bool = false
     var body: some View {
-        Button(action: { showingSheet.toggle() },
+        Button(action: { mainViewModel.showingSheet = true },
                label: {
             AsyncImage(
                 url: URL(string: mainViewModel.randomMovie?.posterString ?? "0"),
@@ -29,16 +29,14 @@ struct PosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
-        .sheet(isPresented: $showingSheet) {
-            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
         }
     }
-}
+
 struct LandscapePosterButton: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showingSheet: Bool = false
     var body: some View {
-        Button(action: { showingSheet.toggle() },
+        Button(action: { mainViewModel.showingSheet = true },
                label: {
             AsyncImage(url: URL(string: mainViewModel.posterString),
                 content: { image in
@@ -54,9 +52,6 @@ struct LandscapePosterButton: View {
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
         })
-        .sheet(isPresented: $showingSheet) {
-            MovieDetailsView(movieId: mainViewModel.randomMovie?.id ?? 0)
-        }
     }
 }
 
@@ -64,11 +59,11 @@ struct FavoritesButton: View {
     var body: some View {
         Button(action: { },
                label: {
-            Label(ButtonsConstant.addToFavorites, systemImage:"heart")
+            Image(systemName: "heart.fill")
         })
         .frame(width: ButtonsConstant.buttonsWeight, height: ButtonsConstant.favoritesButtonHeigth)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: ButtonsConstant.buttonsCornerRadius))
+        .background(Color(ColorConstant.favoritesColorButton)
+        .clipShape(Circle()))
     }
 }
 

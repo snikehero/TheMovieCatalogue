@@ -14,9 +14,11 @@ import Foundation
     @Published var popularMovies : [MovieListItem] = []
     @Published var nowPlaying : [MovieListItem] = []
     @Published var topRated : MovieListPage?
+    @Published var showingSheet: Bool = false
+    @Published var movieDetailsViewModel = MovieDetailsViewModel()
 
-    private var networkManager = NetworkManager()
-    private let endpointBuilder = EndpointBuilder()
+     var networkManager = NetworkManager()
+     let endpointBuilder = EndpointBuilder()
     var posterString: String {
         randomMovie?.posterString ?? "0"
     }
@@ -59,11 +61,11 @@ import Foundation
     }
 }
 extension MainViewModel {
-    static let moviesMock = [MovieListItem(id: 268, posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg"),
-                             MovieListItem(id: 129, posterPath: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg"),
-                             MovieListItem(id: 112, posterPath: "/hOb6ODI7QQFKkOe3eJU2Fdh2fk1.jpg"),
-                             MovieListItem(id: 113, posterPath: "/NNxYkU70HPurnNCSiCjYAmacwm.jpg"),
-                             MovieListItem(id: 114, posterPath: "/8riWcADI1ekEiBguVB9vkilhiQm.jpg"),
-                             MovieListItem(id: 115, posterPath: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"),
-                             MovieListItem(id: 116, posterPath: "/nb9fc9INMg8kQ8L7sE7XTNsZnUX.jpg")]
+    static let moviesMock = [MovieListItem(id: 268, title: "Mock 1", posterPath: "/cij4dd21v2Rk2YtUQbV5kW69WB2.jpg"),
+                             MovieListItem(id: 129, title: "Mock 2", posterPath: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg"),
+                             MovieListItem(id: 112, title: "Mock 3", posterPath: "/hOb6ODI7QQFKkOe3eJU2Fdh2fk1.jpg"),
+                             MovieListItem(id: 113, title: "Mock 4", posterPath: "/NNxYkU70HPurnNCSiCjYAmacwm.jpg"),
+                             MovieListItem(id: 114, title: "Mock 5", posterPath: "/8riWcADI1ekEiBguVB9vkilhiQm.jpg"),
+                             MovieListItem(id: 115, title: "Mock 6", posterPath: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"),
+                             MovieListItem(id: 116, title: "Mock 7", posterPath: "/nb9fc9INMg8kQ8L7sE7XTNsZnUX.jpg")]
 }

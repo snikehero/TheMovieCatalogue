@@ -22,7 +22,11 @@ import Foundation
         networkManager.fetchData(endpoint: endpointBuilder.getMovieURL(id: id), type: MovieDetails.self) { movie in
             if let movie = movie {
                 DispatchQueue.main.async { [weak self] in
-                    self?.movie = movie
+                    var movieTemp = movie
+                    if movieTemp.genres.isEmpty {
+                        movieTemp.genres = [Genre(id: -1, name: "No Genre")]
+                    }
+                    self?.movie = movieTemp
                 }
             }
         }

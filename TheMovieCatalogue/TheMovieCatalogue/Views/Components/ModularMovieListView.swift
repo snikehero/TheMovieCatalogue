@@ -9,21 +9,26 @@ import SwiftUI
 
 struct ModularMovieListView: View {
     @Environment(\.dismiss) var dismiss
-    let title: String
-    let moviesForFill: [MovieListItem]
+    @State private var showingSheet: Bool = false
+    @ObservedObject var mainViewModel = MainViewModel()
     let columns = [
-        GridItem(.adaptive(minimum: ModularMovie.gridItemMin))
+        GridItem(.adaptive(minimum: ModularMovie.gridItemMin,
+                           maximum: ModularMovie.gridItemMax),
+                 spacing: ModularMovie.gridModularSpacing)
     ]
     let showBackButtonState: Bool
+    @ObservedObject var modularMovieListViewModel : ModularMovieListViewModel
+
     var body: some View {
         NavigationStack {
             ScrollView {
-                SectionTitle(text: title)
                 VStack {
                     LazyVGrid(columns: columns, spacing: ModularMovie.gridSpacing) {
-                        ForEach(moviesForFill) { fill in
+                        ForEach(modularMovieListViewModel.movies) { fill in
                             NavigationLink {
-                                MovieDetailsView(movieId: fill.id)
+                                LandscapeFatherDetailsView(movieDetailsViewModel: mainViewModel.movieDetailsViewModel,
+                                                           showingSheet: $showingSheet,
+                                                           movieId: fill.id)
                             }
                         label: {
                             AsyncImage(
@@ -33,7 +38,7 @@ struct ModularMovieListView: View {
                                         .aspectRatio(contentMode: .fit)
                                 },
                                 placeholder: {
-                                    ProgressView()
+                                    Text(fill.title)
                                 }
                             )
                             .frame(width: Constants.CarrouselImages.width,
@@ -42,9 +47,11 @@ struct ModularMovieListView: View {
                             .clipShape(RoundedRectangle(cornerRadius: Constants.CarrouselImages.cornerRadius))
                         }
                         }
+                        modularMovieListViewModel.loadingStateView
                     }
                 }
             }
+            .navigationTitle(modularMovieListViewModel.title)
             Spacer()
                 .toolbar {
                     if(showBackButtonState) {
@@ -64,8 +71,14 @@ struct ModularMovieListView: View {
 
 struct ModularMovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        ModularMovieListView(title: "Mock",
-                             moviesForFill: MainViewModel.moviesMock, showBackButtonState: true
+        ModularMovieListView(
+            showBackButtonState: true,
+            modularMovieListViewModel: ModularMovieListViewModel(
+                title: StringConstant.nowPlayingTitle,
+                withView: .nowPlaying,
+                networkManager: NetworkManager(),
+                endpointBuilder: EndpointBuilder()
+            )
         )
     }
 }
