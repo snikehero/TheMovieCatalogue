@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import TheMovieCatalogue
 
 final class TheMovieCatalogueTests: XCTestCase {
 
@@ -32,4 +33,19 @@ final class TheMovieCatalogueTests: XCTestCase {
         }
     }
 
+    func testMovieModel() {
+        let mock = MovieDetails.mock
+        let copy = MovieDetails(
+            id: mock.id,
+            title: mock.title,
+            overview: mock.overview,
+            posterPath: mock.posterPath,
+            backdropPath: mock.backdropPath,
+            runtime: mock.runtime,
+            releaseDate: mock.releaseDate,
+            genres: mock.genres
+        )
+        
+        XCTAssertEqual(mock, copy)
+    }
 }
